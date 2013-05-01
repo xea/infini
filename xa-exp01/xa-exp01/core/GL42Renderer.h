@@ -1,6 +1,9 @@
 #ifndef XA_GL42RENDERER_H
 #define XA_GL42RENDERER_H
 
+#include <GL/glew.h>
+#include <GL/glfw.h>
+
 #include "Renderer.h"
 
 /**
@@ -22,6 +25,12 @@ public:
 	inline const int getMajorVersion() { return GL42Renderer::MAJOR_VERSION; }
 
 	inline const int getMinorVersion() { return GL42Renderer::MINOR_VERSION; }
+
+	void prepareScene();
+
+	void prepareFrame();
+
+	void drawScene();
 };
 
 #endif // XA_GL42RENDERER_H

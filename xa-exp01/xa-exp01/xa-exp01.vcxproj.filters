@@ -68,5 +68,8 @@
     <ClCompile Include="core\View.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="core\GL42Renderer.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

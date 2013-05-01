@@ -33,6 +33,21 @@ public:
 	 * Returs the minor version umber of this implementation
 	 */
 	virtual const int getMinorVersion() = 0;
+
+	/**
+	 * Prepares the scene by setting the clear color and stuff
+	 */
+	virtual void prepareScene() = 0;
+
+	/**
+	 * Prepares the frame for rendering by clearing the window and stuff
+	 */
+	virtual void prepareFrame() = 0;
+
+	/**
+	 * Draw the current frame
+	 */
+	virtual void drawScene() = 0;
 };
 
 #endif // XA_RENDERER_H

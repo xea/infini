@@ -26,6 +26,7 @@
     <ClCompile Include="core\Logger.cpp" />
     <ClCompile Include="core\ObjectFactory.cpp" />
     <ClCompile Include="core\Renderer.cpp" />
+    <ClCompile Include="core\GL42Renderer.cpp" />
     <ClCompile Include="core\View.cpp" />
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>
