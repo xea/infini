@@ -17,6 +17,8 @@
     <ClInclude Include="core\Logger.h" />
     <ClInclude Include="core\ObjectFactory.h" />
     <ClInclude Include="core\Renderer.h" />
+    <ClInclude Include="core\Shader.h" />
+    <ClInclude Include="core\ShaderProgram.h" />
     <ClInclude Include="core\View.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="xa-exp01.h" />
@@ -27,6 +29,8 @@
     <ClCompile Include="core\ObjectFactory.cpp" />
     <ClCompile Include="core\Renderer.cpp" />
     <ClCompile Include="core\GL42Renderer.cpp" />
+    <ClCompile Include="core\Shader.cpp" />
+    <ClCompile Include="core\ShaderProgram.cpp" />
     <ClCompile Include="core\View.cpp" />
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>

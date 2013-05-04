@@ -21,6 +21,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		running = mayContinue();
 	}
 
+	renderer->destroyScene();
+
 	view->destroy();
 
 	delete renderer;

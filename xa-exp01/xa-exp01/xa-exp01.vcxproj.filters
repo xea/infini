@@ -48,6 +48,12 @@
     <ClInclude Include="core\View.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="core\ShaderProgram.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Shader.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp01.cpp">
@@ -69,6 +75,12 @@
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="core\GL42Renderer.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ShaderProgram.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Shader.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>

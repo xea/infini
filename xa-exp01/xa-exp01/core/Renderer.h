@@ -45,6 +45,11 @@ public:
 	virtual void prepareFrame() = 0;
 
 	/**
+	 * Disposes the objects and settings that were created for this scene
+	 */
+	virtual void destroyScene() = 0;
+
+	/**
 	 * Draw the current frame
 	 */
 	virtual void drawScene() = 0;

@@ -3,13 +3,25 @@
 
 #include <GL/glew.h>
 #include <GL/glfw.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>  
 
 #include "Renderer.h"
+#include "ShaderProgram.h"
+#include "Shader.h"
 
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
  */
 class GL42Renderer : public Renderer {
+
+protected:
+
+	ShaderProgram *shaderProgram;
+
+	glm::mat4 projectionMatrix;
+	glm::mat4 viewMatrix;
+	glm::mat4 modelMatrix;
 
 public:
 	/**
@@ -29,6 +41,8 @@ public:
 	void prepareScene();
 
 	void prepareFrame();
+
+	void destroyScene();
 
 	void drawScene();
 };
