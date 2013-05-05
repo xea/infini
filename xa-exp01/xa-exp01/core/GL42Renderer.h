@@ -10,6 +10,9 @@
 #include "ShaderProgram.h"
 #include "Shader.h"
 
+#include "../object/Triangle.h"
+
+
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
  */
@@ -22,6 +25,10 @@ protected:
 	glm::mat4 projectionMatrix;
 	glm::mat4 viewMatrix;
 	glm::mat4 modelMatrix;
+	
+	unsigned int vaoID[1]; // Our Vertex Array Object
+	unsigned int vboID[1]; // Our Vertex Buffer Object
+
 
 public:
 	/**
@@ -45,6 +52,10 @@ public:
 	void destroyScene();
 
 	void drawScene();
+
+	void bindObject(RenderObject *object);
+
+	void drawObject(RenderObject *object);
 };
 
 #endif // XA_GL42RENDERER_H

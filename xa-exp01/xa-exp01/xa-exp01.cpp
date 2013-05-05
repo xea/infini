@@ -15,7 +15,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	while (running) {
 		renderer->prepareFrame();
-
 		renderer->drawScene();
 
 		running = mayContinue();

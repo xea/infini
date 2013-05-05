@@ -3,12 +3,24 @@
 
 #include "RenderObject.h"
 
+/**
+ * Describes a simple triangle
+ */
 class Triangle : public RenderObject {
+
+private:
+
+	static float objectVertices[];
 
 public:
 
-	float *getVertices();
+	Triangle();
 
+	~Triangle();
+
+	float *vertices();
+
+	int verticesCount();
 };
 
 #endif // XA_OBJECT_TRIANGLE_H

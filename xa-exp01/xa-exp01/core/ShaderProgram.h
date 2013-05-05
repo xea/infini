@@ -71,6 +71,11 @@ public:
 	 * Unbinds the shader program from the rendering process
 	 */
 	void unbind();
+
+	/**
+	 * Returns the ID of this shader program
+	 */
+	GLuint getId();
 };
 
 #endif // XA_SHADERPROGRAM_H

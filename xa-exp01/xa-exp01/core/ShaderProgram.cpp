@@ -76,3 +76,7 @@ void ShaderProgram::bind() {
 void ShaderProgram::unbind() {
 	glUseProgram(0);
 }
+
+GLuint ShaderProgram::getId() {
+	return id;
+}

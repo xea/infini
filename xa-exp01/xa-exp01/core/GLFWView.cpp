@@ -56,6 +56,7 @@ bool GLFWView::initializeGLFW() {
 bool GLFWView::initializeGLEW() {
 	bool success = false;
 
+	glewExperimental = GL_TRUE;
 	if (glewInit() == GLEW_OK) {
 		success = true;
 	}

@@ -20,6 +20,8 @@
     <ClInclude Include="core\Shader.h" />
     <ClInclude Include="core\ShaderProgram.h" />
     <ClInclude Include="core\View.h" />
+    <ClInclude Include="object\RenderObject.h" />
+    <ClInclude Include="object\Triangle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="xa-exp01.h" />
   </ItemGroup>
@@ -32,7 +34,13 @@
     <ClCompile Include="core\Shader.cpp" />
     <ClCompile Include="core\ShaderProgram.cpp" />
     <ClCompile Include="core\View.cpp" />
+    <ClCompile Include="object\RenderObject.cpp" />
+    <ClCompile Include="object\Triangle.cpp" />
     <ClCompile Include="xa-exp01.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="passthrough.fs" />
+    <None Include="passthrough.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{476479D0-9598-478E-B75E-474F9C76E45D}</ProjectGuid>
