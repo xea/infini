@@ -41,6 +41,8 @@
   <ItemGroup>
     <None Include="passthrough.fs" />
     <None Include="passthrough.vs" />
+    <None Include="shaders\passthrough.fs" />
+    <None Include="shaders\passthrough.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{476479D0-9598-478E-B75E-474F9C76E45D}</ProjectGuid>

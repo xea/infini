@@ -1,6 +1,7 @@
 #include "ShaderProgram.h"
 
 ShaderProgram::ShaderProgram() {
+	id = glCreateProgram();
 	shaders = new list<Shader *>();
 }
 

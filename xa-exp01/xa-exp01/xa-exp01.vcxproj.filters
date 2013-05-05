@@ -25,6 +25,9 @@
     <Filter Include="Source Files\object">
       <UniqueIdentifier>{2d4d9314-4280-4c7b-b5ce-87059c460582}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\shaders">
+      <UniqueIdentifier>{6fc6bacb-6df4-4c30-8300-2e12420752b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h">
@@ -108,6 +111,12 @@
     </None>
     <None Include="passthrough.vs">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="shaders\passthrough.fs">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="shaders\passthrough.vs">
+      <Filter>Source Files\shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

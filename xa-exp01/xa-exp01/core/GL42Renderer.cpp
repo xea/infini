@@ -5,12 +5,12 @@ void GL42Renderer::prepareScene() {
 
 	shaderProgram = new ShaderProgram();
 
-	shaderProgram->loadShader("passthrough.vs", GL_VERTEX_SHADER);
-	shaderProgram->loadShader("passthrough.fs", GL_FRAGMENT_SHADER);
+	shaderProgram->loadShader("shaders/passthrough.vs", GL_VERTEX_SHADER);
+	shaderProgram->loadShader("shaders/passthrough.fs", GL_FRAGMENT_SHADER);
 	
 	shaderProgram->link();
 	shaderProgram->validate();
-	shaderProgram->bind();
+	
 	
 	projectionMatrix = glm::perspective(60.0f, (float)1024/ (float)768, 0.1f, 100.f);
 }
@@ -21,6 +21,8 @@ void GL42Renderer::prepareFrame() {
 }
 
 void GL42Renderer::drawScene() {
+	shaderProgram->bind();
+
 	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.f));
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
 	
