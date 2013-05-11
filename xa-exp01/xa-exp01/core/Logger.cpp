@@ -1,13 +1,19 @@
 #include "Logger.h"
 
 Logger *Logger::getLogger(const string& loggerName) {
-	Logger *newLogger = new Logger();
+	Logger *newLogger = new Logger(loggerName);
 
 	return newLogger;
 }
 
 Logger::Logger() {
-	logfile.open("xa-exp01.log");
+	logfile.open("application.log");
+}
+
+Logger::Logger(const string& loggerName) {
+	string filename = loggerName + ".log";
+	logfile.open(filename);
+	this->loggerName = loggerName;
 }
 
 Logger::~Logger() {
@@ -24,7 +30,7 @@ void Logger::append(const string& message) {
 	char dateBuffer[24];
 	strftime(dateBuffer, sizeof(dateBuffer), "%Y-%m-%d %H:%M:%S", &tstruct);
 	
-	logfile << dateBuffer << " " << message << endl;
+	logfile << dateBuffer << " " << loggerName << " " << message << endl;
 }
 
 void Logger::trace(const string& message) {

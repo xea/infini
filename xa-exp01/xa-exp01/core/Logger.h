@@ -15,7 +15,8 @@ class Logger {
 private:
 
 	Logger();
-	~Logger();
+
+	Logger(const string& loggerName);
 
 	ofstream logfile;
 	string loggerName;
@@ -26,6 +27,8 @@ protected:
 
 public:
 	
+	~Logger();
+
 	static Logger *getLogger(const string& loggerName);
 
 	void trace(const string& message);

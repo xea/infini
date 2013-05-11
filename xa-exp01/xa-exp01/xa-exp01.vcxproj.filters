@@ -106,12 +106,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="passthrough.fs">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="passthrough.vs">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="shaders\passthrough.fs">
       <Filter>Source Files\shaders</Filter>
     </None>

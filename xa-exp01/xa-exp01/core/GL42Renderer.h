@@ -6,12 +6,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>  
 
+#include "Logger.h"
 #include "Renderer.h"
 #include "ShaderProgram.h"
 #include "Shader.h"
 
 #include "../object/Triangle.h"
-
 
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
@@ -28,7 +28,6 @@ protected:
 	
 	unsigned int vaoID[1]; // Our Vertex Array Object
 	unsigned int vboID[1]; // Our Vertex Buffer Object
-
 
 public:
 	/**

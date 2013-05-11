@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 
+#include "Logger.h"
 
 using namespace std;
 

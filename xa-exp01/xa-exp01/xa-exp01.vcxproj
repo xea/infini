@@ -39,8 +39,6 @@
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="passthrough.fs" />
-    <None Include="passthrough.vs" />
     <None Include="shaders\passthrough.fs" />
     <None Include="shaders\passthrough.vs" />
   </ItemGroup>

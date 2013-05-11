@@ -23,7 +23,7 @@ void GL42Renderer::prepareFrame() {
 void GL42Renderer::drawScene() {
 	shaderProgram->bind();
 
-	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.f));
+	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(10.3f, 0.3f, -5.f));
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
 	
 	Triangle *triangle = new Triangle();
