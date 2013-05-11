@@ -20,10 +20,14 @@ void GL42Renderer::prepareFrame() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
+float ffmod = 0.0f;
+
 void GL42Renderer::drawScene() {
 	shaderProgram->bind();
 
-	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(10.3f, 0.3f, -5.f));
+	ffmod += 0.01f;
+
+	viewMatrix = glm::lookAt(glm::vec3(4,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
 	
 	Triangle *triangle = new Triangle();
@@ -56,13 +60,17 @@ void GL42Renderer::bindObject(RenderObject *object) {
 void GL42Renderer::drawObject(RenderObject *object) {
 	bindObject(object);
 
+	glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
+
 	int projectionMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "projectionMatrix");
 	int viewMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "viewMatrix"); 
 	int modelMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "modelMatrix"); 
+	int mvpMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "uMVPMatrix");
 
 	glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, &projectionMatrix[0][0]); 
 	glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]); 
 	glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); 
+	glUniformMatrix4fv(mvpMatrixLocation, 1, GL_FALSE, &mvpMatrix[0][0]);
 
 	glBindVertexArray(vaoID[0]);
 

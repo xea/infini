@@ -17,5 +17,5 @@ float *Triangle::vertices() {
 }
 
 int Triangle::verticesCount() {
-	return 9;
+	return (sizeof(objectVertices) / sizeof(float)) / 3;
 }
