@@ -33,9 +33,6 @@
     <ClInclude Include="common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xa-exp01.h">
       <Filter>Header Files</Filter>
     </ClInclude>

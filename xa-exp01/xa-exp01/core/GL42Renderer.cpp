@@ -11,7 +11,6 @@ void GL42Renderer::prepareScene() {
 	shaderProgram->link();
 	shaderProgram->validate();
 	
-	
 	projectionMatrix = glm::perspective(60.0f, (float)1024/ (float)768, 0.1f, 100.f);
 }
 
@@ -61,7 +60,7 @@ void GL42Renderer::drawObject(RenderObject *object) {
 	ffmod += 0.05f;
 
 	//modelMatrix = glm::rotate(modelMatrix, ffmod * 10, glm::vec3(1,0,0));
-	//modelMatrix = glm::translate(modelMatrix, glm::vec3(ffmod, -ffmod, 0));
+	//modelMatrix = glm::translate(modelMatrix, glm::vec3(ffmod, 0, 0));
 
 	glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
 

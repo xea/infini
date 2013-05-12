@@ -22,7 +22,6 @@
     <ClInclude Include="core\View.h" />
     <ClInclude Include="object\RenderObject.h" />
     <ClInclude Include="object\Triangle.h" />
-    <ClInclude Include="Scene.h" />
     <ClInclude Include="xa-exp01.h" />
   </ItemGroup>
   <ItemGroup>
