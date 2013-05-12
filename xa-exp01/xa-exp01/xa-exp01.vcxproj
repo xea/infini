@@ -17,10 +17,12 @@
     <ClInclude Include="core\Logger.h" />
     <ClInclude Include="core\ObjectFactory.h" />
     <ClInclude Include="core\Renderer.h" />
+    <ClInclude Include="core\Scene.h" />
     <ClInclude Include="core\Shader.h" />
     <ClInclude Include="core\ShaderProgram.h" />
     <ClInclude Include="core\View.h" />
     <ClInclude Include="model\RenderObject.h" />
+    <ClInclude Include="model\Square.h" />
     <ClInclude Include="model\Triangle.h" />
     <ClInclude Include="xa-exp01.h" />
   </ItemGroup>
@@ -30,10 +32,12 @@
     <ClCompile Include="core\ObjectFactory.cpp" />
     <ClCompile Include="core\Renderer.cpp" />
     <ClCompile Include="core\GL42Renderer.cpp" />
+    <ClCompile Include="core\Scene.cpp" />
     <ClCompile Include="core\Shader.cpp" />
     <ClCompile Include="core\ShaderProgram.cpp" />
     <ClCompile Include="core\View.cpp" />
     <ClCompile Include="model\RenderObject.cpp" />
+    <ClCompile Include="model\Square.cpp" />
     <ClCompile Include="model\Triangle.cpp" />
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>

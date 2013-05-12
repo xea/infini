@@ -8,10 +8,13 @@
 
 #include "Logger.h"
 #include "Renderer.h"
+#include "Scene.h"
 #include "ShaderProgram.h"
 #include "Shader.h"
 
-#include "../object/Triangle.h"
+
+#include "../model/Triangle.h"
+#include "../model/Square.h"
 
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
@@ -20,6 +23,7 @@ class GL42Renderer : public Renderer {
 
 protected:
 
+	Scene *scene;
 	ShaderProgram *shaderProgram;
 
 	glm::mat4 projectionMatrix;

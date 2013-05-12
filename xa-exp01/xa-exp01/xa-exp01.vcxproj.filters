@@ -19,14 +19,14 @@
     <Filter Include="Source Files\core">
       <UniqueIdentifier>{7ae0b491-a8bb-42ce-b4f4-2682678323da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\object">
-      <UniqueIdentifier>{239e8e29-f65c-4476-951d-d330ae4be9ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\object">
-      <UniqueIdentifier>{2d4d9314-4280-4c7b-b5ce-87059c460582}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\shaders">
       <UniqueIdentifier>{6fc6bacb-6df4-4c30-8300-2e12420752b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model">
+      <UniqueIdentifier>{e1159dc4-afad-4333-9d97-5374d96d2863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{4c7a4be5-896a-4769-8268-f23d89dd0765}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,11 +60,17 @@
     <ClInclude Include="core\Shader.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
-    <ClInclude Include="object\Triangle.h">
-      <Filter>Header Files\object</Filter>
+    <ClInclude Include="model\RenderObject.h">
+      <Filter>Header Files\model</Filter>
     </ClInclude>
-    <ClInclude Include="object\RenderObject.h">
-      <Filter>Header Files\object</Filter>
+    <ClInclude Include="model\Triangle.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Scene.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="model\Square.h">
+      <Filter>Header Files\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -95,11 +101,17 @@
     <ClCompile Include="core\Shader.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="object\Triangle.cpp">
-      <Filter>Source Files\object</Filter>
+    <ClCompile Include="model\RenderObject.cpp">
+      <Filter>Source Files\model</Filter>
     </ClCompile>
-    <ClCompile Include="object\RenderObject.cpp">
-      <Filter>Source Files\object</Filter>
+    <ClCompile Include="model\Triangle.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Scene.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="model\Square.cpp">
+      <Filter>Source Files\model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

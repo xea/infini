@@ -11,6 +11,13 @@ void GL42Renderer::prepareScene() {
 	shaderProgram->link();
 	shaderProgram->validate();
 	
+	Triangle *triangle = new Triangle();
+	Square *square = new Square();
+
+	scene = new Scene();
+	scene->objects.push_back(triangle);
+	scene->objects.push_back(square);
+
 	projectionMatrix = glm::perspective(60.0f, (float)1024/ (float)768, 0.1f, 100.f);
 }
 
@@ -25,12 +32,10 @@ void GL42Renderer::drawScene() {
 	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
 	
-	Triangle *triangle = new Triangle();
-
-	drawObject(triangle);
+	for (auto& i : scene->objects) {
+		drawObject(i);
+	}
 	
-	delete triangle;
-
 	glfwSwapBuffers();
 }
 
@@ -59,7 +64,7 @@ void GL42Renderer::drawObject(RenderObject *object) {
 
 	ffmod += 0.05f;
 
-	//modelMatrix = glm::rotate(modelMatrix, ffmod * 10, glm::vec3(1,0,0));
+	modelMatrix = glm::rotate(modelMatrix, ffmod * 10, glm::vec3(1,0,0));
 	//modelMatrix = glm::translate(modelMatrix, glm::vec3(ffmod, 0, 0));
 
 	glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
