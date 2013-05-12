@@ -20,8 +20,8 @@
     <ClInclude Include="core\Shader.h" />
     <ClInclude Include="core\ShaderProgram.h" />
     <ClInclude Include="core\View.h" />
-    <ClInclude Include="object\RenderObject.h" />
-    <ClInclude Include="object\Triangle.h" />
+    <ClInclude Include="model\RenderObject.h" />
+    <ClInclude Include="model\Triangle.h" />
     <ClInclude Include="xa-exp01.h" />
   </ItemGroup>
   <ItemGroup>
@@ -33,8 +33,8 @@
     <ClCompile Include="core\Shader.cpp" />
     <ClCompile Include="core\ShaderProgram.cpp" />
     <ClCompile Include="core\View.cpp" />
-    <ClCompile Include="object\RenderObject.cpp" />
-    <ClCompile Include="object\Triangle.cpp" />
+    <ClCompile Include="model\RenderObject.cpp" />
+    <ClCompile Include="model\Triangle.cpp" />
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>
   <ItemGroup>
