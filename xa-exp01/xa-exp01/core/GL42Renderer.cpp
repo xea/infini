@@ -20,14 +20,10 @@ void GL42Renderer::prepareFrame() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
-float ffmod = 0.0f;
-
 void GL42Renderer::drawScene() {
 	shaderProgram->bind();
 
-	ffmod += 0.01f;
-
-	viewMatrix = glm::lookAt(glm::vec3(4,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
 	
 	Triangle *triangle = new Triangle();
@@ -57,8 +53,15 @@ void GL42Renderer::bindObject(RenderObject *object) {
 	glBindVertexArray(0);
 }
 
+float ffmod = 0.0f;
+
 void GL42Renderer::drawObject(RenderObject *object) {
 	bindObject(object);
+
+	ffmod += 0.05f;
+
+	//modelMatrix = glm::rotate(modelMatrix, ffmod * 10, glm::vec3(1,0,0));
+	//modelMatrix = glm::translate(modelMatrix, glm::vec3(ffmod, -ffmod, 0));
 
 	glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
 
