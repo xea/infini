@@ -1,6 +1,7 @@
 #ifndef XA_OBJECT_RENDER_OBJECT_H
 #define XA_OBJECT_RENDER_OBJECT_H
 
+#include <gl\glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -15,6 +16,8 @@ protected:
 
 	unsigned int vaoID[1]; // Our Vertex Array Object
 	unsigned int vboID[1]; // Our Vertex Buffer Object
+
+	glm::mat4 modelMatrix;
 
 public:
 
@@ -39,11 +42,18 @@ public:
 	 * Rotates this object based on the given rotation matrix.
 	 * 
 	 */
-	//virtual void rotate(glm::vec3 rotationMatrix) = 0;
+	void rotate(glm::vec3 rotationMatrix);
 
-	//virtual void translate(glm::vec3 translationMatrix) = 0;
+	/**
+	 * Translates this object based on the given translation matrix.
+	 */
+	void translate(glm::vec3 translationMatrix);
 
-	//virtual void scale(glm::vec3 scalingMatrix) = 0;
+	void scale(glm::vec3 scalingMatrix);
+
+	glm::mat4 getModelMatrix();
+
+	virtual GLenum drawMode();
 };
 
 #endif // XA_OBJECT_RENDER_OBJECT_H

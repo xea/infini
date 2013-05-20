@@ -21,6 +21,7 @@
     <ClInclude Include="core\Shader.h" />
     <ClInclude Include="core\ShaderProgram.h" />
     <ClInclude Include="core\View.h" />
+    <ClInclude Include="model\Cube.h" />
     <ClInclude Include="model\RenderObject.h" />
     <ClInclude Include="model\Square.h" />
     <ClInclude Include="model\Triangle.h" />
@@ -36,6 +37,7 @@
     <ClCompile Include="core\Shader.cpp" />
     <ClCompile Include="core\ShaderProgram.cpp" />
     <ClCompile Include="core\View.cpp" />
+    <ClCompile Include="model\Cube.cpp" />
     <ClCompile Include="model\RenderObject.cpp" />
     <ClCompile Include="model\Square.cpp" />
     <ClCompile Include="model\Triangle.cpp" />

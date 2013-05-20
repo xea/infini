@@ -13,12 +13,33 @@ void GL42Renderer::prepareScene() {
 	
 	Triangle *triangle = new Triangle();
 	Square *square = new Square();
+	Cube *cube = new Cube();
+	Cube *cube2 = new Cube();
+	Cube *cube3 = new Cube();
+	Cube *cube4 = new Cube();
+	Cube *cube5 = new Cube();
+	Cube *cube6 = new Cube();
+
+	cube2->translate(glm::vec3(-1.3, 0, 0));
+	cube3->translate(glm::vec3(0, -1.3, 0));
+	cube4->translate(glm::vec3(-1.3, -1.3, 0));
+	cube5->translate(glm::vec3(1.3, -1.3, 0));
+	cube6->translate(glm::vec3(1.3, 0, 0));
 
 	scene = new Scene();
-	scene->objects.push_back(triangle);
-	scene->objects.push_back(square);
+	//scene->objects.push_back(triangle);
+	//scene->objects.push_back(square);
+	scene->objects.push_back(cube);
+	scene->objects.push_back(cube2);
+	scene->objects.push_back(cube3);
+	scene->objects.push_back(cube4);
+	scene->objects.push_back(cube5);
+	scene->objects.push_back(cube6);
 
-	projectionMatrix = glm::perspective(60.0f, (float)1024/ (float)768, 0.1f, 100.f);
+	projectionMatrix = glm::perspective(60.0f, (float) 1024 / (float) 768, 0.1f, 100.f);
+	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+
+	shaderProgram->bind();
 }
 
 void GL42Renderer::prepareFrame() {
@@ -26,17 +47,15 @@ void GL42Renderer::prepareFrame() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
-void GL42Renderer::drawScene() {
-	shaderProgram->bind();
+void GL42Renderer::drawScene() {	
 
-	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));  
-	
 	for (auto& i : scene->objects) {
 		drawObject(i);
 	}
 	
 	glfwSwapBuffers();
+
+	//std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
 void GL42Renderer::destroyScene() {
@@ -64,25 +83,21 @@ void GL42Renderer::drawObject(RenderObject *object) {
 
 	ffmod += 0.05f;
 
-	modelMatrix = glm::rotate(modelMatrix, ffmod * 10, glm::vec3(1,0,0));
-	//modelMatrix = glm::translate(modelMatrix, glm::vec3(ffmod, 0, 0));
-
-	glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
+	object->rotate(glm::vec3(ffmod, ffmod, 0));
+	//object->translate(glm::vec3(0.01f, 0, 0));
+	//object->scale(glm::vec3(0.01f, 0, 0));
 
 	int projectionMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "projectionMatrix");
 	int viewMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "viewMatrix"); 
 	int modelMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "modelMatrix"); 
-	int mvpMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "uMVPMatrix");
 
 	glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, &projectionMatrix[0][0]); 
 	glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]); 
-	glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); 
-	glUniformMatrix4fv(mvpMatrixLocation, 1, GL_FALSE, &mvpMatrix[0][0]);
+	glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &object->getModelMatrix()[0][0]);
 
 	glBindVertexArray(vaoID[0]);
 
-	glDrawArrays(GL_TRIANGLES, 0, object->verticesCount());
+	glDrawArrays(object->drawMode(), 0, object->verticesCount());
 
 	glBindVertexArray(0); // Unbind our Vertex Array Object
-
 }

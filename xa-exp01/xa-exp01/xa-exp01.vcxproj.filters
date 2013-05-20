@@ -72,6 +72,9 @@
     <ClInclude Include="model\Square.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
+    <ClInclude Include="model\Cube.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp01.cpp">
@@ -111,6 +114,9 @@
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="model\Square.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="model\Cube.cpp">
       <Filter>Source Files\model</Filter>
     </ClCompile>
   </ItemGroup>

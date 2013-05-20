@@ -1,9 +1,9 @@
 #include "Triangle.h"
 
 float Triangle::objectVertices[9] = {
-	-0.5, -0.3, 0.0,
-	-0.5,  0.5, 0.0,
-	 0.2,  0.5, 0.0
+	-0.5f, -0.3f, 0.0f,
+	-0.5f,  0.5f, 0.0f,
+	 0.2f,  0.5f, 0.0f
 };
 
 Triangle::Triangle() {

@@ -6,6 +6,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>  
 
+#include <chrono>
+#include <thread>
+
 #include "Logger.h"
 #include "Renderer.h"
 #include "Scene.h"
@@ -15,6 +18,7 @@
 
 #include "../model/Triangle.h"
 #include "../model/Square.h"
+#include "../model/Cube.h"
 
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
@@ -28,7 +32,6 @@ protected:
 
 	glm::mat4 projectionMatrix;
 	glm::mat4 viewMatrix;
-	glm::mat4 modelMatrix;
 	
 	unsigned int vaoID[1]; // Our Vertex Array Object
 	unsigned int vboID[1]; // Our Vertex Buffer Object
