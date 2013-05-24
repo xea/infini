@@ -36,6 +36,8 @@ protected:
 	unsigned int vaoID[1]; // Our Vertex Array Object
 	unsigned int vboID[1]; // Our Vertex Buffer Object
 
+	void prepareBuffers();
+
 public:
 	/**
 	 * OpenGL 4.2 Major version

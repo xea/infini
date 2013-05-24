@@ -11,6 +11,8 @@ void GL42Renderer::prepareScene() {
 	shaderProgram->link();
 	shaderProgram->validate();
 	
+	prepareBuffers();
+
 	Triangle *triangle = new Triangle();
 	Square *square = new Square();
 	Cube *cube = new Cube();
@@ -64,11 +66,6 @@ void GL42Renderer::destroyScene() {
 }
 
 void GL42Renderer::bindObject(RenderObject *object) {
-	glGenVertexArrays(1, &vaoID[0]);
-	glBindVertexArray(vaoID[0]);
-
-	glGenBuffers(1, vboID);
-	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 	glBufferData(GL_ARRAY_BUFFER, object->verticesCount() * 3 * sizeof(GLfloat), object->vertices(), GL_STATIC_DRAW);
 	glVertexAttribPointer((GLuint) 0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
@@ -100,4 +97,12 @@ void GL42Renderer::drawObject(RenderObject *object) {
 	glDrawArrays(object->drawMode(), 0, object->verticesCount());
 
 	glBindVertexArray(0); // Unbind our Vertex Array Object
+}
+
+void GL42Renderer::prepareBuffers() {	
+	glGenVertexArrays(1, vaoID);
+	glGenBuffers(1, vboID);
+
+	glBindVertexArray(vaoID[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 }
