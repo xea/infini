@@ -35,6 +35,7 @@ protected:
 	
 	unsigned int vaoID[1]; // Our Vertex Array Object
 	unsigned int vboID[1]; // Our Vertex Buffer Object
+	unsigned int vcoID[1]; // Our Vertex Color Buffer Object
 
 	void prepareBuffers();
 

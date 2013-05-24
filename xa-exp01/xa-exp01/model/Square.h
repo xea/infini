@@ -9,6 +9,8 @@ private:
 
 	static float objectVertices[];
 
+	static float vertexColors[];
+
 public:
 
 	Square();
@@ -19,6 +21,9 @@ public:
 
 	int verticesCount();
 
+	float *colors();
+
+	int colorsCount();
 };
 
 #endif // XA_SQUARE_H

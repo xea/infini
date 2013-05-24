@@ -127,5 +127,11 @@
     <None Include="shaders\passthrough.vs">
       <Filter>Source Files\shaders</Filter>
     </None>
+    <None Include="shaders\colors.fs">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="shaders\colors.vs">
+      <Filter>Source Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

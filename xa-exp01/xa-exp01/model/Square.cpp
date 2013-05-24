@@ -8,6 +8,15 @@ float Square::objectVertices[18] = {
 	 1.0,  1.0, 0.0
 };
 
+float Square::vertexColors[18] = {
+	 0.0,  0.0, 0.0,
+	 1.0,  0.0, 0.0,
+	 1.0,  1.0, 0.0,
+	 0.0,  1.0, 0.0,
+	 1.0,  1.0, 0.0
+};
+
+
 Square::Square() {
 }
 
@@ -20,4 +29,12 @@ float *Square::vertices() {
 
 int Square::verticesCount() {
 	return (sizeof(objectVertices) / sizeof(float)) / 3;
+}
+
+float *Square::colors() {
+	return vertexColors;
+}
+
+int Square::colorsCount() {
+	return (sizeof(vertexColors) / sizeof(float)) / 3;
 }

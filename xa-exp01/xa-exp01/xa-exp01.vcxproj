@@ -44,6 +44,8 @@
     <ClCompile Include="xa-exp01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\colors.fs" />
+    <None Include="shaders\colors.vs" />
     <None Include="shaders\passthrough.fs" />
     <None Include="shaders\passthrough.vs" />
   </ItemGroup>

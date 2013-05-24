@@ -39,6 +39,16 @@ public:
 	virtual int verticesCount() = 0;
 
 	/**
+	 * Returns an array containing the color attributes for each of the vertices
+	 */
+	virtual float *colors() = 0;
+
+	/**
+	 * Returns how many color attributes are stored in the color attribute array
+	 */
+	virtual int colorsCount() = 0;
+
+	/**
 	 * Rotates this object based on the given rotation matrix.
 	 * 
 	 */
@@ -49,9 +59,18 @@ public:
 	 */
 	void translate(glm::vec3 translationMatrix);
 
+	/**
+	 * Scales this object based on the given scaling matrix.
+	 */
 	void scale(glm::vec3 scalingMatrix);
 
+	/**
+	 * Returns the model matrix holding the objects position, rotation, scaling data
+	 *
+	 * This method may be deprecated in the future.
+	 */
 	glm::mat4 getModelMatrix();
+
 
 	virtual GLenum drawMode();
 };

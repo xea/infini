@@ -2,11 +2,13 @@
 
 void GL42Renderer::prepareScene() {
 	glClearColor(0.4f, 0.6f, 0.9f, 0.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
 
 	shaderProgram = new ShaderProgram();
 
-	shaderProgram->loadShader("shaders/passthrough.vs", GL_VERTEX_SHADER);
-	shaderProgram->loadShader("shaders/passthrough.fs", GL_FRAGMENT_SHADER);
+	shaderProgram->loadShader("shaders/colors.vs", GL_VERTEX_SHADER);
+	shaderProgram->loadShader("shaders/colors.fs", GL_FRAGMENT_SHADER);
 	
 	shaderProgram->link();
 	shaderProgram->validate();
@@ -66,11 +68,19 @@ void GL42Renderer::destroyScene() {
 }
 
 void GL42Renderer::bindObject(RenderObject *object) {
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 	glBufferData(GL_ARRAY_BUFFER, object->verticesCount() * 3 * sizeof(GLfloat), object->vertices(), GL_STATIC_DRAW);
 	glVertexAttribPointer((GLuint) 0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
+	// DAFUQ - commenting out this makes the whole thing work: glBindVertexArray(0);
 	glEnableVertexAttribArray(0);
-	glBindVertexArray(0);
+	
+
+	glBindBuffer(GL_ARRAY_BUFFER, vcoID[0]);
+	glBufferData(GL_ARRAY_BUFFER, object->colorsCount() * 3 * sizeof(GLfloat), object->colors(), GL_STATIC_DRAW);
+	glVertexAttribPointer((GLuint) 1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(1);
+	glBindVertexArray(1);
+	
 }
 
 float ffmod = 0.0f;
@@ -102,7 +112,8 @@ void GL42Renderer::drawObject(RenderObject *object) {
 void GL42Renderer::prepareBuffers() {	
 	glGenVertexArrays(1, vaoID);
 	glGenBuffers(1, vboID);
+	glGenBuffers(1, vcoID);
 
 	glBindVertexArray(vaoID[0]);
-	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
+	
 }

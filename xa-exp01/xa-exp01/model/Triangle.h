@@ -12,6 +12,8 @@ private:
 
 	static float objectVertices[];
 
+	static float vertexColors[];
+
 public:
 
 	Triangle();
@@ -21,6 +23,10 @@ public:
 	float *vertices();
 
 	int verticesCount();
+
+	float *colors();
+
+	int colorsCount();
 };
 
 #endif // XA_OBJECT_TRIANGLE_H

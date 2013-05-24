@@ -9,6 +9,8 @@ private:
 
 	static float objectVertices[];
 
+	static float vertexColors[];
+
 public:
 
 	Cube();
@@ -19,7 +21,12 @@ public:
 
 	int verticesCount();
 
+	float *colors();
+
+	int colorsCount();
+
 	GLenum drawMode();
+
 };
 
 #endif // XA_CUBE_H
