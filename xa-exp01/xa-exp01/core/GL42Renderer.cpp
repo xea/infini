@@ -1,7 +1,6 @@
 #include "GL42Renderer.h"
 
 void GL42Renderer::prepareScene() {
-	glClearColor(0.4f, 0.6f, 0.9f, 0.0f);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
@@ -45,6 +44,7 @@ void GL42Renderer::prepareScene() {
 
 void GL42Renderer::prepareFrame() {
 	glViewport(0, 0, 1024, 768);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
@@ -55,13 +55,13 @@ void GL42Renderer::drawScene() {
 	}
 	
 	glfwSwapBuffers();
-
-	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 void GL42Renderer::destroyScene() {
 	shaderProgram->unbind();
 	delete shaderProgram;
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 void GL42Renderer::bindObject(RenderObject *object) {
@@ -87,7 +87,7 @@ void GL42Renderer::drawObject(RenderObject *object) {
 
 	ffmod += 0.05f;
 
-	//object->rotate(glm::vec3(ffmod, ffmod, 0));
+	object->rotate(glm::vec3(1, 1, 0));
 	//object->translate(glm::vec3(0.01f, 0, 0));
 	//object->scale(glm::vec3(0.01f, 0, 0));
 
