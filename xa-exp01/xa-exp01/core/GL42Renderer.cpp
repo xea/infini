@@ -89,7 +89,7 @@ void GL42Renderer::drawObject(RenderObject *object) {
 
 	object->rotate(glm::vec3(1, 1, 0));
 	//object->translate(glm::vec3(0.01f, 0, 0));
-	//object->scale(glm::vec3(0.01f, 0, 0));
+	//object->scale(glm::vec3(1.0f, 1.0f, 1.0f));
 
 	int projectionMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "projectionMatrix");
 	int viewMatrixLocation = glGetUniformLocation(shaderProgram->getId(), "viewMatrix"); 

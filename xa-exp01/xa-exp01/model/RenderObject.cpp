@@ -18,7 +18,7 @@ void RenderObject::translate(glm::vec3 translationVector) {
 
 void RenderObject::scale(glm::vec3 scalingVector) {
 	// FIXME it doesn't work this way
-	//modelMatrix = glm::scale(modelMatrix, scalingVector);
+	modelMatrix = glm::scale(modelMatrix, scalingVector);
 }
 
 GLenum RenderObject::drawMode() {
