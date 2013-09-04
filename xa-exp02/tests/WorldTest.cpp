@@ -1,19 +1,16 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "rendering/View.h"
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace testsasdf
-{		
-	TEST_CLASS(UnitTest1) {
+namespace tests {
+	TEST_CLASS(WorldTest) {
+
 	public:
 		
-		TEST_METHOD(T_estMethod1) {
+		TEST_METHOD(WorldShouldBeInstantiable) {
 			// TODO: Your test code here
-
 		}
-		
+
 	};
 }

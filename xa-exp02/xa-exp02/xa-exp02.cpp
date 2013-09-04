@@ -4,7 +4,5 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Engine engine;
 
-	
-
 	return 0;
 }
