@@ -28,6 +28,9 @@
     <Filter Include="Source Files\script">
       <UniqueIdentifier>{5b2ce88c-98f5-4054-b6a7-70b0fea1043e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\rendering">
+      <UniqueIdentifier>{01283c4d-059e-4fe1-97e9-e79b62c3feb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp02.cpp">
@@ -47,10 +50,11 @@
     <ClInclude Include="core\Engine.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="script\test.lua">
-      <Filter>Source Files\script</Filter>
-    </None>
+    <ClInclude Include="rendering\View.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\Renderer.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
