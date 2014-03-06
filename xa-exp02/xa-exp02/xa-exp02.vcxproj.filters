@@ -31,12 +31,24 @@
     <Filter Include="Header Files\rendering">
       <UniqueIdentifier>{01283c4d-059e-4fe1-97e9-e79b62c3feb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\script">
+      <UniqueIdentifier>{56369709-d31d-4ac5-9180-81c2d2371721}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp02.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="core\Engine.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoScript.cpp">
+      <Filter>Source Files\script</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,6 +67,21 @@
     </ClInclude>
     <ClInclude Include="rendering\Renderer.h">
       <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Script.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoScript.h">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

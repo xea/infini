@@ -77,12 +77,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Engine.cpp" />
+    <ClCompile Include="DemoScript.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="xa-exp02.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h" />
+    <ClInclude Include="DemoScript.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="rendering\Renderer.h" />
     <ClInclude Include="rendering\View.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="world\World.h" />
     <ClInclude Include="xa-exp02.h" />
   </ItemGroup>

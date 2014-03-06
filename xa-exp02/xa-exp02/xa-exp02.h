@@ -4,5 +4,7 @@
 #include <Windows.h>
 
 #include "core\Engine.h"
+#include "core\Object.h"
+#include "script\DemoScript.h"
 
 #endif // XA_EXP02_H
