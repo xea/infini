@@ -2,7 +2,9 @@
 #define XA_WORLD_H
 
 #include <list>
+#include <thread>
 #include "core\Entity.h"
+#include "core\Logger.h"
 
 /**
  * Container of all runtime entities.
@@ -14,7 +16,13 @@ private:
 	/**
 	 * References to the contained entities
 	 */
-	std::list<Entity&> entities;
+	std::list<Entity *> entities;
+
+	static Logger *logger;
+
+protected:
+
+	void initialize();
 
 public:
 
@@ -30,6 +38,13 @@ public:
 	bool resume();
 
 	bool stop();
+
+	/**
+	 * Registers a new entity
+	 *
+	 * @returns false if the entity was already added, otherwise true
+	 */
+	bool add(Entity& entity);
 };
 
 #endif // XA_WORLD_H
