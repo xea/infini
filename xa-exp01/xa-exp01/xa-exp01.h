@@ -3,7 +3,11 @@
 
 #pragma once
 
-#include "common.h"
+#include <Windows.h>
+#include <chrono>
+#include <thread>
+#include <functional>
+
 #include "core/View.h"
 #include "core/Renderer.h"
 #include "core/ObjectFactory.h"
