@@ -9,11 +9,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	DemoScript demoScript;
 
-
-
-	engine.loadScript(demoScript);
-
 	engine.start();
+	world.attachScript(demoScript);
 	world.start();
 
 	world.add(testDummy);

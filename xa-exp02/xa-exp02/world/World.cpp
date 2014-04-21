@@ -3,18 +3,20 @@
 Logger * World::logger = Logger::getLogger("World");
 
 void World::initialize() {
-	logger->info("Ez a masik thread");
+	logger->info("Initializing World");
 }
 
 bool World::start() {
-
-	//thread newthread([]() { logger->info("Ez egy lambda"); });
-	//newthread.join();	
-
+	
+	worldThread = new thread([](World& localWorld) { localWorld.run(); }, *this);
+	
 	return false;
 }
 
 bool World::stop() {
+	
+	worldThread->join();
+
 	return false;
 }
 
@@ -24,4 +26,11 @@ bool World::add(Entity& entity) {
 	logger->debug("Entity added");
 
 	return true;
+}
+
+void World::attachScript(Script& script) {
+}
+
+void World::run() {
+	logger->debug("Initializing world");
 }

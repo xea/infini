@@ -5,15 +5,16 @@
 
 /**
  * A representation of a physical object that has physical attributes
- * like wight, position, color, etc.
+ * like weight, position, color, etc.
  */
 class Object : public Entity {
 
 protected:
 
+	/**
+	 * The weight of this object, measured in gramms
+	 */
 	double weight;
-
-
 
 };
 

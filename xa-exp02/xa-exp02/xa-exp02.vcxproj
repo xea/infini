@@ -57,6 +57,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,7 +80,16 @@
   <ItemGroup>
     <ClCompile Include="core\Engine.cpp" />
     <ClCompile Include="core\Logger.cpp" />
+    <ClCompile Include="core\ObjectFactory.cpp" />
     <ClCompile Include="DemoScript.cpp" />
+    <ClCompile Include="rendering\GL42Renderer.cpp" />
+    <ClCompile Include="rendering\GLFWView.cpp" />
+    <ClCompile Include="rendering\Renderer.cpp" />
+    <ClCompile Include="rendering\RenderObject.cpp" />
+    <ClCompile Include="rendering\Scene.cpp" />
+    <ClCompile Include="rendering\Shader.cpp" />
+    <ClCompile Include="rendering\ShaderProgram.cpp" />
+    <ClCompile Include="rendering\View.cpp" />
     <ClCompile Include="script\Script.cpp" />
     <ClCompile Include="world\World.cpp" />
     <ClCompile Include="xa-exp02.cpp" />
@@ -89,7 +99,14 @@
     <ClInclude Include="core\Entity.h" />
     <ClInclude Include="core\Logger.h" />
     <ClInclude Include="core\Object.h" />
+    <ClInclude Include="core\ObjectFactory.h" />
+    <ClInclude Include="rendering\GL42Renderer.h" />
+    <ClInclude Include="rendering\GLFWView.h" />
     <ClInclude Include="rendering\Renderer.h" />
+    <ClInclude Include="rendering\RenderObject.h" />
+    <ClInclude Include="rendering\Scene.h" />
+    <ClInclude Include="rendering\Shader.h" />
+    <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\View.h" />
     <ClInclude Include="script\DemoScript.h" />
     <ClInclude Include="script\Script.h" />

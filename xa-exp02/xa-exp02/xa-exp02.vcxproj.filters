@@ -34,6 +34,9 @@
     <Filter Include="Header Files\script">
       <UniqueIdentifier>{56369709-d31d-4ac5-9180-81c2d2371721}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\rendering">
+      <UniqueIdentifier>{7762fbc8-4fc4-4f0e-b51b-a9bae8709185}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp02.cpp">
@@ -53,6 +56,33 @@
     </ClCompile>
     <ClCompile Include="core\Logger.cpp">
       <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\GL42Renderer.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\GLFWView.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\Scene.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\Shader.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\ShaderProgram.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\RenderObject.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\View.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ObjectFactory.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\Renderer.cpp">
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +115,27 @@
     </ClInclude>
     <ClInclude Include="core\Logger.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ObjectFactory.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\GL42Renderer.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\GLFWView.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\Shader.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\ShaderProgram.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\Scene.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\RenderObject.h">
+      <Filter>Header Files\rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
