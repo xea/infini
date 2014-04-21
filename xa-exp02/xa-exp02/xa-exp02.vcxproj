@@ -84,6 +84,7 @@
     <ClCompile Include="DemoScript.cpp" />
     <ClCompile Include="rendering\GL42Renderer.cpp" />
     <ClCompile Include="rendering\GLFWView.cpp" />
+    <ClCompile Include="rendering\model\Triangle.cpp" />
     <ClCompile Include="rendering\Renderer.cpp" />
     <ClCompile Include="rendering\RenderObject.cpp" />
     <ClCompile Include="rendering\Scene.cpp" />
@@ -91,6 +92,7 @@
     <ClCompile Include="rendering\ShaderProgram.cpp" />
     <ClCompile Include="rendering\View.cpp" />
     <ClCompile Include="script\Script.cpp" />
+    <ClCompile Include="world\Dog.cpp" />
     <ClCompile Include="world\World.cpp" />
     <ClCompile Include="xa-exp02.cpp" />
   </ItemGroup>
@@ -102,6 +104,7 @@
     <ClInclude Include="core\ObjectFactory.h" />
     <ClInclude Include="rendering\GL42Renderer.h" />
     <ClInclude Include="rendering\GLFWView.h" />
+    <ClInclude Include="rendering\model\Triangle.h" />
     <ClInclude Include="rendering\Renderer.h" />
     <ClInclude Include="rendering\RenderObject.h" />
     <ClInclude Include="rendering\Scene.h" />
@@ -110,6 +113,7 @@
     <ClInclude Include="rendering\View.h" />
     <ClInclude Include="script\DemoScript.h" />
     <ClInclude Include="script\Script.h" />
+    <ClInclude Include="world\Dog.h" />
     <ClInclude Include="world\ScriptingInterface.h" />
     <ClInclude Include="world\World.h" />
     <ClInclude Include="xa-exp02.h" />

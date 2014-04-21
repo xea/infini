@@ -1,7 +1,9 @@
 #ifndef XA_DEMOSCRIPT_H
 #define XA_DEMOSCRIPT_H
 
-#include "script\Script.h"
+#include <script\Script.h>
+#include <world/ScriptingInterface.h>
+#include <world/Dog.h>
 
 class DemoScript : public Script {
 

@@ -37,6 +37,12 @@
     <Filter Include="Source Files\rendering">
       <UniqueIdentifier>{7762fbc8-4fc4-4f0e-b51b-a9bae8709185}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\rendering\model">
+      <UniqueIdentifier>{4dd75314-bf9b-43c3-8370-2e2ab079a14b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering\model">
+      <UniqueIdentifier>{9b9544c0-fcb5-461b-a06a-6d19dbbebf44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xa-exp02.cpp">
@@ -83,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="rendering\Renderer.cpp">
       <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\model\Triangle.cpp">
+      <Filter>Source Files\rendering\model</Filter>
+    </ClCompile>
+    <ClCompile Include="world\Dog.cpp">
+      <Filter>Source Files\world</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +150,12 @@
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
     <ClInclude Include="world\ScriptingInterface.h">
+      <Filter>Header Files\world</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\model\Triangle.h">
+      <Filter>Header Files\rendering\model</Filter>
+    </ClInclude>
+    <ClInclude Include="world\Dog.h">
       <Filter>Header Files\world</Filter>
     </ClInclude>
   </ItemGroup>

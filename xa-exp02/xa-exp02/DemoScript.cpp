@@ -5,9 +5,9 @@ void DemoScript::run() {
 
 void DemoScript::onStart() {
 
-	Entity *entity = new Entity();
+	Dog *dog = new Dog();
 
-	scriptingInterface->add(*entity);
+	scriptingInterface->add(*dog);
 }
 
 void DemoScript::setScriptingInterface(ScriptingInterface& scriptingInterface) {

@@ -4,8 +4,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Engine engine;
 	World world;
-	
-	Object testDummy;
 
 	DemoScript demoScript;
 
@@ -13,8 +11,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	world.start();
 
 	engine.start();
-	
-	world.add(testDummy);
 
 	world.stop();
 	engine.stop();
