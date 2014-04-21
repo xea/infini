@@ -110,6 +110,7 @@
     <ClInclude Include="rendering\View.h" />
     <ClInclude Include="script\DemoScript.h" />
     <ClInclude Include="script\Script.h" />
+    <ClInclude Include="world\ScriptingInterface.h" />
     <ClInclude Include="world\World.h" />
     <ClInclude Include="xa-exp02.h" />
   </ItemGroup>

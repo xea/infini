@@ -4,6 +4,7 @@ Logger * World::logger = Logger::getLogger("World");
 
 void World::initialize() {
 	logger->info("Initializing World");
+	activeScript = NULL;
 }
 
 bool World::start() {
@@ -29,8 +30,14 @@ bool World::add(Entity& entity) {
 }
 
 void World::attachScript(Script& script) {
+	activeScript = &script;
+	activeScript->setScriptingInterface(*this);
 }
 
 void World::run() {
 	logger->debug("Initializing world");
+
+	if (activeScript != NULL) {
+		activeScript->onStart();
+	}
 }

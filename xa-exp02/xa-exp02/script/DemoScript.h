@@ -5,7 +5,17 @@
 
 class DemoScript : public Script {
 
+private:
+
+	ScriptingInterface *scriptingInterface;
+
+public:
+
 	void run();
+
+	void onStart();
+
+	void setScriptingInterface(ScriptingInterface& scriptingInterface);
 
 };
 

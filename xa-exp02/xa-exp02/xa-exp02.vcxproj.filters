@@ -137,5 +137,8 @@
     <ClInclude Include="rendering\RenderObject.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
+    <ClInclude Include="world\ScriptingInterface.h">
+      <Filter>Header Files\world</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

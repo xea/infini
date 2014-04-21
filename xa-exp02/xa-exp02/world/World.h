@@ -6,20 +6,26 @@
 #include "core\Entity.h"
 #include "core\Logger.h"
 #include "script\Script.h"
+#include "ScriptingInterface.h"
 
 /**
  * Contains all the runtim
  */
-class World {
+class World : public ScriptingInterface {
 
 private:
 
 	static Logger *logger;
 
 	/**
-	 * References to the contained entities
+	 * The actors "living" in this world
 	 */
 	std::list<Entity *> entities;
+
+	/**
+	 * The script object currently marked for running
+	 */
+	Script *activeScript;
 
 	thread* worldThread;
 
@@ -41,7 +47,7 @@ public:
 	/**
 	 * Pauses the simulation of the world provided that it was running already.
 	 *
-	 * @returns true if the world ofject was in STATE_RUNNING, otherwise false
+	 * @returns true if the world object was in STATE_RUNNING, otherwise false
 	 */
 	bool pause();
 
