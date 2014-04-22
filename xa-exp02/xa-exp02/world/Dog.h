@@ -2,7 +2,8 @@
 #define XA_DOG_H
 
 #include <core/Entity.h>
-#include <rendering\model\Triangle.h>
+#include <rendering/model/Triangle.h>
+#include <rendering/model/Cube.h>
 
 class Dog : public Entity {
 

@@ -85,6 +85,8 @@
     <ClCompile Include="DemoScript.cpp" />
     <ClCompile Include="rendering\GL42Renderer.cpp" />
     <ClCompile Include="rendering\GLFWView.cpp" />
+    <ClCompile Include="rendering\model\Cube.cpp" />
+    <ClCompile Include="rendering\model\Square.cpp" />
     <ClCompile Include="rendering\model\Triangle.cpp" />
     <ClCompile Include="rendering\Renderer.cpp" />
     <ClCompile Include="rendering\RenderObject.cpp" />
@@ -106,6 +108,8 @@
     <ClInclude Include="core\Position.h" />
     <ClInclude Include="rendering\GL42Renderer.h" />
     <ClInclude Include="rendering\GLFWView.h" />
+    <ClInclude Include="rendering\model\Cube.h" />
+    <ClInclude Include="rendering\model\Square.h" />
     <ClInclude Include="rendering\model\Triangle.h" />
     <ClInclude Include="rendering\Renderer.h" />
     <ClInclude Include="rendering\RenderObject.h" />
