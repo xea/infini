@@ -50,13 +50,12 @@ void GL42Renderer::prepareFrame() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
-void GL42Renderer::drawScene() {	
+void GL42Renderer::drawScene(Scene& scene) {	
 
-	if (scene != NULL) {
-		for (auto& i : scene->objects) {
-			drawObject(i);
-		}
+	for (auto& i : scene.objects) {
+		drawObject(i);
 	}
+	
 	
 	glfwSwapBuffers();
 }

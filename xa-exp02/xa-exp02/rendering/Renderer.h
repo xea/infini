@@ -1,6 +1,8 @@
 #ifndef XA_RENDERER_H
 #define XA_RENDERER_H
 
+#include <rendering/Scene.h>
+
 typedef const int RendererType;
 
 /**
@@ -52,7 +54,7 @@ public:
 	/**
 	 * Draw the current frame
 	 */
-	virtual void drawScene() = 0;
+	virtual void drawScene(Scene& scene) = 0;
 };
 
 #endif // XA_RENDERER_H

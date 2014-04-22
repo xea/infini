@@ -158,5 +158,8 @@
     <ClInclude Include="world\Dog.h">
       <Filter>Header Files\world</Filter>
     </ClInclude>
+    <ClInclude Include="script\Director.h">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@
 #include "ObjectFactory.h"
 #include "..\rendering\View.h"
 #include "..\rendering\Renderer.h"
+#include <script/Director.h>
 
 /**
  * 
@@ -26,10 +27,17 @@ private:
 	Renderer *renderer;
 
 	/**
+	 * The director that governs the screen
+	 */
+	Director *director;
+
+	/**
 	 * Indicates if the engine can continue running, i.e. the user didn't
 	 * stopped the program explicitly.
 	 */
 	bool mayContinue();
+
+
 
 public:
 
@@ -42,6 +50,11 @@ public:
 	void start();
 
 	void stop();
+
+	/**
+	 * Sets the current director on this engine
+	 */	
+	void setDirector(Director& director);
 
 };
 

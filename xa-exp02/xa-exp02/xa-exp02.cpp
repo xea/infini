@@ -7,6 +7,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	DemoScript demoScript;
 
+	engine.setDirector(demoScript);
 	world.attachScript(demoScript);
 	world.start();
 

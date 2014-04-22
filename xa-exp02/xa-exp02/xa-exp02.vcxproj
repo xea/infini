@@ -112,6 +112,7 @@
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\View.h" />
     <ClInclude Include="script\DemoScript.h" />
+    <ClInclude Include="script\Director.h" />
     <ClInclude Include="script\Script.h" />
     <ClInclude Include="world\Dog.h" />
     <ClInclude Include="world\ScriptingInterface.h" />

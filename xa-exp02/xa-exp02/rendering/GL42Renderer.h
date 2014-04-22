@@ -14,6 +14,7 @@
 #include "Scene.h"
 #include "ShaderProgram.h"
 #include "Shader.h"
+#include <rendering/Scene.h>
 
 
 /**
@@ -56,7 +57,7 @@ public:
 
 	void destroyScene();
 
-	void drawScene();
+	void drawScene(Scene& scene);
 
 	void bindObject(RenderObject *object);
 

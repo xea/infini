@@ -4,6 +4,8 @@ Engine::Engine() {
 }
 
 void Engine::start() {
+	Scene *scene = &(director->currentScene());
+	
 	view = ObjectFactory::getView(View::TYPE_GLFW);
 	renderer = ObjectFactory::getRenderer(Renderer::TYPE_GL42);
 
@@ -12,9 +14,11 @@ void Engine::start() {
 
 	bool running = true;
 
+	
+
 	while (running) {
 		renderer->prepareFrame();
-		renderer->drawScene();
+		renderer->drawScene(*scene);
 
 		running = mayContinue();
 	}
@@ -32,4 +36,8 @@ void Engine::stop() {
 
 	delete renderer;
 	delete view;
+}
+
+void Engine::setDirector(Director& director) {
+	this->director = &director;
 }
