@@ -36,7 +36,6 @@ void GL42Renderer::prepareScene() {
 	scene->objects.push_back(cube3);
 	scene->objects.push_back(cube4);
 	*/
-	scene = new Scene();
 
 	projectionMatrix = glm::perspective(60.0f, (float) 1024 / (float) 768, 0.1f, 100.f);
 	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));

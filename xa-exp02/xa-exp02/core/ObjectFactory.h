@@ -1,13 +1,11 @@
 #ifndef XA_OBJECTFACTORY_H
 #define XA_OBJECTFACTORY_H
 
-#include "Logger.h"
-#include "rendering/View.h"
-
-#include "rendering/GLFWView.h"
-#include "rendering/GL42Renderer.h"
-
-#include "rendering/Renderer.h"
+#include <core/Logger.h>
+#include <rendering/View.h>
+#include <rendering/GLFWView.h>
+#include <rendering/Renderer.h>
+#include <rendering/GL42Renderer.h>
 
 /**
  * It's reponsibility is to create basic classes necessary to run a demo

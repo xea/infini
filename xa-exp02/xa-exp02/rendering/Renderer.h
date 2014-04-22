@@ -29,12 +29,12 @@ public:
 	/**
 	 * Returns the major version number of this implementation
 	 */
-	virtual const int getMajorVersion() = 0;
+	virtual const int getMajorVersion() const = 0;
 
 	/**
 	 * Returs the minor version umber of this implementation
 	 */
-	virtual const int getMinorVersion() = 0;
+	virtual const int getMinorVersion() const = 0;
 
 	/**
 	 * Prepares the scene by setting the clear color and stuff

@@ -1,7 +1,7 @@
 #ifndef XA_OBJECT_H
 #define XA_OBJECT_H
 
-#include "Entity.h"
+#include <core/Entity.h>
 
 /**
  * A representation of a physical object that has physical attributes

@@ -9,13 +9,11 @@
 #include <chrono>
 #include <thread>
 
-#include "core/Logger.h"
-#include "Renderer.h"
-#include "Scene.h"
-#include "ShaderProgram.h"
-#include "Shader.h"
+#include <core/Logger.h>
+#include <rendering/Renderer.h>
 #include <rendering/Scene.h>
-
+#include <rendering/Shader.h>
+#include <rendering/ShaderProgram.h>
 
 /**
  * An OpenGL 4.2 implementation for the Renderer interface
@@ -24,7 +22,6 @@ class GL42Renderer : public Renderer {
 
 protected:
 
-	Scene *scene;
 	ShaderProgram *shaderProgram;
 
 	glm::mat4 projectionMatrix;
@@ -47,9 +44,9 @@ public:
 	 */
 	static const int MINOR_VERSION = 2;
 
-	inline const int getMajorVersion() { return GL42Renderer::MAJOR_VERSION; }
+	inline const int getMajorVersion() const { return GL42Renderer::MAJOR_VERSION; }
 
-	inline const int getMinorVersion() { return GL42Renderer::MINOR_VERSION; }
+	inline const int getMinorVersion() const { return GL42Renderer::MINOR_VERSION; }
 
 	void prepareScene();
 

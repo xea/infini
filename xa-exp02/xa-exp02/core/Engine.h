@@ -2,15 +2,17 @@
 #define XA_ENGINE_H
 
 #include <iostream>
-#include "world\World.h"
-#include "script\Script.h"
-#include "ObjectFactory.h"
-#include "..\rendering\View.h"
-#include "..\rendering\Renderer.h"
+
+#include <core/ObjectFactory.h>
+#include <rendering/View.h>
+#include <rendering/Renderer.h>
 #include <script/Director.h>
+#include <script/Script.h>
+#include <world/World.h>
 
 /**
- * 
+ * It is responsible for displaying visual objects on the screen, handling
+ * user inputs and dispatching user interactions.
  */
 class Engine {
 
@@ -37,10 +39,11 @@ private:
 	 */
 	bool mayContinue();
 
-
-
 public:
 
+	/**
+	 * Initalizing constructor
+	 */
 	Engine();
 
 	/**
@@ -49,10 +52,16 @@ public:
 	 */
 	void start();
 
+	/**
+	 * Stops the engine and closes the application window if it was 
+	 * already open. 
+	 *
+	 * Note that it doesn't terminate all threads.
+	 */
 	void stop();
 
 	/**
-	 * Sets the current director on this engine
+	 * Sets the current director on this engine. 
 	 */	
 	void setDirector(Director& director);
 
