@@ -14,9 +14,8 @@ void Engine::start() {
 
 	bool running = true;
 
-	
-
 	while (running) {
+		director->update();
 		renderer->prepareFrame();
 		renderer->drawScene(*scene);
 

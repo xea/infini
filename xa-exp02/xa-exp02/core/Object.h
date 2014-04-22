@@ -2,6 +2,7 @@
 #define XA_OBJECT_H
 
 #include <core/Entity.h>
+#include <core/Position.h>
 
 /**
  * A representation of a physical object that has physical attributes
@@ -16,6 +17,7 @@ protected:
 	 */
 	double weight;
 
+	Position position;
 };
 
 #endif // XA_OBJECT_H

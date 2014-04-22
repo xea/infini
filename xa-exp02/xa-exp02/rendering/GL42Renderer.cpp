@@ -55,7 +55,6 @@ void GL42Renderer::drawScene(Scene& scene) {
 		drawObject(i);
 	}
 	
-	
 	glfwSwapBuffers();
 }
 
@@ -89,7 +88,7 @@ void GL42Renderer::drawObject(RenderObject *object) {
 
 	ffmod += 0.05f;
 
-	object->rotate(glm::vec3(1, 1, 0));
+	//object->rotate(glm::vec3(1, 1, 0));
 	//object->translate(glm::vec3(0.01f, 0, 0));
 	//object->scale(glm::vec3(1.0f, 1.0f, 1.0f));
 

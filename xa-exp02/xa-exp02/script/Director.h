@@ -8,6 +8,8 @@ class Director {
 public:
 
 	virtual Scene& currentScene() = 0;
+
+	virtual void update() = 0;
 };
 
 #endif // XA_DIRECTOR

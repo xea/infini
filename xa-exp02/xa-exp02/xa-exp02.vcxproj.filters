@@ -96,6 +96,9 @@
     <ClCompile Include="world\Dog.cpp">
       <Filter>Source Files\world</Filter>
     </ClCompile>
+    <ClCompile Include="core\Postition.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xa-exp02.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="script\Director.h">
       <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Position.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

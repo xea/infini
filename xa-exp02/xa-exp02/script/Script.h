@@ -13,6 +13,8 @@ public:
 
 	virtual void onStart() = 0;
 
+	virtual void onUpdate() = 0;
+
 	virtual void setScriptingInterface(ScriptingInterface& scriptingInterface) = 0;
 };
 

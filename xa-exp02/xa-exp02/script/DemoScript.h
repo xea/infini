@@ -23,7 +23,11 @@ public:
 
 	void onStart();
 
+	void onUpdate();
+
 	void setScriptingInterface(ScriptingInterface& scriptingInterface);
+
+	void update();
 
 	Scene& currentScene();
 
