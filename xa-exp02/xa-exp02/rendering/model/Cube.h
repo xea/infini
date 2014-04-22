@@ -27,6 +27,7 @@ public:
 
 	GLenum drawMode();
 
+	void unifiedColor(glm::vec4 color);
 };
 
 #endif // XA_CUBE_H

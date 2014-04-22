@@ -71,8 +71,9 @@ public:
 	 */
 	glm::mat4 getModelMatrix();
 
-
 	virtual GLenum drawMode();
+
+	void unifiedColor(float newColor);
 };
 
 #endif // XA_OBJECT_RENDER_OBJECT_H

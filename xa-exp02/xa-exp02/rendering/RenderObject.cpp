@@ -17,8 +17,11 @@ void RenderObject::translate(glm::vec3 translationVector) {
 }
 
 void RenderObject::scale(glm::vec3 scalingVector) {
-	// FIXME it doesn't work this way
 	modelMatrix = glm::scale(modelMatrix, scalingVector);
+}
+
+void RenderObject::unifiedColor(float newColor) {
+	// Left empty as a default implementation	
 }
 
 GLenum RenderObject::drawMode() {

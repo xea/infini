@@ -59,3 +59,13 @@ int Cube::colorsCount() {
 GLenum Cube::drawMode() {
 	return GL_TRIANGLE_STRIP;
 }
+
+void Cube::unifiedColor(glm::vec4 color) {
+	int colorSize = sizeof(vertexColors) / sizeof(float) / 3;
+
+	for (int i = 0; i < colorSize; i++) {
+		vertexColors[i * 3] = color.x;
+		vertexColors[i * 3 + 1] = color.y;
+		vertexColors[i * 3 + 2] = color.z;
+	}
+}
