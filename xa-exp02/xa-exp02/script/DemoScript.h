@@ -1,6 +1,7 @@
 #ifndef XA_DEMOSCRIPT_H
 #define XA_DEMOSCRIPT_H
 
+#include <chrono>
 #include <script/Script.h>
 #include <script/Director.h>
 #include <rendering/Scene.h>

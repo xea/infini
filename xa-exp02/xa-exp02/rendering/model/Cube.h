@@ -7,11 +7,12 @@ class Cube : public RenderObject {
 
 private:
 
+	
+public:
+
 	static float objectVertices[];
 
 	static float vertexColors[];
-
-public:
 
 	Cube();
 

@@ -19,6 +19,8 @@ void Engine::start() {
 		renderer->prepareFrame();
 		renderer->drawScene(*scene);
 
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
 		running = mayContinue();
 	}
 }

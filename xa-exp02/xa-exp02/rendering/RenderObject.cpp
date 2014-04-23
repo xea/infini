@@ -9,7 +9,7 @@ glm::mat4 RenderObject::getModelMatrix() {
 }
 
 void RenderObject::rotate(glm::vec3 rotationVector) {
-	modelMatrix = glm::rotate(modelMatrix, 0.1f, rotationVector);
+	modelMatrix = glm::rotate(modelMatrix, 0.001f, rotationVector);
 }
 
 void RenderObject::translate(glm::vec3 translationVector) {

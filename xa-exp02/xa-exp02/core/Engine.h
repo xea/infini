@@ -1,6 +1,7 @@
 #ifndef XA_ENGINE_H
 #define XA_ENGINE_H
 
+#include <chrono>
 #include <iostream>
 
 #include <core/ObjectFactory.h>
