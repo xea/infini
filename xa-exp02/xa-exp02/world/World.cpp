@@ -8,7 +8,7 @@ void World::initialize() {
 
 bool World::start() {
 	
-	worldThread = new thread([](World& localWorld) { localWorld.run(); }, *this);
+	worldThread = new thread([this]() { run(); });
 	
 	return false;
 }
@@ -52,4 +52,6 @@ void World::run() {
 			currentScript->onUpdate();
 		}
 	}
+
+	
 }
