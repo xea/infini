@@ -73,7 +73,7 @@ public:
 
 	virtual GLenum drawMode();
 
-	void unifiedColor(float newColor);
+	void unifiedColor(glm::vec4 newColor);
 };
 
 #endif // XA_OBJECT_RENDER_OBJECT_H

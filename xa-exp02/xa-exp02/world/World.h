@@ -22,12 +22,11 @@ private:
 	 */
 	std::list<Entity *> entities;
 
-	/**
-	 * The script object currently marked for running
-	 */
-	Script *activeScript;
+	std::list<Script *> loadedScripts;
 
 	thread* worldThread;
+
+	bool running;
 
 protected:
 
@@ -67,6 +66,8 @@ public:
 	 * @returns false if the entity was already added, otherwise true
 	 */
 	bool add(Entity& entity);
+
+	std::list<Entity *> listEntities();
 
 	void attachScript(Script& script);
 };

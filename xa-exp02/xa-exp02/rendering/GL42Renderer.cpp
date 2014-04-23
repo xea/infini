@@ -54,6 +54,10 @@ void GL42Renderer::drawScene(Scene& scene) {
 	for (auto& i : scene.objects) {
 		drawObject(i);
 	}
+
+	for (Entity *entity : scene.entities) {
+		drawObject(&(entity->renderObject()));
+	}
 	
 	glfwSwapBuffers();
 }

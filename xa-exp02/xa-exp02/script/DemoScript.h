@@ -11,8 +11,6 @@ class DemoScript : public Script, public Director {
 
 private:
 
-	ScriptingInterface *scriptingInterface;
-
 	Scene *scene;
 
 public:

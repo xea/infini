@@ -6,9 +6,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	World world;
 
 	DemoScript demoScript;
+	Script *gravityScript = new Gravity();
 
 	engine.setDirector(demoScript);
 	world.attachScript(demoScript);
+	world.attachScript(*gravityScript);
 	world.start();
 
 	engine.start();

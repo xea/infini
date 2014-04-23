@@ -1,7 +1,8 @@
 #ifndef XA_SCRIPTING_INTERFACE
 #define XA_SCRIPTING_INTERFACE
 
-#include "../core/Entity.h"
+#include <list>
+#include <core/Entity.h>
 
 /**
  * Provides functions for scripts via they can modify the world state
@@ -16,6 +17,10 @@ public:
 	 */
 	virtual bool add(Entity& entity) = 0;
 
+	/**
+	 * Returns with a list of registered entities
+	 */
+	virtual std::list<Entity *> listEntities() = 0;
 };
 
 #endif // XA_SCRIPTING_INTERFACE

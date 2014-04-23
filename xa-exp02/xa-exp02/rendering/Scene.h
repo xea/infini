@@ -2,7 +2,8 @@
 #define XA_SCENE_H
 
 #include <list>
-#include "rendering/RenderObject.h"
+#include <core/Entity.h>
+#include <rendering/RenderObject.h>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ public:
 	 * Holds references to objects that are to be rendered on-screen
 	 */
 	list<RenderObject *> objects;
+
+	list<Entity *> entities;
 
 	Scene();
 };

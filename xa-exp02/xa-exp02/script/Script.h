@@ -5,6 +5,10 @@
 
 class Script {
 
+protected:
+
+	ScriptingInterface *scriptingInterface;
+
 public:
 
 	Script();
@@ -15,7 +19,7 @@ public:
 
 	virtual void onUpdate() = 0;
 
-	virtual void setScriptingInterface(ScriptingInterface& scriptingInterface) = 0;
+	void setScriptingInterface(ScriptingInterface& scriptingInterface);
 };
 
 #endif // XA_SCRIPT_H

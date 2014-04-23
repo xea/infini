@@ -20,7 +20,7 @@ void RenderObject::scale(glm::vec3 scalingVector) {
 	modelMatrix = glm::scale(modelMatrix, scalingVector);
 }
 
-void RenderObject::unifiedColor(float newColor) {
+void RenderObject::unifiedColor(glm::vec4 newColor) {
 	// Left empty as a default implementation	
 }
 

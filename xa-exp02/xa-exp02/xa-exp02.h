@@ -5,8 +5,9 @@
 
 #include <Windows.h>
 
-#include "core\Engine.h"
-#include "core\Object.h"
-#include "script\DemoScript.h"
+#include <core/Engine.h>
+#include <core/Object.h>
+#include <script/DemoScript.h>
+#include <script/Gravity.h>
 
 #endif // XA_EXP02_H

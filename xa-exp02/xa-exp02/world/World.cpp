@@ -4,7 +4,6 @@ Logger * World::logger = Logger::getLogger("World");
 
 void World::initialize() {
 	logger->info("Initializing World");
-	activeScript = NULL;
 }
 
 bool World::start() {
@@ -15,7 +14,7 @@ bool World::start() {
 }
 
 bool World::stop() {
-	
+	running = false;
 	worldThread->join();
 
 	return false;
@@ -29,15 +28,28 @@ bool World::add(Entity& entity) {
 	return true;
 }
 
+std::list<Entity *> World::listEntities() {
+	// FIXME return a copy of this list, not the original list itself
+	return entities;
+}
+
 void World::attachScript(Script& script) {
-	activeScript = &script;
-	activeScript->setScriptingInterface(*this);
+	script.setScriptingInterface(*this);
+	loadedScripts.push_back(&script);
 }
 
 void World::run() {
 	logger->debug("Initializing world");
 
-	if (activeScript != NULL) {
-		activeScript->onStart();
+	for (Script *currentScript : loadedScripts) {
+		currentScript->onStart();
+	}
+
+	running = true;
+
+	while (running) {
+		for (Script *currentScript : loadedScripts) {
+			currentScript->onUpdate();
+		}
 	}
 }
