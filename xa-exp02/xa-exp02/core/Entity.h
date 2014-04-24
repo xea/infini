@@ -17,11 +17,11 @@ public:
 	 */
 	virtual RenderObject& renderObject() = 0;
 
-	void rotate(glm::vec3 rotationMatrix);
+	void rotate(glm::vec3& rotationMatrix);
 
-	void translate(glm::vec3 translationMatrix);
+	void translate(glm::vec3& translationMatrix);
 
-	void scale(glm::vec3 scalingMatrix);
+	void scale(glm::vec3& scalingMatrix);
 
 };
 

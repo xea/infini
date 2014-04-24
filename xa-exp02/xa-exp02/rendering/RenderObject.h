@@ -53,17 +53,17 @@ public:
 	 * Rotates this object based on the given rotation matrix.
 	 * 
 	 */
-	void rotate(glm::vec3 rotationMatrix);
+	void rotate(glm::vec3& rotationMatrix);
 
 	/**
 	 * Translates this object based on the given translation matrix.
 	 */
-	void translate(glm::vec3 translationMatrix);
+	void translate(glm::vec3& translationMatrix);
 
 	/**
 	 * Scales this object based on the given scaling matrix.
 	 */
-	void scale(glm::vec3 scalingMatrix);
+	void scale(glm::vec3& scalingMatrix);
 
 	/**
 	 * Returns the model matrix holding the objects position, rotation, scaling data
@@ -78,7 +78,7 @@ public:
 	 */
 	virtual GLenum drawMode();
 
-	void unifiedColor(glm::vec4 newColor);
+	void unifiedColor(glm::vec4& newColor);
 };
 
 #endif // XA_OBJECT_RENDER_OBJECT_H
