@@ -1,16 +1,17 @@
 #ifndef XA_OBJECT_RENDER_OBJECT_H
 #define XA_OBJECT_RENDER_OBJECT_H
 
-#include <gl\glew.h>
+#include <gl/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <core/Transformable.h>
 
 /**
  * The base class for every object that can be rendered on a scene.
  *
  * Defines the skeleton for transformation methods of the implementing objects
  */
-class RenderObject {
+class RenderObject : public Transformable {
 
 protected:
 
@@ -71,6 +72,10 @@ public:
 	 */
 	glm::mat4 getModelMatrix();
 
+	/**
+	 * It tells which OpenGL draw mode should be used to draw the vertices of this
+	 * object
+	 */
 	virtual GLenum drawMode();
 
 	void unifiedColor(glm::vec4 newColor);

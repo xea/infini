@@ -17,6 +17,9 @@ protected:
 	 */
 	double weight;
 
+	/**
+	 * The absolute position of this object's center
+	 */
 	Position position;
 };
 

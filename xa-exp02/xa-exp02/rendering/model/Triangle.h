@@ -1,7 +1,7 @@
 #ifndef XA_OBJECT_TRIANGLE_H
 #define XA_OBJECT_TRIANGLE_H
 
-#include <rendering\RenderObject.h>
+#include <rendering/RenderObject.h>
 
 /**
  * Describes a simple triangle

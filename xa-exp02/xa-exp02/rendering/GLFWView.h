@@ -1,9 +1,10 @@
 #ifndef XA_GLFWVIEW_H
 #define XA_GLFWVIEW_H
 
-#include "View.h"
 #include <GL/glew.h>
 #include <GL/glfw.h>
+
+#include <rendering/View.h>
 
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "opengl32.lib")
@@ -23,6 +24,9 @@ private:
 	 */
 	bool initialized;
 
+	/**
+	 * A pointer to the renderer to be used to render the actual scene
+	 */
 	Renderer *renderer;
 
 protected:

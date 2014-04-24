@@ -13,29 +13,6 @@ void GL42Renderer::prepareScene() {
 	shaderProgram->validate();
 	
 	prepareBuffers();
-/*
-	Triangle *triangle = new Triangle();
-	Square *square = new Square();
-	Cube *cube = new Cube();
-	Cube *cube2 = new Cube();
-	Cube *cube3 = new Cube();
-	Cube *cube4 = new Cube();
-
-	cube->translate(glm::vec3(1.3, 0, 0));
-	cube2->translate(glm::vec3(-1.3, 0, 0));
-	cube3->translate(glm::vec3(0, -1.3, 0));
-	cube4->translate(glm::vec3(-1.3, -1.3, 0));
-	square->translate(glm::vec3(1.3, -1.3, 0));
-	
-
-	scene = new Scene();
-	scene->objects.push_back(triangle);
-	scene->objects.push_back(square);
-	scene->objects.push_back(cube);
-	scene->objects.push_back(cube2);
-	scene->objects.push_back(cube3);
-	scene->objects.push_back(cube4);
-	*/
 
 	projectionMatrix = glm::perspective(60.0f, (float) 1024 / (float) 768, 0.1f, 100.f);
 	viewMatrix = glm::lookAt(glm::vec3(0,0,3), glm::vec3(0,0,0), glm::vec3(0,1,0));

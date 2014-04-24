@@ -51,9 +51,6 @@
     <ClCompile Include="core\Engine.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="DemoScript.cpp">
-      <Filter>Source Files\script</Filter>
-    </ClCompile>
     <ClCompile Include="world\World.cpp">
       <Filter>Source Files\world</Filter>
     </ClCompile>
@@ -107,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="script\Gravity.cpp">
       <Filter>Source Files\script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\DemoScript.cpp">
+      <Filter>Source Files\script</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Entity.cpp">
+      <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="script\Gravity.h">
       <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Transformable.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

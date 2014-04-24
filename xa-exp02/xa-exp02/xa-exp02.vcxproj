@@ -79,10 +79,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Engine.cpp" />
+    <ClCompile Include="core\Entity.cpp" />
     <ClCompile Include="core\Logger.cpp" />
     <ClCompile Include="core\ObjectFactory.cpp" />
     <ClCompile Include="core\Postition.cpp" />
-    <ClCompile Include="DemoScript.cpp" />
     <ClCompile Include="rendering\GL42Renderer.cpp" />
     <ClCompile Include="rendering\GLFWView.cpp" />
     <ClCompile Include="rendering\model\Cube.cpp" />
@@ -94,6 +94,7 @@
     <ClCompile Include="rendering\Shader.cpp" />
     <ClCompile Include="rendering\ShaderProgram.cpp" />
     <ClCompile Include="rendering\View.cpp" />
+    <ClCompile Include="script\DemoScript.cpp" />
     <ClCompile Include="script\Gravity.cpp" />
     <ClCompile Include="script\Script.cpp" />
     <ClCompile Include="world\Dog.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="core\Object.h" />
     <ClInclude Include="core\ObjectFactory.h" />
     <ClInclude Include="core\Position.h" />
+    <ClInclude Include="core\Transformable.h" />
     <ClInclude Include="rendering\GL42Renderer.h" />
     <ClInclude Include="rendering\GLFWView.h" />
     <ClInclude Include="rendering\model\Cube.h" />
