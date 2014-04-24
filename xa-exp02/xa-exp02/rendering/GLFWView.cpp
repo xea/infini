@@ -2,6 +2,7 @@
 
 GLFWView::GLFWView() {
 	initialized = false;
+	logger = Logger::getLogger("GLFWView");
 }
 
 bool GLFWView::initialize(Renderer& renderer) {
@@ -38,15 +39,18 @@ bool GLFWView::initializeGLFW() {
 		int majorVersion = renderer->getMajorVersion();
 		int minorVersion = renderer->getMinorVersion();
 
-		glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, majorVersion);
-		glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, minorVersion);
-		glfwOpenWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-		glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, majorVersion);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minorVersion);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		if(glfwOpenWindow( 1024, 768, 0,0,0,0, 32,0, GLFW_WINDOW )) {
-			success = true;
-		} else {
+		glfwWindow = glfwCreateWindow(1024, 768, "xa-exp02", NULL, NULL);
+
+		if (!glfwWindow) {
 			glfwTerminate();
+		} else {
+			success = true;
+			glfwMakeContextCurrent(glfwWindow);
 		}
 	}
 
@@ -57,8 +61,16 @@ bool GLFWView::initializeGLEW() {
 	bool success = false;
 
 	glewExperimental = GL_TRUE;
-	if (glewInit() == GLEW_OK) {
+	GLenum result = glewInit();
+
+	if (result == GLEW_OK) {
 		success = true;
+	} else {
+		//glewGetErrorString(result);
+		const char *errorMessage = (const char *) glewGetErrorString(result);
+		std::string message(errorMessage);
+		
+		logger->error(message);
 	}
 
 	return success;
@@ -68,7 +80,8 @@ bool GLFWView::destroyGLFW() {
 	bool success = false;
 
 	if (initialized) {
-		glfwCloseWindow();
+		glfwDestroyWindow(glfwWindow);
+		glfwTerminate();
 
 		success = true;
 	}
@@ -78,4 +91,22 @@ bool GLFWView::destroyGLFW() {
 
 bool GLFWView::destroyGLEW() {
 	return true;
+}
+
+void GLFWView::swapBuffers() {
+	glfwSwapBuffers(glfwWindow);
+	glfwPollEvents();
+}
+
+bool GLFWView::isClosing() {
+	const int keypress = glfwGetKey(glfwWindow, GLFW_KEY_ESCAPE);
+
+	bool shouldClose = false;
+
+	if (keypress == GLFW_PRESS) {
+		glfwWindowShouldClose(glfwWindow);
+		shouldClose = true;
+	} 
+
+	return shouldClose;
 }

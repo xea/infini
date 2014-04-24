@@ -9,7 +9,8 @@ void Engine::start() {
 	view = ObjectFactory::getView(View::TYPE_GLFW);
 	renderer = ObjectFactory::getRenderer(Renderer::TYPE_GL42);
 
-	view->initialize(*renderer);
+	const bool initialized = view->initialize(*renderer);
+
 	renderer->prepareScene();
 
 	bool running = true;
@@ -18,6 +19,7 @@ void Engine::start() {
 		director->update();
 		renderer->prepareFrame();
 		renderer->drawScene(*scene);
+		view->swapBuffers();
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
@@ -27,7 +29,7 @@ void Engine::start() {
 
 
 bool Engine::mayContinue() {
-	return !(glfwGetKey(GLFW_KEY_ESC) && glfwGetWindowParam(GLFW_OPENED));
+	return !view->isClosing();
 }
 
 

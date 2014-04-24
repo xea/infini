@@ -17,6 +17,10 @@ View *ObjectFactory::getView(ViewType type) {
 		logger->debug("Implementation found, initializing a new GLFW View");
 		view = new GLFWView();
 #endif // __glfw_h_
+#ifdef _glfw3_h_
+		logger->debug("GLFW3 Implementation found, initializing a new GLFW3 View");
+		view = new GLFWView();
+#endif // _glfw3_h
 		break;
 	}
 

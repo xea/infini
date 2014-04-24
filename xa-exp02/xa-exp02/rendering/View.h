@@ -38,6 +38,17 @@ public:
 	 * This usually means closing the application window where it was visible.
 	 */
 	virtual bool destroy() = 0;
+
+	/**
+	 * Swaps the framebuffers
+	 */
+	virtual void swapBuffers() = 0;
+
+	/**
+	 * Indicates if the current window is about to be closed (eg. user clicked on close button)
+	 */
+	virtual bool isClosing() = 0;
+
 };
 
 #endif // XA_VIEW_H

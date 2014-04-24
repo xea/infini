@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "core/Engine.h"
+#include <core/Engine.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

@@ -20,3 +20,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	return 0;
 }
+
+void messageBox(std::wstring& title, std::wstring& message) {
+	int msgboxID = MessageBox(NULL,
+		(LPCWSTR)message.c_str(),
+		(LPCWSTR)title.c_str(),
+		MB_ICONWARNING | MB_OK 
+	);
+}

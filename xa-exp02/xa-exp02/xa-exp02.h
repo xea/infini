@@ -10,4 +10,6 @@
 #include <script/DemoScript.h>
 #include <script/Gravity.h>
 
+void messageBox(std::wstring& title, std::wstring& message);
+
 #endif // XA_EXP02_H

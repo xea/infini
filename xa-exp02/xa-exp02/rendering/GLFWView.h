@@ -2,13 +2,14 @@
 #define XA_GLFWVIEW_H
 
 #include <GL/glew.h>
-#include <GL/glfw.h>
+#include <GL/glfw3.h>
 
+#include <core/Logger.h>
 #include <rendering/View.h>
 
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "opengl32.lib")
-#pragma comment(lib, "glfw.lib")
+#pragma comment(lib, "glfw3.lib")
 
 /**
  * The GLFW implementation of the base View class.
@@ -28,6 +29,8 @@ private:
 	 * A pointer to the renderer to be used to render the actual scene
 	 */
 	Renderer *renderer;
+
+	Logger *logger;
 
 protected:
 
@@ -51,6 +54,11 @@ protected:
 	 */
 	bool destroyGLEW();
 
+	/**
+	 * Pointer to the GLFW window
+	 */
+	GLFWwindow *glfwWindow;
+
 public:
 
 	GLFWView();
@@ -64,6 +72,11 @@ public:
 	 * Shuts down and destroys this View object
 	 */
 	bool destroy();
+
+	void swapBuffers();
+
+	bool isClosing();
+
 };
 
 #endif // XA_GLFWVIEW_H

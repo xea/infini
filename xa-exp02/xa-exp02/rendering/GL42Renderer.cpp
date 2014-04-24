@@ -36,7 +36,7 @@ void GL42Renderer::drawScene(Scene& scene) {
 		drawObject(&(entity->renderObject()));
 	}
 	
-	glfwSwapBuffers();
+	//glfwSwapBuffers();
 }
 
 void GL42Renderer::destroyScene() {

@@ -26,7 +26,30 @@ float Cube::objectVertices[66] = {
 };
 
 float Cube::vertexColors[66] = {
-	0.583f,  0.771f,  0.014f,
+	1.0f, 0.0f, 0.0f, // back top left
+	1.0f, 0.0f, 0.0f, // back bottom left
+	1.0f, 0.0f, 0.0f, // left top left
+	1.0f, 0.0f, 0.0f, // left bottom left
+	1.0f, 0.0f, 0.0f, // left bottom right
+	1.0f, 0.0f, 0.0f, // right bottom right
+	1.0f, 0.0f, 0.0f, // front bottom right
+	1.0f, 0.0f, 0.0f, // front top right
+	1.0f, 0.0f, 0.0f, // front bottom left
+	1.0f, 0.0f, 0.0f, // front top left
+	1.0f, 0.0f, 0.0f, // top top left
+	1.0f, 0.0f, 0.0f, // top bottom right
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f
+	
+	/*0.583f,  0.771f,  0.014f,
     0.609f,  0.115f,  0.436f,
     0.327f,  0.483f,  0.844f,
     0.822f,  0.569f,  0.201f,
@@ -47,7 +70,7 @@ float Cube::vertexColors[66] = {
 	1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f,
-	1.0f, 1.0f, 1.0f
+	1.0f, 1.0f, 1.0f*/
 };
 
 Cube::Cube() {
