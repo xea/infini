@@ -5,6 +5,10 @@ Dog::Dog() {
 	visual = new Cube();
 }
 
+Dog::~Dog() {
+    delete visual;
+}
+
 RenderObject &Dog::renderObject() {
 	return *visual;
 }

@@ -3,7 +3,9 @@
 
 #define GLEW_STATIC 1
 
+#ifdef _WIN32
 #include <Windows.h>
+#endif
 
 #include <core/Engine.h>
 #include <core/Object.h>

@@ -1,7 +1,9 @@
 #include "ShaderProgram.h"
 
 ShaderProgram::ShaderProgram() {
+    printf("asdfasdf\n");
 	id = glCreateProgram();
+    printf("asdfasdf\n");
 	shaders = new list<Shader *>();
 }
 

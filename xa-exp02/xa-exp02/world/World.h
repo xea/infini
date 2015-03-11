@@ -3,9 +3,9 @@
 
 #include <list>
 #include <thread>
-#include "core\Entity.h"
-#include "core\Logger.h"
-#include "script\Script.h"
+#include "core/Entity.h"
+#include "core/Logger.h"
+#include "script/Script.h"
 #include "ScriptingInterface.h"
 
 /**

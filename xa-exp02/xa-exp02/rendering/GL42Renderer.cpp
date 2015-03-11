@@ -1,4 +1,5 @@
 #include "GL42Renderer.h"
+#include <cstdio>
 
 void GL42Renderer::prepareScene() {
 	glEnable(GL_DEPTH_TEST);

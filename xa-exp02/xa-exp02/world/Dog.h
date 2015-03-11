@@ -15,6 +15,8 @@ public:
 
 	Dog();
 
+    ~Dog();
+
 	RenderObject& renderObject();
 };
 

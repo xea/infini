@@ -9,6 +9,7 @@ void DemoScript::run() {
 
 void DemoScript::onStart() {
 	
+    /*
 	Dog *dog = new Dog();
 		
 	scene->entities.push_back(dog);
@@ -29,12 +30,13 @@ void DemoScript::onStart() {
 
 		scene->objects.push_back(cube);
 	}
+    */
 }
 
 void DemoScript::onUpdate() {
-	for (RenderObject *currentObject : scene->objects) {
+/*	for (RenderObject *currentObject : scene->objects) {
 		currentObject->rotate(glm::vec3(0.001f, 0.000f, 0));
-	}
+	}*/
 }
 
 
