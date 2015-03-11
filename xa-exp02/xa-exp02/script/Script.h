@@ -1,7 +1,7 @@
 #ifndef XA_SCRIPT_H
 #define XA_SCRIPT_H
 
-#include <world\ScriptingInterface.h>
+#include <world/ScriptingInterface.h>
 
 class Script {
 

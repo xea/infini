@@ -1,4 +1,4 @@
-#include <rendering\model\Cube.h>
+#include <rendering/model/Cube.h>
 
 float Cube::objectVertices[66] = {
 	 1,  1, -1, 

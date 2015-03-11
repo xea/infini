@@ -1,4 +1,4 @@
-#include "script\DemoScript.h"
+#include "script/DemoScript.h"
 
 DemoScript::DemoScript() {
 	scene = new Scene();

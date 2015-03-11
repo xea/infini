@@ -21,6 +21,7 @@ Logger::~Logger() {
 }
 
 void Logger::append(const string& message) {
+#ifdef _WIN32
 	time_t current_time;
 	time(&current_time);
 	struct tm tstruct;
@@ -31,6 +32,7 @@ void Logger::append(const string& message) {
 	strftime(dateBuffer, sizeof(dateBuffer), "%Y-%m-%d %H:%M:%S", &tstruct);
 	
 	logfile << dateBuffer << " " << loggerName << " " << message << endl;
+#endif
 }
 
 void Logger::trace(const string& message) {
