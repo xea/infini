@@ -1,9 +1,7 @@
 #include "ShaderProgram.h"
 
 ShaderProgram::ShaderProgram() {
-    printf("asdfasdf\n");
 	id = glCreateProgram();
-    printf("asdfasdf\n");
 	shaders = new list<Shader *>();
 }
 
@@ -68,6 +66,11 @@ void ShaderProgram::validate() {
 	glGetProgramiv(id, GL_VALIDATE_STATUS, &status); 
 
     if (status == GL_FALSE)  {
+    glGetProgramInfoLog(id, BUFFER_SIZE, &length, buffer); 
+
+    if (length > 0) {
+        cout << "Program " << id<< " link error: " << buffer << endl; 
+	}
 		cout << "Error validating shader " << id << endl;
 	}
 }

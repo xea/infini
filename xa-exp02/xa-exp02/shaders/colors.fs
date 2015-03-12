@@ -5,6 +5,6 @@ in vec3 fragmentColor;
 
 void main(){
     
-	color = fragmentColor; //vec3(1.0,1.0,1.0);
+	color = vec3(1.0, 1.0, 1.0); //fragmentColor; //vec3(1.0,1.0,1.0);
 	
 }

@@ -42,7 +42,7 @@ public:
 	/**
 	 * OpenGL 4.2 Minor version
 	 */
-	static const int MINOR_VERSION = 2;
+	static const int MINOR_VERSION = 0;
 
 	inline const int getMajorVersion() const { return GL42Renderer::MAJOR_VERSION; }
 
