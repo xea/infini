@@ -1,21 +1,30 @@
 #include <engine/Engine.h>
 
 Engine::Engine() {
-	view = new GLFWView();
-	view->setRenderer(std::make_unique<GL43Renderer>());
+	view = std::make_unique<GLFWView>();
+	renderer = std::make_unique<GL43Renderer>();
 }
 
 void Engine::start() {
 	view->start();
 
-	Scene scene;
+	ShaderProgram shaderProgram(std::make_shared<DefaultShaderSource>());
 
-	scene.init();
+	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
+	RenderObject renderObject(std::make_unique<Triangle>());
+	renderObject.prepare();
+
+	std::shared_ptr<RenderObject> sharedObject = std::make_shared<RenderObject>(std::make_unique<Triangle>());
+//	scene->add(std::make_unique<RenderObject>(renderObject));
+	
 	while (!view->shouldClose()) {
-		view->clearScreen();
+		renderer->clearScreen();
 
-		scene.draw();
+		shaderProgram.use();
+
+		renderer->drawObject(sharedObject);
+		//renderer->drawScene(scene);
 
 		view->swapBuffers();
 	}
@@ -23,6 +32,4 @@ void Engine::start() {
 
 void Engine::stop() {
 	view->stop();
-
-	delete view;
 }

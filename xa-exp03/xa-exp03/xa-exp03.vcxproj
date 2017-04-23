@@ -147,6 +147,7 @@
     <ClCompile Include="engine\GL43Renderer.cpp" />
     <ClCompile Include="engine\GLFWView.cpp" />
     <ClCompile Include="engine\rendering\ElementBuffer.cpp" />
+    <ClCompile Include="engine\rendering\RenderObject.cpp" />
     <ClCompile Include="engine\rendering\Scene.cpp" />
     <ClCompile Include="engine\rendering\Shader.cpp" />
     <ClCompile Include="engine\rendering\ShaderProgram.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="engine\rendering\VertexArray.cpp" />
     <ClCompile Include="engine\rendering\VertexBuffer.cpp" />
     <ClCompile Include="engine\View.cpp" />
+    <ClCompile Include="model\Primitive.cpp" />
     <ClCompile Include="xa-exp03.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +164,7 @@
     <ClInclude Include="engine\GLFWView.h" />
     <ClInclude Include="engine\Renderer.h" />
     <ClInclude Include="engine\rendering\ElementBuffer.h" />
+    <ClInclude Include="engine\rendering\RenderObject.h" />
     <ClInclude Include="engine\rendering\Scene.h" />
     <ClInclude Include="engine\rendering\Shader.h" />
     <ClInclude Include="engine\rendering\ShaderProgram.h" />

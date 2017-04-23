@@ -72,6 +72,12 @@
     <ClCompile Include="engine\rendering\ElementBuffer.cpp">
       <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="model\Primitive.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\RenderObject.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xa-exp03.h">
@@ -117,6 +123,9 @@
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\ElementBuffer.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\RenderObject.h">
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,29 +1,17 @@
 #ifndef XA_SCENE_H
 #define XA_SCENE_H
 
-#include <engine/rendering/Shader.h>
-#include <engine/rendering/ShaderProgram.h>
-#include <engine/rendering/ShaderSource.h>
-#include <engine/rendering/ElementBuffer.h>
-#include <engine/rendering/VertexArray.h>
-#include <engine/rendering/VertexBuffer.h>
+#include <list>
+#include <memory>
+
+#include <engine/rendering/RenderObject.h>
 
 class Scene {
 private:
-	ElementBuffer elementBuffer;
-	VertexArray vertexArray;
-	VertexBuffer vertexBuffer;
-	ShaderProgram shaderProgram;
-
+	std::list<std::shared_ptr<RenderObject>> objects;
 public:
-
-	void init();
-
-	void preDraw();
-
-	void draw();
-
-	void postDraw();
+	void add(std::unique_ptr<RenderObject> object);
+	std::list<std::shared_ptr<RenderObject>> getObjects();
 };
 
 #endif // XA_SCENE_H

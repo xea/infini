@@ -14,8 +14,6 @@ class GLFWView : public View {
 private:
 	GLFWwindow *window;
 
-	std::unique_ptr<Renderer> renderer;
-
 	std::tuple<int, int> resolution;
 
 	void updateResolution();
@@ -29,13 +27,9 @@ protected:
 public:
 	std::tuple<int, int> getResolution();
 
-	void setRenderer(std::unique_ptr<Renderer> renderer);
-
 	ViewResult start();
 
 	void stop();
-
-	void clearScreen();
 
 	bool shouldClose();
 

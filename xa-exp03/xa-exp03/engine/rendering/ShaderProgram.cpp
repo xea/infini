@@ -4,6 +4,19 @@ ShaderProgram::ShaderProgram() {
 	programId = glCreateProgram();
 }
 
+ShaderProgram::ShaderProgram(std::shared_ptr<ShaderSource> shaderSource) {
+	programId = glCreateProgram();
+
+	Shader vertexShader = Shader::createVertexShader(shaderSource);
+	Shader fragmentShader = Shader::createFragmentShader(shaderSource);
+
+	addShader(vertexShader);
+	addShader(fragmentShader);
+
+	// TODO linking may not be necessary here
+	link();
+}
+
 void ShaderProgram::addShader(Shader shader) {
 	shaders.push_back(shader);
 }

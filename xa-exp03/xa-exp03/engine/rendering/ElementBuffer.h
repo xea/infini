@@ -3,16 +3,19 @@
 
 #include <GL/glew.h>
 
+#include <memory>
+#include <vector>
+
 class ElementBuffer {
 private:
 
-	GLuint bufferId;
 public:
+	GLuint bufferId;
 
 	ElementBuffer();
 
 	void bind();
-	void setIndices();
+	void setIndices(std::shared_ptr<std::vector<GLuint>> indices);
 };
 
 #endif // XA_ELEMENTBUFFER_H

@@ -3,7 +3,13 @@
 
 #include <GL/glew.h>
 
-#include "Renderer.h"
+#include <engine/Renderer.h>
+#include <engine/rendering/RenderObject.h>
+#include <engine/rendering/VertexBuffer.h>
+#include <engine/rendering/ElementBuffer.h>
+#include <engine/rendering/VertexArray.h>
+#include <engine/rendering/ShaderProgram.h>
+#include <engine/rendering/Shader.h>
 
 #ifdef _MSC_VER
 
@@ -16,6 +22,14 @@
 class GL43Renderer : public Renderer {
 public:
 	void clearScreen();
+
+//	std::unique_ptr<RenderObject> bindShape(std::shared_ptr<Shape> shape);
+
+	void drawScene(std::shared_ptr<Scene> scene);
+
+	void drawObject(std::shared_ptr<RenderObject> object);
+
+	void setRenderMode(RenderMode mode);
 };
 
 #endif // XA_GL43RENDERER_H

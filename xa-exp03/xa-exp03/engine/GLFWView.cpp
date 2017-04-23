@@ -78,11 +78,3 @@ void GLFWView::updateResolution() {
 
 	resolution = std::make_tuple(width, height);
 }
-
-void GLFWView::setRenderer(std::unique_ptr<Renderer> renderer) {
-	this->renderer = std::move(renderer);
-}
-
-void GLFWView::clearScreen() {
-	this->renderer->clearScreen();
-}
