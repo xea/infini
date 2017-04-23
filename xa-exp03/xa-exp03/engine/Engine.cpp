@@ -8,7 +8,15 @@ void Engine::init() {
 void Engine::start() {
 	view->start();
 
+	Scene scene;
+
+	scene.init();
+
 	while (!view->shouldClose()) {
+		view->clearScreen();
+
+		scene.draw();
+
 		view->swapBuffers();
 	}
 }

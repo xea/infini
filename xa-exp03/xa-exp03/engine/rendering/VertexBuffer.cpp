@@ -1,13 +1,19 @@
 #include <engine/rendering/VertexBuffer.h>
 
-void VertexBuffer::create() {
+VertexBuffer::VertexBuffer() {
 	glGenBuffers(1, &bufferId);
 }
 
+VertexBuffer::~VertexBuffer() {
+	glDeleteBuffers(1, &bufferId);
+}
+
+// 2.
 void VertexBuffer::bind() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferId);
 }
 
+// 3.
 void VertexBuffer::setVertices() {
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f,

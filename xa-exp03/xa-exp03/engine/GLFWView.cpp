@@ -82,3 +82,7 @@ void GLFWView::updateResolution() {
 void GLFWView::setRenderer(std::unique_ptr<Renderer> renderer) {
 	this->renderer = std::move(renderer);
 }
+
+void GLFWView::clearScreen() {
+	this->renderer->clearScreen();
+}

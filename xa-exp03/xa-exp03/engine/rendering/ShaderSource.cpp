@@ -2,7 +2,7 @@
 
 std::string DefaultShaderSource::getVertexShader() {
 	return R"(
-#version 330 core
+#version 430 core
   
 layout (location = 0) in vec3 position;
 
@@ -16,13 +16,13 @@ void main()
 
 std::string DefaultShaderSource::getFragmentShader() {
 	return R"(
-#version 330 core
+#version 430 core
 
 out vec4 color;
 
 void main()
 {
-    color = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+    color = vec4(1.0f, 0.9f, 0.7f, 1.0f);
 }
 )";
 }

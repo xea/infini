@@ -23,6 +23,8 @@ public:
 
 	virtual void stop() = 0;
 
+	virtual void clearScreen() = 0;
+
 	virtual bool shouldClose() = 0;
 
 	virtual void swapBuffers() = 0;

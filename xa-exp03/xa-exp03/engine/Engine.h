@@ -4,6 +4,7 @@
 #include <engine/View.h>
 #include <engine/GLFWView.h>
 #include <engine/GL43Renderer.h>
+#include <engine/rendering/Scene.h>
 
 class Engine {
 

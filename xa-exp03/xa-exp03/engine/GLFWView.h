@@ -35,6 +35,8 @@ public:
 
 	void stop();
 
+	void clearScreen();
+
 	bool shouldClose();
 
 	void swapBuffers();

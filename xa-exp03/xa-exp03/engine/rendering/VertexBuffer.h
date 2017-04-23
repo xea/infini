@@ -9,12 +9,13 @@ private:
 	GLuint bufferId;
 
 protected:
-	void create();
-	void bind();
-	void setVertices();
 
 public:
+	VertexBuffer();
+	~VertexBuffer();
 
+	void bind();
+	void setVertices();
 };
 
 #endif // XA_VERTEXBUFFER_H

@@ -63,6 +63,12 @@
     <ClCompile Include="engine\rendering\ShaderProgram.cpp">
       <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\VertexArray.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\Scene.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xa-exp03.h">
@@ -99,6 +105,12 @@
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\ShaderProgram.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\Scene.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\VertexArray.h">
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>
