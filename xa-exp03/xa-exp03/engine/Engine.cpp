@@ -1,6 +1,6 @@
 #include <engine/Engine.h>
 
-void Engine::init() {
+Engine::Engine() {
 	view = new GLFWView();
 	view->setRenderer(std::make_unique<GL43Renderer>());
 }

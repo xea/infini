@@ -3,8 +3,6 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	Engine engine;
 
-	engine.init();
-
 	engine.start();
 
 	engine.stop();

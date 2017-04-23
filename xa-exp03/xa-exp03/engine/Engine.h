@@ -13,7 +13,7 @@ private:
 
 public:
 
-	void init();
+	Engine();
 	void start();
 	void stop();
 };

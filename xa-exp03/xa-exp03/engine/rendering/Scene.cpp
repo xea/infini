@@ -4,6 +4,8 @@ void Scene::init() {
 	vertexArray.bind();
 	vertexBuffer.bind();
 	vertexBuffer.setVertices();
+	elementBuffer.bind();
+	elementBuffer.setIndices();
 	vertexArray.setAttributes();
 	vertexArray.unbind();
 
@@ -24,7 +26,9 @@ void Scene::preDraw() {
 void Scene::draw() {
 	preDraw();
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	//glDrawArrays(GL_TRIANGLES, 0, 3);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	postDraw();
 }

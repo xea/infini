@@ -4,11 +4,13 @@
 #include <engine/rendering/Shader.h>
 #include <engine/rendering/ShaderProgram.h>
 #include <engine/rendering/ShaderSource.h>
+#include <engine/rendering/ElementBuffer.h>
 #include <engine/rendering/VertexArray.h>
 #include <engine/rendering/VertexBuffer.h>
 
 class Scene {
 private:
+	ElementBuffer elementBuffer;
 	VertexArray vertexArray;
 	VertexBuffer vertexBuffer;
 	ShaderProgram shaderProgram;
