@@ -16,5 +16,5 @@ void ElementBuffer::setIndices(std::shared_ptr<std::vector<GLuint>> indices) {
 
 	GLuint *data = indices->data();
 
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(data) * indices->size(), data, GL_STATIC_DRAW);
 }

@@ -21,23 +21,14 @@ public:
 	std::shared_ptr<std::vector<GLuint>> getIndices();
 
 };
-/*
-class Triangle : public Shape {
-public:
-
-	std::shared_ptr<std::vector<GLfloat>> getVertices();
-
-	std::vector<GLuint> getIndices();
-};
 
 class Square : public Shape {
-
+private:
 public:
-
 	std::shared_ptr<std::vector<GLfloat>> getVertices();
 
-	std::vector<GLuint> getIndices();
+	std::shared_ptr<std::vector<GLuint>> getIndices();
+
 };
-*/
 
 #endif // XA_SHAPE_H

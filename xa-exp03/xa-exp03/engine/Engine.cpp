@@ -12,10 +12,8 @@ void Engine::start() {
 
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
-	RenderObject renderObject(std::make_unique<Triangle>());
-	renderObject.prepare();
-
 	std::shared_ptr<RenderObject> sharedObject = std::make_shared<RenderObject>(std::make_unique<Triangle>());
+	sharedObject->prepare();
 //	scene->add(std::make_unique<RenderObject>(renderObject));
 	
 	while (!view->shouldClose()) {

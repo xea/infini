@@ -43,5 +43,5 @@ void VertexBuffer::setVertices(std::shared_ptr<std::vector<GLfloat>> vertices) {
 	GL_DYNAMIC_DRAW: the data is likely to change a lot.
 	GL_STREAM_DRAW: the data will change every time it is drawn.
 	*/
-	glBufferData(GL_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(data) * vertices->size(), data, GL_STATIC_DRAW);
 }
