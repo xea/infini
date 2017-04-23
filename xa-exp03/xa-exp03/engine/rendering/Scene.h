@@ -10,7 +10,7 @@ class Scene {
 private:
 	std::list<std::shared_ptr<RenderObject>> objects;
 public:
-	void add(std::unique_ptr<RenderObject> object);
+	void add(std::shared_ptr<RenderObject> object);
 	std::list<std::shared_ptr<RenderObject>> getObjects();
 };
 

@@ -12,17 +12,17 @@ void Engine::start() {
 
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
-	std::shared_ptr<RenderObject> sharedObject = std::make_shared<RenderObject>(std::make_unique<Triangle>());
+	std::shared_ptr<RenderObject> sharedObject = std::make_shared<RenderObject>(std::make_unique<Square>());
 	sharedObject->prepare();
-//	scene->add(std::make_unique<RenderObject>(renderObject));
+	scene->add(sharedObject);
 	
 	while (!view->shouldClose()) {
 		renderer->clearScreen();
 
 		shaderProgram.use();
 
-		renderer->drawObject(sharedObject);
-		//renderer->drawScene(scene);
+		//renderer->drawObject(sharedObject);
+		renderer->drawScene(scene);
 
 		view->swapBuffers();
 	}
