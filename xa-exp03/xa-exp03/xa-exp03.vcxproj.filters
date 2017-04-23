@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{ded28540-1a3c-43c5-a05c-c197ba260096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{0cf97051-e16d-409a-bf10-edf056be8c1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model">
+      <UniqueIdentifier>{21d9ba88-9878-4c12-8e01-0b0196747386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{7b7e05eb-8f8b-4bb6-91ec-c76df1b954ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\rendering">
+      <UniqueIdentifier>{3e0602bb-b8aa-48fa-b061-1a5e87406422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\rendering">
+      <UniqueIdentifier>{da5af765-544c-469e-bd45-7775eeb0416b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{b380707e-ef0b-493b-8928-edf997c9d085}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="xa-exp03.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\Engine.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\View.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\GLFWView.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\GL43Renderer.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\VertexBuffer.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\ShaderSource.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\Shader.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\ShaderProgram.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="xa-exp03.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Engine.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\View.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\GLFWView.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Renderer.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\GL43Renderer.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="model\Shape.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\VertexBuffer.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\ShaderSource.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\Shader.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\ShaderProgram.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
