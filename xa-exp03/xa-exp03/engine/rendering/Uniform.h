@@ -1,5 +1,5 @@
 #ifndef XA_UNIFORM_H
-#define XA_UNIFROM_H
+#define XA_UNIFORM_H
 
 class Uniform {
 public:
