@@ -1,5 +1,7 @@
 #include <engine/Engine.h>
 
+#include <cstdio>
+
 Engine::Engine() {
 	view = std::make_unique<GLFWView>();
 	renderer = std::make_unique<GL43Renderer>();
@@ -19,6 +21,8 @@ void Engine::start() {
 
 	scene->add(square);
 	scene->add(triangle);
+
+    renderer->setRenderMode(RenderMode::Wireframe);
 	
 	while (!view->shouldClose()) {
 		renderer->clearScreen();

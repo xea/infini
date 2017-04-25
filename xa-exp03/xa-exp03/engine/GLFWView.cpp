@@ -1,7 +1,18 @@
 #include "GLFWView.h"
 
+#ifndef _WIN32
+
+void error_callback(int error, const char* description);
+
+void error_callback(int error, const char* description) {
+    printf("GLFW Error %d: %s\n", error, description);
+}
+
+#endif
+
 ViewResult GLFWView::start() {
 	ViewResult status = initialiseGLFW();
+
 
 	if (status == ViewResult::NoError) {
 		status = initialiseGLEW();
@@ -15,16 +26,20 @@ void GLFWView::stop() {
 }
 
 ViewResult GLFWView::initialiseGLFW() {
+#ifndef _WIN32
+    glfwSetErrorCallback(error_callback);
+#endif
+
 	if (!glfwInit()) {
 		return ViewResult::InitialisationFailed;
 	}
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	window = glfwCreateWindow(640, 480, "Window title", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "xa experiment 03", NULL, NULL);
 
 	ViewResult result = ViewResult::NoError;
 

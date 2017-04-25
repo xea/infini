@@ -5,6 +5,7 @@ ShaderProgram::ShaderProgram() {
 }
 
 ShaderProgram::ShaderProgram(std::shared_ptr<ShaderSource> shaderSource) {
+
 	programId = glCreateProgram();
 
 	Shader vertexShader = Shader::createVertexShader(shaderSource);

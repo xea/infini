@@ -78,3 +78,9 @@ packages/
 
 #Test files
 *.testsettings
+
+# CMake files
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile
