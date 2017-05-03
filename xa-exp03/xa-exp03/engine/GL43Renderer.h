@@ -20,10 +20,14 @@
 #endif // _MSC_VER
 
 class GL43Renderer : public Renderer {
+protected:
+	std::shared_ptr<ShaderProgram> shaderProgram;
+
 public:
 	void clearScreen();
 
 //	std::unique_ptr<RenderObject> bindShape(std::shared_ptr<Shape> shape);
+	void useShaderProgram(std::shared_ptr<ShaderProgram> program);
 
 	void drawScene(std::shared_ptr<Scene> scene);
 

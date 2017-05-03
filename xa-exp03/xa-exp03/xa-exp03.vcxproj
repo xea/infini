@@ -148,7 +148,6 @@
     <ClCompile Include="engine\GLFWView.cpp" />
     <ClCompile Include="engine\rendering\ElementBuffer.cpp" />
     <ClCompile Include="engine\rendering\RenderObject.cpp" />
-    <ClCompile Include="engine\rendering\RenderState.cpp" />
     <ClCompile Include="engine\rendering\Scene.cpp" />
     <ClCompile Include="engine\rendering\Shader.cpp" />
     <ClCompile Include="engine\rendering\ShaderProgram.cpp" />
@@ -167,7 +166,6 @@
     <ClInclude Include="engine\Renderer.h" />
     <ClInclude Include="engine\rendering\ElementBuffer.h" />
     <ClInclude Include="engine\rendering\RenderObject.h" />
-    <ClInclude Include="engine\rendering\RenderState.h" />
     <ClInclude Include="engine\rendering\Scene.h" />
     <ClInclude Include="engine\rendering\Shader.h" />
     <ClInclude Include="engine\rendering\ShaderProgram.h" />

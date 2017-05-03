@@ -2,16 +2,16 @@
 #define XA_SHADERPROGRAM_H
 
 #include <list>
+#include <string>
 #include <engine/rendering/Shader.h>
 #include <engine/rendering/ShaderSource.h>
 #include <engine/rendering/Uniform.h>
+#include <glm/glm.hpp>
 
 class ShaderProgram {
 private:
 
 	std::list<Shader> shaders;
-
-	std::unique_ptr<Uniform> uniforms;
 
 public:
 	GLuint programId;
@@ -22,7 +22,7 @@ public:
 
 	void addShader(Shader shader);
 
-	void bindUniforms(std::unique_ptr<Uniforms> uniforms);
+	void bindUniform(std::string& name, std::shared_ptr<Uniform> uniform);
 
 	void link();
 

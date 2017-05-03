@@ -5,8 +5,16 @@ void GL43Renderer::clearScreen() {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
+void GL43Renderer::useShaderProgram(std::shared_ptr<ShaderProgram> program) {
+	this->shaderProgram = program;
+	program->use();
+}
+
 void GL43Renderer::drawScene(std::shared_ptr<Scene> scene) {
 	for (auto& object : scene->getObjects()) {
+		// bind object-specific uniforms
+		shaderProgram->bindUniform("transform", std::make_shared<Uniform>());
+
 		drawObject(object);
 	}
 

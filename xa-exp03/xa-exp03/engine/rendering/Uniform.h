@@ -3,8 +3,8 @@
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <memory>
-#include <string>
 
 class Uniforms {
 private:
@@ -13,13 +13,13 @@ private:
 
 class Uniform {
 public:
-	virtual std::string& getName() = 0;
+	virtual void bind(GLint location) = 0;
 };
 
 class UniformMatrix4f : public Uniform {
 public:
-	std::string& getName();
 
+	void bind(GLint location);
 };
 
 #endif // XA_UNIFORM_H

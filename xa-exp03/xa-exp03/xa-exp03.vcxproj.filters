@@ -81,9 +81,6 @@
     <ClCompile Include="engine\rendering\Uniform.cpp">
       <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="engine\rendering\RenderState.cpp">
-      <Filter>Source Files\engine\rendering</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xa-exp03.h">
@@ -135,9 +132,6 @@
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\Uniform.h">
-      <Filter>Header Files\engine\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\rendering\RenderState.h">
       <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>

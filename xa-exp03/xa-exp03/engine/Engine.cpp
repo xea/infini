@@ -10,9 +10,8 @@ Engine::Engine() {
 void Engine::start() {
 	view->start();
 
-	ShaderProgram shaderProgram(std::make_shared<DefaultShaderSource>());
-
 	// TODO clean this up a bit
+	std::shared_ptr<ShaderProgram> shaderProgram = std::make_shared<ShaderProgram>(std::make_shared<DefaultShaderSource>());
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
 	std::shared_ptr<RenderObject> square = std::make_shared<RenderObject>(std::make_unique<Square>());
@@ -28,8 +27,7 @@ void Engine::start() {
 	while (!view->shouldClose()) {
 		renderer->clearScreen();
 
-		shaderProgram.use();
-
+		renderer->useShaderProgram(shaderProgram);
 		renderer->drawScene(scene);
 
 		view->swapBuffers();

@@ -17,3 +17,7 @@ void RenderObject::prepare() {
 	vertexBuffer.unbind();
 	vertexArray.unbind();
 }
+
+std::shared_ptr<glm::mat4> RenderObject::getTransform() {
+	return std::make_shared<glm::mat4>(this->transform);
+}
