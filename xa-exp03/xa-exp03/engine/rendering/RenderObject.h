@@ -5,6 +5,7 @@
 #include <engine/rendering/VertexArray.h>
 #include <engine/rendering/VertexBuffer.h>
 #include <engine/rendering/ElementBuffer.h>
+#include <engine/rendering/RenderState.h>
 #include <model/Shape.h>
 
 class RenderObject {
@@ -15,6 +16,7 @@ public:
 	ElementBuffer elementBuffer;
 
 	std::shared_ptr<Shape> shape;
+	std::unique_ptr<RenderState> state;
 
 	RenderObject(std::shared_ptr<Shape> shape);
 

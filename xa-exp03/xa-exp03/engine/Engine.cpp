@@ -12,6 +12,7 @@ void Engine::start() {
 
 	ShaderProgram shaderProgram(std::make_shared<DefaultShaderSource>());
 
+	// TODO clean this up a bit
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
 	std::shared_ptr<RenderObject> square = std::make_shared<RenderObject>(std::make_unique<Square>());

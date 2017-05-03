@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\..\lib\glm-0.9.8.4\glm;$(SolutionDir)\..\lib\glew-2.0.0\include;$(SolutionDir)\..\lib\glfw-3.2.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\..\lib\glm-0.9.8.4;$(SolutionDir)\..\lib\glew-2.0.0\include;$(SolutionDir)\..\lib\glfw-3.2.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\..\lib\glfw-3.2.1\lib\Win32;$(SolutionDir)\..\lib\glew-2.0.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -148,10 +148,12 @@
     <ClCompile Include="engine\GLFWView.cpp" />
     <ClCompile Include="engine\rendering\ElementBuffer.cpp" />
     <ClCompile Include="engine\rendering\RenderObject.cpp" />
+    <ClCompile Include="engine\rendering\RenderState.cpp" />
     <ClCompile Include="engine\rendering\Scene.cpp" />
     <ClCompile Include="engine\rendering\Shader.cpp" />
     <ClCompile Include="engine\rendering\ShaderProgram.cpp" />
     <ClCompile Include="engine\rendering\ShaderSource.cpp" />
+    <ClCompile Include="engine\rendering\Uniform.cpp" />
     <ClCompile Include="engine\rendering\VertexArray.cpp" />
     <ClCompile Include="engine\rendering\VertexBuffer.cpp" />
     <ClCompile Include="engine\View.cpp" />
@@ -165,10 +167,12 @@
     <ClInclude Include="engine\Renderer.h" />
     <ClInclude Include="engine\rendering\ElementBuffer.h" />
     <ClInclude Include="engine\rendering\RenderObject.h" />
+    <ClInclude Include="engine\rendering\RenderState.h" />
     <ClInclude Include="engine\rendering\Scene.h" />
     <ClInclude Include="engine\rendering\Shader.h" />
     <ClInclude Include="engine\rendering\ShaderProgram.h" />
     <ClInclude Include="engine\rendering\ShaderSource.h" />
+    <ClInclude Include="engine\rendering\Uniform.h" />
     <ClInclude Include="engine\rendering\VertexArray.h" />
     <ClInclude Include="engine\rendering\VertexBuffer.h" />
     <ClInclude Include="engine\View.h" />

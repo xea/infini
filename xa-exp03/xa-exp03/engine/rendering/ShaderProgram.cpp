@@ -62,3 +62,7 @@ void ShaderProgram::destroy() {
 		shader.destroy();
 	}
 }
+
+void ShaderProgram::bindUniforms(std::unique_ptr<Uniforms> uniforms) {
+	GLuint location = glGetUniformLocation(programId, "uniformname");
+}
