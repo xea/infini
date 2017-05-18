@@ -17,6 +17,8 @@ public:
     ~GLFWView();
 
     void swapBuffers() override;
+
+    bool closeRequested() override;
 };
 
 #endif // XA_GLFWVIEW_H

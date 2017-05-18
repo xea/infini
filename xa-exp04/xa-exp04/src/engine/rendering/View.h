@@ -12,6 +12,11 @@ public:
      * Swap frame buffers, displaying the frame being drawn to.
      */
     virtual void swapBuffers() = 0;
+
+    /**
+     * Indicates whether the user requested the window to close eg. by clicking on the window's close button.
+     */
+    virtual bool closeRequested() = 0;
 };
 
 #endif // XA_VIEW_H

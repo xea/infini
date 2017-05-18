@@ -27,3 +27,13 @@ void GLFWView::swapBuffers() {
     glfwPollEvents();
     glfwSwapBuffers(window);
 }
+
+bool GLFWView::closeRequested() {
+    bool closeRequested = false;
+
+    if (glfwWindowShouldClose(window)) {
+        closeRequested = true;
+    }
+
+    return closeRequested;
+}

@@ -23,10 +23,12 @@ void Engine::start() {
 
     Scene scene = director.getScene();
 
-    while (true) {
+    while (!view->closeRequested()) {
         renderer->clearScreen();
         renderer->drawScene(scene);
 
         view->swapBuffers();
     }
+
+    logger->info("Close requested, shutting down");
 }
