@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <engine/rendering/Renderer.h>
+#include <engine/rendering/RenderObject.h>
 
 #ifdef _MSC_VER
 
@@ -17,6 +18,7 @@
  */
 class GLEWRenderer : public Renderer {
 protected:
+    void drawObject(RenderObject& object);
 public:
     GLEWRenderer();
 
@@ -25,6 +27,7 @@ public:
     void setRenderMode(RenderMode mode) override;
 
     void drawScene(Scene& scene) override;
+
 };
 
 #endif // XA_GLEWRENDERER_H

@@ -2,6 +2,9 @@
 #define XA_SCENE_H
 
 #include <memory>
+#include <vector>
+
+#include <engine/rendering/RenderObject.h>
 
 using namespace std;
 
@@ -10,10 +13,10 @@ using namespace std;
  * current frame.
  */
 class Scene {
+protected:
+    
 
 public:
-    
-    
 };
 
 /**

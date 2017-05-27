@@ -10,6 +10,9 @@ using namespace std;
  */
 class RenderObject {
 public:
+    virtual void bind() = 0;
+
+    virtual void unbind() = 0;
 };
 
 #endif // XA_RENDEROBJECT_H

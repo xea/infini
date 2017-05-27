@@ -26,4 +26,20 @@ void GLEWRenderer::setRenderMode(RenderMode mode) {
 }
 
 void GLEWRenderer::drawScene(Scene& scene) {
+    // bind shaders
+
+    for (auto object : scene.getObjects()) {
+        
+    }
+}
+
+void GLEWRenderer::drawObject(RenderObject& renderObject) {
+    renderObject.bind();
+    // bind vertex array
+    // bind uniforms
+
+    // draw vertices
+
+    // unbind vertex array
+    renderObject.unbind();
 }
