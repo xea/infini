@@ -21,6 +21,11 @@ void Engine::start() {
 
     Director director;
 
+    ShaderProgram shaderProgram = ShaderProgram::getDefault();
+
+//    Result<int, float> r = Result<int, int>::ok(12);
+ //   Result<float, float> r2 = r.map([](int i) -> float { return 0.0f; });
+
     Scene scene = director.getScene();
 
     while (!view->closeRequested()) {

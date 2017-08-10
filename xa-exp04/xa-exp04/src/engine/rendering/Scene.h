@@ -5,6 +5,7 @@
 #include <vector>
 
 #include <engine/rendering/RenderObject.h>
+#include <engine/rendering/Primitives.h>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ protected:
     
 
 public:
+    std::vector<std::shared_ptr<RenderObject>> getObjects();
 };
 
 /**

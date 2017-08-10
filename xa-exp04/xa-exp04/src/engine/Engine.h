@@ -12,6 +12,7 @@
 
 // TODO find a better place for these
 #include <engine/rendering/Director.h>
+#include <engine/rendering/gl/ShaderProgram.h>
 
 // TODO remove these two includes once initialisation has been designed properly
 

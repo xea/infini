@@ -2,6 +2,7 @@
 #define XA_DIRECTOR_H
 
 #include <engine/rendering/Scene.h>
+#include <engine/rendering/Primitives.h>
 
 /**
  * Directors decide what contents of the world get rendered on the current scene. Thus, they provide a link

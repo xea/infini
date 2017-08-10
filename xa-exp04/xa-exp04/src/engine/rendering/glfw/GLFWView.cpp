@@ -24,8 +24,8 @@ GLFWView::~GLFWView() {
 }
 
 void GLFWView::swapBuffers() {
-    glfwPollEvents();
     glfwSwapBuffers(window);
+    glfwPollEvents();
 }
 
 bool GLFWView::closeRequested() {
