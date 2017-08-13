@@ -9,7 +9,7 @@ const float* Triangle::getVertices() {
 }
 
 unsigned int Triangle::getVerticesCount() {
-    return sizeof(this->vertices);
+    return sizeof(this->vertices) / sizeof(const float);
 }
 
 const unsigned int* Triangle::getIndices() {
@@ -17,5 +17,5 @@ const unsigned int* Triangle::getIndices() {
 }
 
 unsigned int Triangle::getIndicesCount() {
-    return sizeof(this->indices);
+    return sizeof(this->indices) / sizeof(unsigned int);
 }

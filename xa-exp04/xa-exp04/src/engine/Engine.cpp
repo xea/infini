@@ -28,6 +28,8 @@ void Engine::start() {
 
     Scene scene = director.getScene();
 
+    shaderProgram.use();
+
     while (!view->closeRequested()) {
         renderer->clearScreen();
         renderer->drawScene(scene);
