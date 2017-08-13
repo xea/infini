@@ -5,7 +5,8 @@
 #include <vector>
 
 #include <engine/rendering/RenderObject.h>
-#include <engine/rendering/Primitives.h>
+#include <engine/rendering/glew/GLEWRenderObject.h>
+#include <engine/rendering/Mesh.h>
 
 using namespace std;
 

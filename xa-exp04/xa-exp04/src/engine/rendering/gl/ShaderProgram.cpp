@@ -1,7 +1,5 @@
 #include <engine/rendering/gl/ShaderProgram.h>
 
-
-
 ShaderProgram::ShaderProgram() {
     programId = glCreateProgram();
 

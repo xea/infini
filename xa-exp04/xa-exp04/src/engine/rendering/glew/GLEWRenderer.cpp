@@ -1,11 +1,15 @@
 #include <engine/rendering/glew/GLEWRenderer.h>
 
 GLEWRenderer::GLEWRenderer() {
+    logger = Logger::getInstance("GLEWRenderer"); 
+
     GLenum initResult = glewInit();
 
     if (GLEW_OK != initResult) {
         // TODO error handling
     }
+
+    logger->info("Initialisation OK");
 }
 
 void GLEWRenderer::clearScreen() {
@@ -15,6 +19,8 @@ void GLEWRenderer::clearScreen() {
 }
 
 void GLEWRenderer::setRenderMode(RenderMode mode) {
+    logger->info("Setting render mode");
+
     switch (mode) {
     case RenderMode::Wireframe:
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -26,20 +32,21 @@ void GLEWRenderer::setRenderMode(RenderMode mode) {
 }
 
 void GLEWRenderer::drawScene(Scene& scene) {
-    // bind shaders
+    // bind optional scene-specific shaders
 
     for (auto object : scene.getObjects()) {
-        
+        this->drawObject(object);
     }
 }
 
-void GLEWRenderer::drawObject(RenderObject& renderObject) {
-    renderObject.bind();
+void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
+    renderObject->bind();
     // bind vertex array
     // bind uniforms
 
     // draw vertices
+    renderObject->draw();
 
     // unbind vertex array
-    renderObject.unbind();
+    renderObject->unbind();
 }
