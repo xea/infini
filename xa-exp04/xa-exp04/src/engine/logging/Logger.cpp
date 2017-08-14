@@ -8,6 +8,44 @@ shared_ptr<Logger> Logger::getInstance(string name) {
 #endif
 }
 
+shared_ptr<Logger> Logger::getDefault() {
+    return defaultLogger;
+    /*
+    if (Logger::defaultInitialised) {
+        return Logger::defaultInstance;
+    } else {
+        Logger::defaultInstance = Logger::getInstance("Default");
+        Logger::defaultInitialised = true;
+
+        return defaultInstance;
+    }
+    */
+}
+
+/*
+void Logger::message(LogLevel level, string format, ...) {
+    string message;
+
+    va_list args;
+    va_start(args, format);
+    va_end(args);
+
+    switch (level) {
+        case LogLevel::DEBUG:
+            debug(format);
+            break;
+        case LogLevel::INFO:
+            info(format);
+            break;
+        case LogLevel::WARNING:
+            warn(format);
+            break;
+        case LogLevel::ERROR:
+            error(format);
+            break;
+    }
+}*/
+
 string Logger::format(string level, string name, string message) {
     string msg;
 

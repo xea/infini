@@ -2,10 +2,13 @@
 #define XA_SHADERPROGRAM_H
 
 #include <engine/rendering/gl/Shader.h>
+#include <engine/logging/Logger.h>
 
 class ShaderProgram {
 private:
     int programId;
+protected:
+    string getResult();
 public:
     ShaderProgram();
     void attachShader(Shader shader);

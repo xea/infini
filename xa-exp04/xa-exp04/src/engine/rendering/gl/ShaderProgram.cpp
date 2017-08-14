@@ -7,6 +7,10 @@ ShaderProgram::ShaderProgram() {
 
 void ShaderProgram::attachShader(Shader shader) {
     glAttachShader(programId, shader.getShaderId());
+
+    string message = "Shader attached: ";
+    message.push_back(shader.getShaderId() + '0');
+    Logger::getDefault()->info(message);
 }
 
 void ShaderProgram::deleteShader(Shader shader) {
@@ -15,10 +19,27 @@ void ShaderProgram::deleteShader(Shader shader) {
 
 void ShaderProgram::link() {
     glLinkProgram(programId);
+    Logger::getDefault()->info("Shader linked");
+    Logger::getDefault()->info(getResult());
 }
 
 void ShaderProgram::use() {
+    Logger::getDefault()->info("Using shader program");
     glUseProgram(programId);
+}
+
+string ShaderProgram::getResult() {
+    string result;
+    int success;
+    char infoLog[512];
+    glGetProgramiv(programId, GL_LINK_STATUS, &success);
+    if (!success) {
+        glGetProgramInfoLog(programId, 512, NULL, infoLog);
+         result.append("ERROR::SHADER::PROGRAM::LINKING_FAILED\n");
+         result.append(infoLog); 
+    }
+
+    return result;
 }
 
 ShaderProgram ShaderProgram::getDefault() {

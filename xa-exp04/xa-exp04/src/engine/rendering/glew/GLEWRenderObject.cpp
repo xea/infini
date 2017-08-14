@@ -16,11 +16,9 @@ GLEWRenderObject::GLEWRenderObject(std::shared_ptr<Mesh> mesh) {
 }
 
 void GLEWRenderObject::bind() {
-    logger->info("Bind");
 }
 
 void GLEWRenderObject::unbind() {
-    logger->info("Unbind");
 }
 
 void GLEWRenderObject::draw() {

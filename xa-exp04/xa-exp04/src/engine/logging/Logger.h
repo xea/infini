@@ -1,6 +1,7 @@
 #ifndef XA_LOGGER_H
 #define XA_LOGGER_H
 
+#include <cstdarg>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -19,6 +20,13 @@ public:
 	void setTarget(string& target);
 };
 
+enum class LogLevel : unsigned int {
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR
+};
+
 /**
  * Basic implementation for logging functionality
  */
@@ -26,10 +34,12 @@ class Logger {
 protected: 
 	string name;
 
-	static string format(string level, string name, string message);
+	LogLevel level;
 
+	static string format(string level, string name, string message);
 public:
 	static shared_ptr<Logger> getInstance(string name);
+	static shared_ptr<Logger> getDefault();
 
 	virtual void debug(string message) = 0;
 	virtual void info(string message) = 0;
@@ -38,6 +48,8 @@ public:
 	virtual void crit(string message) = 0;
 
 };
+
+static const shared_ptr<Logger> defaultLogger = Logger::getInstance("Default");
 
 class StdoutLogger : public Logger {
 public:
