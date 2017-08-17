@@ -2,6 +2,7 @@
 #define XA_RENDERER_H
 
 #include <engine/rendering/Scene.h>
+#include <memory>
 
 /**
  * Items of RenderMode represent various ways the rendering engine is capable of working in.
@@ -33,7 +34,7 @@ public:
      * Render a whole scene onto the selected target view along with all the
      * render objects the scene contains
      */
-    virtual void drawScene(Scene& scene) = 0;
+    virtual void drawScene(std::shared_ptr<Scene> scene) = 0;
 };
 
 #endif // XA_RENDERER_H

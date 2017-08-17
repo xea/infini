@@ -5,6 +5,8 @@
 #include <engine/rendering/Mesh.h>
 #include <memory>
 
+using namespace std;
+
 class ElementBuffer {
 private:
     unsigned int bufferId;

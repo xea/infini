@@ -7,13 +7,13 @@
 #include <engine/rendering/gl/VertexArray.h>
 #include <engine/rendering/gl/ArrayBuffer.h>
 #include <engine/rendering/gl/ElementBuffer.h>
-#include <engine/logging/Logger.h>
 #include <memory>
+
+using namespace std;
 
 class GLEWRenderObject : public RenderObject {
 private:
     std::shared_ptr<Mesh> mesh;
-    std::shared_ptr<Logger> logger;
 
     VertexArray vertexArray;
     ArrayBuffer arrayBuffer;

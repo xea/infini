@@ -5,6 +5,7 @@
 #include <engine/rendering/Renderer.h>
 #include <engine/rendering/RenderObject.h>
 #include <engine/logging/Logger.h>
+#include <memory>
 
 #ifdef _MSC_VER
 
@@ -29,7 +30,7 @@ public:
 
     void setRenderMode(RenderMode mode) override;
 
-    void drawScene(Scene& scene) override;
+    void drawScene(std::shared_ptr<Scene> scene) override;
 
 };
 

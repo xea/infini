@@ -19,14 +19,19 @@ protected:
     
 
 public:
-    std::vector<std::shared_ptr<RenderObject>> getObjects();
+    virtual std::vector<std::shared_ptr<RenderObject>> getObjects() = 0;
 };
 
 /**
  * A simplistic Scene implementation that's purpose is to test basic functionalities
  */
 class DemoScene : public Scene {
+private:
+    std::vector<std::shared_ptr<RenderObject>> objects;
+public:
+    DemoScene();
 
+    std::vector<std::shared_ptr<RenderObject>> getObjects();
 };
 
 #endif // XA_SCENE_H

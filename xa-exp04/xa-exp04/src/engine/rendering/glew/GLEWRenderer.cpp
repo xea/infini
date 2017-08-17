@@ -31,10 +31,9 @@ void GLEWRenderer::setRenderMode(RenderMode mode) {
     }
 }
 
-void GLEWRenderer::drawScene(Scene& scene) {
+void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
     // bind optional scene-specific shaders
-
-    for (auto object : scene.getObjects()) {
+    for (auto object : scene->getObjects()) {
         this->drawObject(object);
     }
 }

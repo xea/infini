@@ -2,6 +2,7 @@
 #define XA_DIRECTOR_H
 
 #include <engine/rendering/Scene.h>
+#include <memory>
 
 /**
  * Directors decide what contents of the world get rendered on the current scene. Thus, they provide a link
@@ -9,7 +10,7 @@
  */
 class Director {
 public:
-    Scene getScene();
+    std::shared_ptr<Scene> getScene();
 };
 
 #endif // XA_DIRECTOR_H

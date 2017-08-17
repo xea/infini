@@ -1,5 +1,5 @@
 #include <engine/rendering/Director.h>
 
-Scene Director::getScene() {
-    return DemoScene();
+std::shared_ptr<Scene> Director::getScene() {
+    return std::make_shared<DemoScene>();
 }

@@ -38,7 +38,6 @@ void Shader::setSource(const char **shaderSource) {
 
 void Shader::compile() {
     glCompileShader(shaderId);
-    Logger::getDefault()->info("Shader compiled");
 }
 
 string Shader::getResult() {
@@ -62,6 +61,7 @@ int Shader::getShaderId() {
 }
 
 Shader::Shader(ShaderType shaderType) {
+
     switch (shaderType) {
         case ShaderType::VertexShader:
             shaderId = glCreateShader(GL_VERTEX_SHADER);

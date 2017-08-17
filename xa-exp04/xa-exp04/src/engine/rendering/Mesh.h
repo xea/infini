@@ -19,7 +19,7 @@ private:
     constexpr static float vertices[] = { 
          0.0f,  0.5f, 0.0f, 
         -0.5f, -0.5f, 0.0f,
-         0.5f,  0.5f, 0.0f
+         0.5f, -0.5f, 0.0f
     };
 
     constexpr static unsigned int indices[] = { 0, 1, 2 };

@@ -26,7 +26,7 @@ void Engine::start() {
 //    Result<int, float> r = Result<int, int>::ok(12);
  //   Result<float, float> r2 = r.map([](int i) -> float { return 0.0f; });
 
-    Scene scene = director.getScene();
+    std::shared_ptr<Scene> scene = director.getScene();
 
     shaderProgram.use();
 
