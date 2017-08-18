@@ -13,6 +13,7 @@ private:
 public:
     ArrayBuffer();
     void bindMesh(std::shared_ptr<Mesh> mesh);
+    void unbind();
 };
 
 #endif // XA_ARRAYBUFFER_H

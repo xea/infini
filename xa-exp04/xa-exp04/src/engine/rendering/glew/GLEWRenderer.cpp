@@ -31,7 +31,14 @@ void GLEWRenderer::setRenderMode(RenderMode mode) {
     }
 }
 
+void GLEWRenderer::useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) {
+    this->shaderProgram = shaderProgram;
+
+    uniformLocations = shaderProgram->use();
+}
+
 void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
+
     // bind optional scene-specific shaders
     for (auto object : scene->getObjects()) {
         this->drawObject(object);
@@ -39,7 +46,7 @@ void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
 }
 
 void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
-    renderObject->bind();
+    renderObject->bind(uniformLocations);
     // bind vertex array
     // bind uniforms
 

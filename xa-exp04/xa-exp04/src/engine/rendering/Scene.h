@@ -6,6 +6,7 @@
 
 #include <engine/rendering/RenderObject.h>
 #include <engine/rendering/glew/GLEWRenderObject.h>
+#include <engine/rendering/gl/Uniform.h>
 #include <engine/rendering/Mesh.h>
 
 using namespace std;

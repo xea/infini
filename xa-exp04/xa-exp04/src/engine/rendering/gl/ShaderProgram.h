@@ -2,19 +2,29 @@
 #define XA_SHADERPROGRAM_H
 
 #include <engine/rendering/gl/Shader.h>
+#include <engine/rendering/gl/Uniform.h>
+#include <memory>
+
+enum class UniformType : unsigned int {
+    TransformationMatrix
+};
 
 class ShaderProgram {
 private:
     int programId;
+
 protected:
     string getResult();
 public:
     ShaderProgram();
     void attachShader(Shader shader);
     void deleteShader(Shader shader);
-    void use();
+    UniformLocations use();
     void link();
-    static ShaderProgram getDefault();
+    unsigned int getUniformLocation(UniformType type);
+    UniformLocations getUniformLocations();
+
+    static std::shared_ptr<ShaderProgram> getDefault();
 };
 
 #endif // XA_SHADERPROGRAM_H

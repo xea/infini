@@ -3,7 +3,7 @@
 DemoScene::DemoScene() {
     auto objects = std::vector<std::shared_ptr<RenderObject>> {};
 
-    auto triangle = std::make_shared<Triangle>();
+    auto triangle = std::make_shared<Cube>();
     auto obj = std::make_shared<GLEWRenderObject>(triangle);
     objects.push_back(obj);
 

@@ -14,10 +14,12 @@ void ShaderProgram::deleteShader(Shader shader) {
 
 void ShaderProgram::link() {
     glLinkProgram(programId);
+    Logger::getDefault()->info(getResult());
 }
 
-void ShaderProgram::use() {
+UniformLocations ShaderProgram::use() {
     glUseProgram(programId);
+    return getUniformLocations();
 }
 
 string ShaderProgram::getResult() {
@@ -34,15 +36,35 @@ string ShaderProgram::getResult() {
     return result;
 }
 
-ShaderProgram ShaderProgram::getDefault() {
-    ShaderProgram program;
+unsigned int ShaderProgram::getUniformLocation(UniformType type) {
+    unsigned int uniformLocation;
 
-    Shader vs = Shader::loadShader("", ShaderType::VertexShader);
-    Shader fs = Shader::loadShader("", ShaderType::FragmentShader);
+    switch (type) {
+        case UniformType::TransformationMatrix:
+            uniformLocation = glGetUniformLocation(programId, "transformation");
+            break;
+    }
 
-    program.attachShader(vs);
-    program.attachShader(fs);
-    program.link();
+    return uniformLocation;
+}
+
+UniformLocations ShaderProgram::getUniformLocations() {
+    UniformLocations locations;
+
+    locations.transformation = getUniformLocation(UniformType::TransformationMatrix);
+
+    return locations;
+}
+
+std::shared_ptr<ShaderProgram> ShaderProgram::getDefault() {
+    std::shared_ptr<ShaderProgram> program = std::make_shared<ShaderProgram>();
+
+    Shader vs = Shader::loadShader("default.vs", ShaderType::VertexShader);
+    Shader fs = Shader::loadShader("default.fs", ShaderType::FragmentShader);
+
+    program->attachShader(vs);
+    program->attachShader(fs);
+    program->link();
 
     return program;
 }

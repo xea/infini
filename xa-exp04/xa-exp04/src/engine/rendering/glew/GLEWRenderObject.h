@@ -7,6 +7,7 @@
 #include <engine/rendering/gl/VertexArray.h>
 #include <engine/rendering/gl/ArrayBuffer.h>
 #include <engine/rendering/gl/ElementBuffer.h>
+#include <engine/rendering/gl/Uniform.h>
 #include <memory>
 
 using namespace std;
@@ -18,11 +19,12 @@ private:
     VertexArray vertexArray;
     ArrayBuffer arrayBuffer;
     ElementBuffer elementBuffer;
-    
+
+    GLenum convertVertexMode();
 public:
     GLEWRenderObject(std::shared_ptr<Mesh> mesh);
 
-    void bind() override;
+    void bind(UniformLocations uniformLocations) override;
 
     void draw() override;
 

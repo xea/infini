@@ -11,11 +11,14 @@ GLEWRenderObject::GLEWRenderObject(std::shared_ptr<Mesh> mesh) {
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
+
+    arrayBuffer.unbind();
+    vertexArray.unbind();
 }
 
-void GLEWRenderObject::bind() {
+void GLEWRenderObject::bind(UniformLocations uniformLocations) {
+    glUniformMatrix4fv(uniformLocations.transformation, 1, GL_FALSE, uniform.transformation.getValuePtr());
+//    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transformation_matrix));
 }
 
 void GLEWRenderObject::unbind() {
@@ -28,7 +31,19 @@ void GLEWRenderObject::draw() {
     int vtxCount = this->mesh->getVerticesCount();
     int idxCount = this->mesh->getIndicesCount();
 
-    glDrawElements(GL_TRIANGLES, vtxCount, GL_UNSIGNED_INT, 0);
+    glDrawElements(convertVertexMode(), vtxCount, GL_UNSIGNED_INT, 0);
+}
+
+GLenum GLEWRenderObject::convertVertexMode() {
+    GLenum mode;
+
+    switch (this->mesh->getMode()) {
+        case VertexMode::Triangles:
+            mode = GL_TRIANGLES;
+            break;
+    }
+
+    return mode;
 }
 
 std::shared_ptr<Mesh> GLEWRenderObject::getMesh() {

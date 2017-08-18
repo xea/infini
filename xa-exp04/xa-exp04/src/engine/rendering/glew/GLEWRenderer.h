@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include <engine/rendering/Renderer.h>
 #include <engine/rendering/RenderObject.h>
+#include <engine/rendering/gl/Uniform.h>
 #include <engine/logging/Logger.h>
 #include <memory>
 
@@ -21,6 +22,8 @@
 class GLEWRenderer : public Renderer {
 private:
     std::shared_ptr<Logger> logger;
+    UniformLocations uniformLocations;
+    std::shared_ptr<ShaderProgram> shaderProgram;
 protected:
     void drawObject(std::shared_ptr<RenderObject> object);
 public:
@@ -31,6 +34,8 @@ public:
     void setRenderMode(RenderMode mode) override;
 
     void drawScene(std::shared_ptr<Scene> scene) override;
+
+    void useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) override;
 
 };
 

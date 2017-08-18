@@ -2,6 +2,7 @@
 #define XA_RENDERER_H
 
 #include <engine/rendering/Scene.h>
+#include <engine/rendering/gl/ShaderProgram.h>
 #include <memory>
 
 /**
@@ -29,6 +30,8 @@ public:
      * Select which render mode the next frame should be rendered in.
      */
     virtual void setRenderMode(RenderMode mode) = 0;
+
+    virtual void useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) = 0;
 
     /**
      * Render a whole scene onto the selected target view along with all the

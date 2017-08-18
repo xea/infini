@@ -13,6 +13,7 @@
 // TODO find a better place for these
 #include <engine/rendering/Director.h>
 #include <engine/rendering/gl/ShaderProgram.h>
+#include <engine/rendering/gl/Uniform.h>
 
 // TODO remove these two includes once initialisation has been designed properly
 

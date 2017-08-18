@@ -2,6 +2,7 @@
 #define XA_RENDEROBJECT_H
 
 #include <engine/rendering/Mesh.h>
+#include <engine/rendering/gl/Uniform.h>
 #include <memory>
 #include <vector>
 
@@ -13,9 +14,10 @@ using namespace std;
 class RenderObject {
 
 protected:
+    Uniform uniform;
 
 public:
-    virtual void bind() = 0;
+    virtual void bind(UniformLocations uniformLocations) = 0;
 
     virtual void draw() = 0;
 

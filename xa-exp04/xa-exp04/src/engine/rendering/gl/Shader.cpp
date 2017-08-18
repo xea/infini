@@ -1,34 +1,14 @@
 #include <engine/rendering/gl/Shader.h>
 
 Shader Shader::loadShader(std::string filename, ShaderType shaderType) {
-    const char *shaderSource;
+    string fileContent = FileSource::getFileContents(filename);
 
-    // TODO implement actual shader loading
-    
-    switch (shaderType) {
-        case ShaderType::VertexShader:
-            shaderSource = 
-                "#version 330 core\n"
-                "layout (location = 0) in vec3 aPos;\n"
-                "void main()\n"
-                "{\n"
-                "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-                "}\0";
-                break;
-        case ShaderType::FragmentShader:
-            shaderSource = 
-                "#version 330 core\n"
-                "out vec4 FragColor;\n"
-                "void main()\n"
-                "{\n"
-                "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-                "}\n\0";
-                break;
-    }
+    const char *shaderSource = fileContent.data();
 
     Shader shader(shaderType);
     shader.setSource(&shaderSource);
     shader.compile();
+
     return shader;
 }
 
@@ -58,6 +38,10 @@ string Shader::getResult() {
 
 int Shader::getShaderId() {
     return this->shaderId;
+}
+
+unsigned int Shader::getShaderLocation(string varName) {
+    return glGetUniformLocation(shaderId, varName.c_str());
 }
 
 Shader::Shader(ShaderType shaderType) {
