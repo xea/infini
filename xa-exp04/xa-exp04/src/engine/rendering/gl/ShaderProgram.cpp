@@ -59,8 +59,8 @@ UniformLocations ShaderProgram::getUniformLocations() {
 std::shared_ptr<ShaderProgram> ShaderProgram::getDefault() {
     std::shared_ptr<ShaderProgram> program = std::make_shared<ShaderProgram>();
 
-    Shader vs = Shader::loadShader("default.vs", ShaderType::VertexShader);
-    Shader fs = Shader::loadShader("default.fs", ShaderType::FragmentShader);
+    Shader vs = Shader::loadShader("shader/default.vs", ShaderType::VertexShader);
+    Shader fs = Shader::loadShader("shader/default.fs", ShaderType::FragmentShader);
 
     program->attachShader(vs);
     program->attachShader(fs);

@@ -3,6 +3,8 @@
 
 #include <GL/glew.h>
 #include <engine/rendering/Mesh.h>
+#include <engine/logging/Logger.h>
+#include <string>
 #include <memory>
 
 using namespace std;

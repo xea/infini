@@ -53,8 +53,24 @@ private:
     };
 
     constexpr static unsigned int indices[] = {
-        0, 1, 2,
-        1, 2, 3,
+        // top 
+        0, 2, 4,
+        2, 4, 6,
+        // bottom 
+        1, 3, 5,
+        3, 5, 7,
+        // left 
+        0, 1, 4,
+        1, 4, 5,
+        // right 
+        2, 3, 6,
+        3, 6, 7,
+        // front 
+        0, 1, 2, // y g b
+        1, 2, 3, // b r y
+        // back 
+        4, 5, 6, // w p cy
+        5, 6, 7
     };
 public:
     Cube();

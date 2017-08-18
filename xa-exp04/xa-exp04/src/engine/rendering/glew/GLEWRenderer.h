@@ -7,6 +7,8 @@
 #include <engine/rendering/gl/Uniform.h>
 #include <engine/logging/Logger.h>
 #include <memory>
+#include <chrono>
+#include <thread>
 
 #ifdef _MSC_VER
 
@@ -24,6 +26,9 @@ private:
     std::shared_ptr<Logger> logger;
     UniformLocations uniformLocations;
     std::shared_ptr<ShaderProgram> shaderProgram;
+    std::chrono::system_clock::time_point lastFrame;
+    unsigned int frameRateLimit;
+    unsigned int frameMs;
 protected:
     void drawObject(std::shared_ptr<RenderObject> object);
 public:
@@ -37,6 +42,9 @@ public:
 
     void useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) override;
 
+    void limitFrameRate(unsigned int limit);
+
+    void applyFrameRateLimit();
 };
 
 #endif // XA_GLEWRENDERER_H

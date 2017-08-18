@@ -9,13 +9,16 @@ GLEWRenderer::GLEWRenderer() {
         // TODO error handling
     }
 
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
     logger->info("Initialisation OK");
 }
 
 void GLEWRenderer::clearScreen() {
     // TODO make these values configurable
     glClearColor(0.1f, 0.2f, 0.2f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
 void GLEWRenderer::setRenderMode(RenderMode mode) {
@@ -43,6 +46,8 @@ void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
     for (auto object : scene->getObjects()) {
         this->drawObject(object);
     }
+
+    applyFrameRateLimit();
 }
 
 void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
@@ -55,4 +60,17 @@ void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
 
     // unbind vertex array
     renderObject->unbind();
+}
+
+void GLEWRenderer::limitFrameRate(unsigned int limit) {
+    this->frameRateLimit = limit;
+
+    if (limit > 0) {
+        this->frameMs = 1000 / limit;
+    }
+}
+
+void GLEWRenderer::applyFrameRateLimit() {
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
 }

@@ -5,5 +5,13 @@ const float* TransformationState::getValuePtr() {
 }
 
 void TransformationState::rotateX(float xrot) {
-    state = glm::rotate(state, xrot, glm::vec3(0.0f, 0.0f, 1.0f));
+    state = glm::rotate(state, xrot, glm::vec3(1.0f, 0.0f, 0.0f));
+}
+
+void TransformationState::rotateY(float yrot) {
+    state = glm::rotate(state, yrot, glm::vec3(0.0f, 1.0f, 0.0f));
+}
+
+void TransformationState::rotateZ(float zrot) {
+    state = glm::rotate(state, zrot, glm::vec3(0.0f, 0.0f, 1.0f));
 }

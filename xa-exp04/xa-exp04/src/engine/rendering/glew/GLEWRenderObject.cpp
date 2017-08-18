@@ -17,6 +17,10 @@ GLEWRenderObject::GLEWRenderObject(std::shared_ptr<Mesh> mesh) {
 }
 
 void GLEWRenderObject::bind(UniformLocations uniformLocations) {
+    uniform.transformation.rotateX(0.001f);
+    uniform.transformation.rotateY(0.005f);
+    uniform.transformation.rotateZ(0.003f);
+
     glUniformMatrix4fv(uniformLocations.transformation, 1, GL_FALSE, uniform.transformation.getValuePtr());
 //    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transformation_matrix));
 }
@@ -31,7 +35,7 @@ void GLEWRenderObject::draw() {
     int vtxCount = this->mesh->getVerticesCount();
     int idxCount = this->mesh->getIndicesCount();
 
-    glDrawElements(convertVertexMode(), vtxCount, GL_UNSIGNED_INT, 0);
+    glDrawElements(convertVertexMode(), idxCount, GL_UNSIGNED_INT, 0);
 }
 
 GLenum GLEWRenderObject::convertVertexMode() {

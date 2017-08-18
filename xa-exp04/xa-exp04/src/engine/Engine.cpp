@@ -21,6 +21,7 @@ void Engine::start() {
 
     Director director;
 
+    renderer->setRenderMode(RenderMode::Fill);
     renderer->useShaderProgram(ShaderProgram::getDefault());
 
 //    Result<int, float> r = Result<int, int>::ok(12);

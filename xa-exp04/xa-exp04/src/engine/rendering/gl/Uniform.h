@@ -12,6 +12,8 @@ private:
 public:
     const float* getValuePtr();
     void rotateX(float xrot);
+    void rotateY(float yrot);
+    void rotateZ(float zrot);
 };
 
 class UniformLocations {

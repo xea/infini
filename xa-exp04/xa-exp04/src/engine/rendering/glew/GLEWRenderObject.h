@@ -10,6 +10,9 @@
 #include <engine/rendering/gl/Uniform.h>
 #include <memory>
 
+#include <engine/logging/Logger.h>
+#include <string>
+
 using namespace std;
 
 class GLEWRenderObject : public RenderObject {
