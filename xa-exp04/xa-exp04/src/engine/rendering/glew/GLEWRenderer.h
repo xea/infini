@@ -9,6 +9,7 @@
 #include <memory>
 #include <chrono>
 #include <thread>
+#include <tuple>
 
 #ifdef _MSC_VER
 
@@ -31,10 +32,11 @@ private:
     std::chrono::system_clock::time_point lastFrame;
     unsigned int frameRateLimit;
     unsigned int frameMs;
+    std::tuple<int, int> resolution;
 protected:
     void drawObject(std::shared_ptr<RenderObject> object);
 public:
-    GLEWRenderer();
+    GLEWRenderer(std::tuple<int, int> resolution);
 
     void clearScreen() override;
 
@@ -48,7 +50,7 @@ public:
 
     void applyFrameRateLimit();
 
-    void updateView(std::shared_ptr<ViewState> view, std::shared_ptr<ProjectionState> projection) override;
+    void updateView(std::shared_ptr<ViewState> view) override;
 };
 
 #endif // XA_GLEWRENDERER_H

@@ -19,6 +19,8 @@ public:
     void swapBuffers() override;
 
     bool closeRequested() override;
+
+    std::tuple<int, int> getCurrentResolution() override;
 };
 
 #endif // XA_GLFWVIEW_H

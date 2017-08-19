@@ -11,7 +11,7 @@ Engine::Engine() {
     view = make_unique<GLFWView>(config.getResolution());
 
     logger->debug("Initialising renderer");
-    renderer = make_unique<GLEWRenderer>();
+    renderer = make_unique<GLEWRenderer>(config.getResolution());
 
     logger->debug("Engine initialised");
 }

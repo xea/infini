@@ -1,6 +1,6 @@
 #include <engine/rendering/glew/GLEWRenderer.h>
 
-GLEWRenderer::GLEWRenderer() {
+GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
     logger = Logger::getInstance("GLEWRenderer"); 
 
     GLenum initResult = glewInit();
@@ -12,8 +12,9 @@ GLEWRenderer::GLEWRenderer() {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    float aspectRatio = get<0>(resolution) / get<1>(resolution);
+    projectionState = std::make_shared<ProjectionState>(45.0f, aspectRatio);
     viewState = std::make_shared<ViewState>();
-    projectionState = std::make_shared<ProjectionState>(45.0f, 1.6f);
 
     logger->info("Initialisation OK");
 }
@@ -44,7 +45,7 @@ void GLEWRenderer::useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram
 }
 
 void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
-    updateView(viewState, projectionState);
+    updateView(viewState);
 
     // bind optional scene-specific shaders
     for (auto object : scene->getObjects()) {
@@ -56,13 +57,7 @@ void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
 
 void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
     renderObject->bind(uniformLocations);
-    // bind vertex array
-    // bind uniforms
-
-    // draw vertices
     renderObject->draw();
-
-    // unbind vertex array
     renderObject->unbind();
 }
 
@@ -76,13 +71,11 @@ void GLEWRenderer::limitFrameRate(unsigned int limit) {
 
 void GLEWRenderer::applyFrameRateLimit() {
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
 }
 
-void GLEWRenderer::updateView(std::shared_ptr<ViewState> view, std::shared_ptr<ProjectionState> projection) {
+void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
     viewState = view;
-    projectionState = projection;
 
-    glUniformMatrix4fv(uniformLocations.view, 1, GL_FALSE, view->getValuePtr());
-    glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projection->getValuePtr());
+    glUniformMatrix4fv(uniformLocations.view, 1, GL_FALSE, viewState->getValuePtr());
+    glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projectionState->getValuePtr());
 }

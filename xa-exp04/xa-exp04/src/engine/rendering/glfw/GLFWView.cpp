@@ -37,3 +37,7 @@ bool GLFWView::closeRequested() {
 
     return closeRequested;
 }
+
+std::tuple<int, int> GLFWView::getCurrentResolution() {
+    return { 640, 480 };
+}

@@ -40,7 +40,7 @@ public:
      */
     virtual void drawScene(std::shared_ptr<Scene> scene) = 0;
 
-    virtual void updateView(std::shared_ptr<ViewState> view, std::shared_ptr<ProjectionState> projection) = 0;
+    virtual void updateView(std::shared_ptr<ViewState> view) = 0;
 };
 
 #endif // XA_RENDERER_H
