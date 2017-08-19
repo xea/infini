@@ -24,6 +24,7 @@ private:
     ElementBuffer elementBuffer;
 
     GLenum convertVertexMode();
+    void setVertexAttributes(VertexMode mode);
 public:
     GLEWRenderObject(std::shared_ptr<Mesh> mesh);
 

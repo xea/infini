@@ -13,3 +13,11 @@ DemoScene::DemoScene() {
 std::vector<std::shared_ptr<RenderObject>> DemoScene::getObjects() {
     return objects;
 }
+
+std::shared_ptr<ViewState> DemoScene::getViewState() {
+    return std::make_shared<ViewState>();
+}
+
+std::shared_ptr<ProjectionState> DemoScene::getProjectionState() {
+    return std::make_shared<ProjectionState>(45.0f, 1.6f);
+}

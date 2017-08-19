@@ -4,7 +4,8 @@
 #include <memory>
 
 enum class VertexMode : unsigned int {
-    Triangles
+    Triangles,
+    TrianglesWithColours
 };
 
 /**

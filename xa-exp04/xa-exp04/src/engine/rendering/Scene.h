@@ -21,6 +21,8 @@ protected:
 
 public:
     virtual std::vector<std::shared_ptr<RenderObject>> getObjects() = 0;
+    virtual std::shared_ptr<ViewState> getViewState() = 0;
+    virtual std::shared_ptr<ProjectionState> getProjectionState() = 0;
 };
 
 /**
@@ -32,7 +34,11 @@ private:
 public:
     DemoScene();
 
-    std::vector<std::shared_ptr<RenderObject>> getObjects();
+    std::vector<std::shared_ptr<RenderObject>> getObjects() override;
+
+    std::shared_ptr<ViewState> getViewState() override;
+    std::shared_ptr<ProjectionState> getProjectionState() override;
+    
 };
 
 #endif // XA_SCENE_H

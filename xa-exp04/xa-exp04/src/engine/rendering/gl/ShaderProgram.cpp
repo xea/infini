@@ -40,8 +40,14 @@ unsigned int ShaderProgram::getUniformLocation(UniformType type) {
     unsigned int uniformLocation;
 
     switch (type) {
-        case UniformType::TransformationMatrix:
-            uniformLocation = glGetUniformLocation(programId, "transformation");
+        case UniformType::ModelMatrix:
+            uniformLocation = glGetUniformLocation(programId, "model");
+            break;
+        case UniformType::ViewMatrix:
+            uniformLocation = glGetUniformLocation(programId, "view");
+            break;
+        case UniformType::ProjectionMatrix:
+            uniformLocation = glGetUniformLocation(programId, "projection");
             break;
     }
 
@@ -51,7 +57,9 @@ unsigned int ShaderProgram::getUniformLocation(UniformType type) {
 UniformLocations ShaderProgram::getUniformLocations() {
     UniformLocations locations;
 
-    locations.transformation = getUniformLocation(UniformType::TransformationMatrix);
+    locations.model = getUniformLocation(UniformType::ModelMatrix);
+    locations.view = getUniformLocation(UniformType::ViewMatrix);
+    locations.projection = getUniformLocation(UniformType::ProjectionMatrix);
 
     return locations;
 }

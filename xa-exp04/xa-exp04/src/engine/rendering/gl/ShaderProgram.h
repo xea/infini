@@ -5,10 +5,6 @@
 #include <engine/rendering/gl/Uniform.h>
 #include <memory>
 
-enum class UniformType : unsigned int {
-    TransformationMatrix
-};
-
 class ShaderProgram {
 private:
     int programId;

@@ -12,6 +12,9 @@ GLEWRenderer::GLEWRenderer() {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    viewState = std::make_shared<ViewState>();
+    projectionState = std::make_shared<ProjectionState>(45.0f, 1.6f);
+
     logger->info("Initialisation OK");
 }
 
@@ -41,6 +44,7 @@ void GLEWRenderer::useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram
 }
 
 void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
+    updateView(viewState, projectionState);
 
     // bind optional scene-specific shaders
     for (auto object : scene->getObjects()) {
@@ -73,4 +77,12 @@ void GLEWRenderer::limitFrameRate(unsigned int limit) {
 void GLEWRenderer::applyFrameRateLimit() {
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
+}
+
+void GLEWRenderer::updateView(std::shared_ptr<ViewState> view, std::shared_ptr<ProjectionState> projection) {
+    viewState = view;
+    projectionState = projection;
+
+    glUniformMatrix4fv(uniformLocations.view, 1, GL_FALSE, view->getValuePtr());
+    glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projection->getValuePtr());
 }

@@ -5,8 +5,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class TransformationState {
-private:
+enum class UniformType : unsigned int {
+    ModelMatrix,
+    ViewMatrix,
+    ProjectionMatrix
+};
+
+class ViewMatrix {
+protected: 
     glm::mat4 state;
 
 public:
@@ -16,15 +22,30 @@ public:
     void rotateZ(float zrot);
 };
 
+class ModelState : public ViewMatrix {
+};
+
+class ViewState : public ViewMatrix {
+public:
+    ViewState();
+};
+
+class ProjectionState : public ViewMatrix {
+public:
+    ProjectionState(float fov, float aspectRatio);
+};
+
 class UniformLocations {
 public: 
-    unsigned int transformation;
+    unsigned int model;
+    unsigned int view;
+    unsigned int projection;
 };
 
 class Uniform {
 private:
 public:
-    TransformationState transformation;
+    ModelState model;
     UniformLocations locations;
 };
 

@@ -26,6 +26,8 @@ private:
     std::shared_ptr<Logger> logger;
     UniformLocations uniformLocations;
     std::shared_ptr<ShaderProgram> shaderProgram;
+    std::shared_ptr<ViewState> viewState;
+    std::shared_ptr<ProjectionState> projectionState;
     std::chrono::system_clock::time_point lastFrame;
     unsigned int frameRateLimit;
     unsigned int frameMs;
@@ -45,6 +47,8 @@ public:
     void limitFrameRate(unsigned int limit);
 
     void applyFrameRateLimit();
+
+    void updateView(std::shared_ptr<ViewState> view, std::shared_ptr<ProjectionState> projection) override;
 };
 
 #endif // XA_GLEWRENDERER_H

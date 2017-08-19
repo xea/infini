@@ -9,7 +9,10 @@
  * between the displayable scenes and the objects that make up the whole world. 
  */
 class Director {
+private:
+    
 public:
+    Director();
     std::shared_ptr<Scene> getScene();
 };
 

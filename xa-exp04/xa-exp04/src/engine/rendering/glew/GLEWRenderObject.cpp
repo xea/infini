@@ -7,22 +7,14 @@ GLEWRenderObject::GLEWRenderObject(std::shared_ptr<Mesh> mesh) {
     arrayBuffer.bindMesh(mesh);
     elementBuffer.bindMesh(mesh);
 
-    // TODO tidy up this shit
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+    setVertexAttributes(mesh->getMode());
 
     arrayBuffer.unbind();
     vertexArray.unbind();
 }
 
 void GLEWRenderObject::bind(UniformLocations uniformLocations) {
-    uniform.transformation.rotateX(0.001f);
-    uniform.transformation.rotateY(0.005f);
-    uniform.transformation.rotateZ(0.003f);
-
-    glUniformMatrix4fv(uniformLocations.transformation, 1, GL_FALSE, uniform.transformation.getValuePtr());
-//    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transformation_matrix));
+    glUniformMatrix4fv(uniformLocations.model, 1, GL_FALSE, uniform.model.getValuePtr());
 }
 
 void GLEWRenderObject::unbind() {
@@ -43,6 +35,7 @@ GLenum GLEWRenderObject::convertVertexMode() {
 
     switch (this->mesh->getMode()) {
         case VertexMode::Triangles:
+        case VertexMode::TrianglesWithColours:
             mode = GL_TRIANGLES;
             break;
     }
@@ -52,4 +45,19 @@ GLenum GLEWRenderObject::convertVertexMode() {
 
 std::shared_ptr<Mesh> GLEWRenderObject::getMesh() {
     return this->mesh;
+}
+
+void GLEWRenderObject::setVertexAttributes(VertexMode mode) {
+    switch (mode) {
+        case VertexMode::Triangles:
+            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+            glEnableVertexAttribArray(0);
+            break;
+        case VertexMode::TrianglesWithColours:
+            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+            glEnableVertexAttribArray(0);
+            glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)(3* sizeof(float)));
+            glEnableVertexAttribArray(1);
+            break;
+    }
 }

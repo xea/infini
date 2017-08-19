@@ -19,15 +19,13 @@ Engine::Engine() {
 void Engine::start() {
     logger->info("Starting Engine");
 
-    Director director;
-
     renderer->setRenderMode(RenderMode::Fill);
     renderer->useShaderProgram(ShaderProgram::getDefault());
 
 //    Result<int, float> r = Result<int, int>::ok(12);
  //   Result<float, float> r2 = r.map([](int i) -> float { return 0.0f; });
 
-    std::shared_ptr<Scene> scene = director.getScene();
+    std::shared_ptr<Scene> scene = std::make_shared<DemoScene>();
 
     while (!view->closeRequested()) {
         renderer->clearScreen();
