@@ -16,6 +16,18 @@ void ViewMatrix::rotateZ(float zrot) {
     state = glm::rotate(state, zrot, glm::vec3(0.0f, 0.0f, 1.0f));
 }
 
+void ViewMatrix::rotate(float angle, glm::vec3 direction) {
+    state = glm::rotate(state, angle, direction);
+}
+
+void ViewMatrix::translate(float distance, float x, float y, float z) {
+    state = glm::translate(state, glm::vec3(distance * x, distance * y, distance * z));
+}
+
+void ViewMatrix::translate(glm::vec3 translation) {
+    state = glm::translate(state, translation);
+}
+
 ViewState::ViewState() {
     glm::mat4 view;
     state = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));

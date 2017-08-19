@@ -20,6 +20,9 @@ public:
     void rotateX(float xrot);
     void rotateY(float yrot);
     void rotateZ(float zrot);
+    void rotate(float angle, glm::vec3 direction);
+    void translate(float distance, float x, float y, float z);
+    void translate(glm::vec3 translation);
 };
 
 class ModelState : public ViewMatrix {

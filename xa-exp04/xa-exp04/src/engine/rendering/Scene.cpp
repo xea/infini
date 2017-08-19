@@ -3,9 +3,12 @@
 DemoScene::DemoScene() {
     auto objects = std::vector<std::shared_ptr<RenderObject>> {};
 
-    auto triangle = std::make_shared<Cube>();
-    auto obj = std::make_shared<GLEWRenderObject>(triangle);
-    objects.push_back(obj);
+    auto cube = std::make_shared<Cube>();
+    auto triangle = std::make_shared<Triangle>();
+
+
+    objects.push_back(std::make_shared<GLEWRenderObject>(triangle));
+    objects.push_back(std::make_shared<GLEWRenderObject>(cube));
 
     this->objects = objects;
 }

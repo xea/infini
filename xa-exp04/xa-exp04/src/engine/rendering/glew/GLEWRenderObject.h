@@ -35,6 +35,8 @@ public:
     void unbind() override;
 
     std::shared_ptr<Mesh> getMesh() override;
+
+    void translate(float distance, float x, float y, float z) override;
 };
 
 #endif // XA_GLEWRENDEROBJECT_H

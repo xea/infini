@@ -3,6 +3,7 @@
 
 #include <engine/rendering/Scene.h>
 #include <memory>
+#include <cmath>
 
 /**
  * Directors decide what contents of the world get rendered on the current scene. Thus, they provide a link
@@ -10,10 +11,12 @@
  */
 class Director {
 private:
-    
+    // CAMERA comes here
+    std::shared_ptr<Scene> scene;
 public:
     Director();
     std::shared_ptr<Scene> getScene();
+    void update();
 };
 
 #endif // XA_DIRECTOR_H

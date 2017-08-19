@@ -61,3 +61,7 @@ void GLEWRenderObject::setVertexAttributes(VertexMode mode) {
             break;
     }
 }
+
+void GLEWRenderObject::translate(float distance, float x, float y, float z) {
+    uniform.model.translate(distance, x, y, z);
+}
