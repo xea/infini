@@ -2,6 +2,7 @@
 #define XA_DIRECTOR_H
 
 #include <engine/rendering/Scene.h>
+#include <world/World.h>
 #include <memory>
 #include <cmath>
 
@@ -13,8 +14,9 @@ class Director {
 private:
     // CAMERA comes here
     std::shared_ptr<Scene> scene;
+    std::unique_ptr<World> world;
 public:
-    Director();
+    Director(std::unique_ptr<World> world);
     std::shared_ptr<Scene> getScene();
     void update();
 };

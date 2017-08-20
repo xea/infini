@@ -1,0 +1,30 @@
+#include <engine/concurrent/ActorSystem.h>
+
+ActorSystem::ActorSystem() {
+    executor = make_unique<Executor>();
+}
+
+ActorRef ActorSystem::actorOf(string actorId) {
+    for (auto& actor : actors) {
+        auto currentId = get<0>(actor);
+
+        if (currentId == actorId) {
+            ActorRef newRef(get<1>(actor)->getInbox());
+
+            return newRef;
+        }
+    }
+
+    // TODO this is going to cause problems. find a better way.
+    return ActorRef(make_shared<Inbox>());
+}
+
+ActorRef ActorSystem::create(string actorId, function<unique_ptr<Actor>()> propsFunc) {
+    auto actor = propsFunc();
+
+    ActorRef newRef(actor->getInbox());
+
+    actors[actorId] = std::move(actor);
+
+    return newRef;
+}

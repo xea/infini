@@ -14,6 +14,7 @@ include_directories(./src)
 include_directories(../../lib/glew-2.0.0/include)
 include_directories(../../lib/glfw-3.2.1/include)
 include_directories(../../lib/glm-0.9.8.4)
+include_directories(../../lib/neither/neither/include)
 target_compile_features(xa-exp04 PRIVATE cxx_std_17)
 target_link_libraries(xa-exp04 "${GLFW_LIB}" "${GLEW_LIB}")
 

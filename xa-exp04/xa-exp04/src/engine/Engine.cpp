@@ -22,11 +22,7 @@ void Engine::start() {
     renderer->setRenderMode(RenderMode::Fill);
     renderer->useShaderProgram(ShaderProgram::getDefault());
 
-//    Result<int, float> r = Result<int, int>::ok(12);
- //   Result<float, float> r2 = r.map([](int i) -> float { return 0.0f; });
-
-
-    Director director;
+    Director director(std::make_unique<World>());
 
     while (!view->closeRequested()) {
         director.update();

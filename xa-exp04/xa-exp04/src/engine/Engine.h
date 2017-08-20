@@ -21,6 +21,8 @@
 #include <engine/rendering/glew/GLEWRenderer.h>
 #include <engine/rendering/glfw/GLFWView.h>
 
+#include <world/World.h>
+
 using namespace std;
 
 class Engine {

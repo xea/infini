@@ -1,7 +1,8 @@
 #include <engine/rendering/Director.h>
 
-Director::Director() {
+Director::Director(std::unique_ptr<World> world) {
     scene = std::make_shared<DemoScene>();
+    this->world = std::move(world);
 }
 
 std::shared_ptr<Scene> Director::getScene() {
