@@ -5,6 +5,9 @@
 #include <engine/concurrent/Message.h>
 #include <memory>
 
+// temporary includes
+#include <iostream>
+
 using namespace std;
 
 class ActorRef {
@@ -21,9 +24,13 @@ private:
 protected:
     Actor();
     
-    virtual void receive(Message message) = 0;
 public:
+    virtual void receive(Message message) = 0;
     shared_ptr<Inbox> getInbox();
+};
+
+class TestActor : public Actor {
+    void receive(Message message) override;
 };
 
 #endif // XA_ACTOR_H

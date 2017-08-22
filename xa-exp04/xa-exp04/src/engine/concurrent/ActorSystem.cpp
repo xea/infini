@@ -16,15 +16,18 @@ ActorRef ActorSystem::actorOf(string actorId) {
     }
 
     // TODO this is going to cause problems. find a better way.
-    return ActorRef(make_shared<Inbox>());
+    return ActorRef(make_shared<Inbox>([](Message message) {  }));
 }
 
 ActorRef ActorSystem::create(string actorId, function<unique_ptr<Actor>()> propsFunc) {
     auto actor = propsFunc();
+    auto actorInbox = actor->getInbox();
 
-    ActorRef newRef(actor->getInbox());
+    ActorRef newRef(actorInbox);
 
     actors[actorId] = std::move(actor);
+
+    executor->watch(actorInbox);
 
     return newRef;
 }
