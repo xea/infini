@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ enum class LogLevel : unsigned int {
 	DEBUG,
 	INFO,
 	WARNING,
-	ERROR
+	ERRO
 };
 
 /**
@@ -62,6 +63,8 @@ public:
 };
 
 class FileLogger : public Logger {
+private:
+	ofstream out{ ofstream("app.log") };
 public:
 	FileLogger(string name);
 	void debug(string message);

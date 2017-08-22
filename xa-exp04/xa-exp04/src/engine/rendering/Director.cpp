@@ -15,9 +15,9 @@ void Director::update() {
 
     for (auto& object : scene->getObjects()) {
         if (i++ % 2 == 0) {
-            object->translate(0.001f, 1.0f, 0, 0);
+            object->translate(0.01f, 1.0f, 0, 0);
         } else {
-            object->translate(-0.001f, 1.0f, 0, 0);
+            object->translate(-0.01f, 1.0f, 0, 0);
         }
     }
 }

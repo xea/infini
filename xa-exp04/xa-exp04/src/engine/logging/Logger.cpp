@@ -2,7 +2,7 @@
 
 shared_ptr<Logger> Logger::getInstance(string name) {
 #ifdef _WIN32
-    return make_shared<FileLogger<(name);
+    return make_shared<FileLogger>(name);
 #else
     return make_shared<StdoutLogger>(name);
 #endif
@@ -87,21 +87,21 @@ FileLogger::FileLogger(string name) {
 }
 
 void FileLogger::debug(string message) {
-    cout << format("DEBUG ", name, message) << endl;
+    out << format("DEBUG ", name, message) << endl;
 }
 
 void FileLogger::info(string message) {
-    cout << format("INFO  ", name, message) << endl;
+    out << format("INFO  ", name, message) << endl;
 }
 
 void FileLogger::warn(string message) {
-    cout << format("WARN  ", name, message) << endl;
+    out << format("WARN  ", name, message) << endl;
 }
 
 void FileLogger::error(string message) {
-    cout << format("ERROR ", name, message) << endl;
+    out << format("ERROR ", name, message) << endl;
 }
 
 void FileLogger::crit(string message) {
-    cout << format("CRIT  ", name, message) << endl;
+    out << format("CRIT  ", name, message) << endl;
 }

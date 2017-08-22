@@ -24,7 +24,6 @@ void Engine::start() {
 
     Director director(std::make_unique<ActorWorld>());
 
-    /*
     while (!view->closeRequested()) {
         director.update();
 
@@ -35,7 +34,6 @@ void Engine::start() {
 
         view->swapBuffers();
     }
-    */
 
     logger->info("Close requested, shutting down");
 }

@@ -16,6 +16,8 @@ GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
     projectionState = std::make_shared<ProjectionState>(45.0f, aspectRatio);
     viewState = std::make_shared<ViewState>();
 
+	limitFrameRate(60);
+
     logger->info("Initialisation OK");
 }
 
@@ -53,6 +55,8 @@ void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
     }
 
     applyFrameRateLimit();
+
+	frameCount++;
 }
 
 void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
@@ -67,10 +71,23 @@ void GLEWRenderer::limitFrameRate(unsigned int limit) {
     if (limit > 0) {
         this->frameMs = 1000 / limit;
     }
+
 }
 
 void GLEWRenderer::applyFrameRateLimit() {
-    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+	auto now = chrono::system_clock::now();
+
+	auto duration = chrono::duration_cast<chrono::milliseconds>(now - lastFrame);
+
+	if (duration.count() < frameMs) {
+		auto sleepInterval = frameMs - duration.count();
+
+		if (sleepInterval > 25) {
+			this_thread::sleep_for(chrono::milliseconds(sleepInterval));
+		}
+	}
+
+	lastFrame = now;
 }
 
 void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
