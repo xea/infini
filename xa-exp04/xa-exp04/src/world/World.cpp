@@ -1,6 +1,7 @@
 #include <world/World.h>
 
 World::World() {
+    /*
     ActorSystem system;
 
     ActorRef firstActor = system.create("testActor", []() { return make_unique<TestActor>(); });
@@ -11,7 +12,8 @@ World::World() {
 
     auto i = 10;
 
-    firstActor.send(message);
+    //firstActor.send(message);
 
-    //firstActorRef.send(message);
+    tirstActorRef.send(message);
+    */
 }

@@ -15,4 +15,10 @@ public:
     World();
 };
 
+class ActorWorld : public World {
+private:
+    unique_ptr<ActorSystem> actorSystem { make_unique<ActorSystem>() };
+public:
+};
+
 #endif // XA_WORLD_H

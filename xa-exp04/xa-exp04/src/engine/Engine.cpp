@@ -22,7 +22,7 @@ void Engine::start() {
     renderer->setRenderMode(RenderMode::Fill);
     renderer->useShaderProgram(ShaderProgram::getDefault());
 
-    Director director(std::make_unique<World>());
+    Director director(std::make_unique<ActorWorld>());
 
     while (!view->closeRequested()) {
         director.update();
