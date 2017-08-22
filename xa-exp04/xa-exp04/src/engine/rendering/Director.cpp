@@ -3,6 +3,7 @@
 Director::Director(std::unique_ptr<World> world) {
     scene = std::make_shared<DemoScene>();
     this->world = std::move(world);
+    this->world->start();
 }
 
 std::shared_ptr<Scene> Director::getScene() {

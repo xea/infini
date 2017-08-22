@@ -13,12 +13,20 @@ class World {
 public:
     
     World();
+
+    virtual void start() = 0;
+
+    virtual void stop() = 0;
 };
 
 class ActorWorld : public World {
 private:
     unique_ptr<ActorSystem> actorSystem { make_unique<ActorSystem>() };
 public:
+
+    void start() override;
+
+    void stop() override;
 };
 
 #endif // XA_WORLD_H

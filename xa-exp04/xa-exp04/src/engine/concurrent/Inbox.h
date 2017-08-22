@@ -5,6 +5,7 @@
 #include <memory>
 #include <functional>
 #include <deque>
+#include <mutex>
 
 using namespace std;
 
@@ -12,12 +13,16 @@ class Inbox {
 private:
     function<void(Message)> processor;
     deque<Message> inboundMessages;
+    mutex processingMutex;
+protected:
+    Message nextMessage();
+    void processMessage(Message message);
 public: 
     Inbox(function<void(Message)> messageProcessor);
     void submit(Message message);
     unsigned int getMessageCount();
-    Message nextMessage();
-    void processMessage(Message message);
+    void processNextMessage();
+
 };
 
 #endif // XA_INBOX_H

@@ -22,3 +22,15 @@ unsigned int Inbox::getMessageCount() {
 void Inbox::processMessage(Message message) {
     processor(message);
 }
+
+void Inbox::processNextMessage() { 
+    //lock_guard<mutex> proclock(processingMutex);
+
+    if (processingMutex.try_lock() && getMessageCount() > 0) {
+        Message nextMessage = this->nextMessage();
+    
+        processMessage(nextMessage);
+
+        processingMutex.unlock();
+    }
+}

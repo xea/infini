@@ -17,3 +17,16 @@ World::World() {
     tirstActorRef.send(message);
     */
 }
+
+void ActorWorld::start() {
+    ActorRef firstActor = actorSystem->create("testActor", []() { return make_unique<TestActor>(); });
+    cout << "created new actor " << endl;
+    
+    Message message;
+
+    firstActor.send(message);
+}
+
+void ActorWorld::stop() {
+    
+}
