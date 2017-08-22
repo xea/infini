@@ -17,5 +17,6 @@ shared_ptr<Inbox> Actor::getInbox() {
 }
 
 void TestActor::receive(Message message) {
-    cout << "Received actor message yay" << endl;
+    //cout << "Received actor message yay, ctr:" << counter << " " << this_thread::get_id() << endl;
+    counter++;
 }

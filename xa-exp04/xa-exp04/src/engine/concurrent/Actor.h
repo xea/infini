@@ -7,6 +7,7 @@
 
 // temporary includes
 #include <iostream>
+#include <thread>
 
 using namespace std;
 
@@ -30,6 +31,9 @@ public:
 };
 
 class TestActor : public Actor {
+private:
+    unsigned int counter{0};
+public:
     void receive(Message message) override;
 };
 

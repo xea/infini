@@ -4,7 +4,7 @@ Executor::Executor() {
     auto cpuCount = thread::hardware_concurrency(); 
 
     // TODO this should be configurable ideally
-    for (int i = 0; i < cpuCount; i++) {
+    for (int i = 0; i < 1; i++) {
         auto w = watchedInboxes;
 
         auto newThread = thread([w]() {
@@ -28,6 +28,7 @@ Executor::Executor() {
         });
 
         newThread.detach();
+        serviceThreads.push_back(move(newThread));
     }
 }
 

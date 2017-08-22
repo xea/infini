@@ -6,6 +6,7 @@
 #include <functional>
 #include <deque>
 #include <mutex>
+#include <vector>
 
 using namespace std;
 
@@ -13,14 +14,16 @@ class Inbox {
 private:
     function<void(Message)> processor;
     deque<Message> inboundMessages;
+    vector<Message> preQueue;
     mutex processingMutex;
+    mutex batchMutex;
 protected:
     Message nextMessage();
     void processMessage(Message message);
 public: 
     Inbox(function<void(Message)> messageProcessor);
     void submit(Message message);
-    unsigned int getMessageCount();
+    unsigned long getMessageCount();
     void processNextMessage();
 
 };

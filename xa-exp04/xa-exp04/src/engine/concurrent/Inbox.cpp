@@ -5,7 +5,14 @@ Inbox::Inbox(function<void(Message)> messageProcessor)  {
 }
 
 void Inbox::submit(Message message) {
+    processingMutex.lock();
     inboundMessages.push_back(message);
+    processingMutex.unlock();
+    /*
+    batchMutex.lock();
+    preQueue.push_back(message);
+    batchMutex.unlock();
+    */
 }
 
 Message Inbox::nextMessage() {
@@ -15,7 +22,7 @@ Message Inbox::nextMessage() {
     return message;
 }
 
-unsigned int Inbox::getMessageCount() {
+unsigned long Inbox::getMessageCount() {
     return inboundMessages.size();
 }
 
