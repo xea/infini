@@ -34,5 +34,5 @@ ViewState::ViewState() {
 }
 
 ProjectionState::ProjectionState(float fov, float aspectRatio) {
-    state = glm::perspective(fov, aspectRatio, 0.1f, 100.0f);
+    state = glm::perspective(glm::radians(fov), aspectRatio, 0.1f, 100.0f);
 }

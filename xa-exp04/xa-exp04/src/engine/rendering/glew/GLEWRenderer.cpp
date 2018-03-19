@@ -12,7 +12,7 @@ GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
-    float aspectRatio = get<0>(resolution) / get<1>(resolution);
+    float aspectRatio = (float) get<0>(resolution) / (float) get<1>(resolution);
     projectionState = std::make_shared<ProjectionState>(45.0f, aspectRatio);
     viewState = std::make_shared<ViewState>();
 
@@ -23,7 +23,7 @@ GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
 
 void GLEWRenderer::clearScreen() {
     // TODO make these values configurable
-    glClearColor(0.1f, 0.2f, 0.2f, 1.0f);
+    glClearColor(0.2f, 0.3f, 0.4f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
@@ -71,7 +71,6 @@ void GLEWRenderer::limitFrameRate(unsigned int limit) {
     if (limit > 0) {
         this->frameMs = 1000 / limit;
     }
-
 }
 
 void GLEWRenderer::applyFrameRateLimit() {
@@ -83,9 +82,20 @@ void GLEWRenderer::applyFrameRateLimit() {
 		auto sleepInterval = frameMs - duration.count();
 
 		if (sleepInterval > 25) {
-		//	this_thread::sleep_for(chrono::milliseconds(sleepInterval));
+			this_thread::sleep_for(chrono::milliseconds(sleepInterval));
 		}
 	}
+
+    if (frameCount % 100 == 0) {
+        auto duration = chrono::duration_cast<chrono::milliseconds>(now - lastCheckPoint);
+
+        double frameRate = duration.count() / 100;
+
+        std::cout << "Frame time: " << frameRate << " ms" << std::endl;
+
+
+        lastCheckPoint = now;
+    }
 
 	lastFrame = now;
 }

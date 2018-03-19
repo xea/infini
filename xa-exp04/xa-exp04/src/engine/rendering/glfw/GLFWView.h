@@ -22,6 +22,8 @@ public:
     bool closeRequested() override;
 
     std::tuple<int, int> getCurrentResolution() override;
+
+    std::tuple<int, int> getCursorPosition() override;
 };
 
 #endif // XA_GLFWVIEW_H

@@ -21,6 +21,8 @@ public:
     virtual bool closeRequested() = 0;
 
     virtual std::tuple<int, int> getCurrentResolution() = 0;
+
+    virtual std::tuple<int, int> getCursorPosition() = 0;
 };
 
 #endif // XA_VIEW_H

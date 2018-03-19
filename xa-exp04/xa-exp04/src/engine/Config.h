@@ -7,8 +7,8 @@ using namespace std;
 
 class Config {
 private:
-    static const int DEFAULT_SCREEN_WIDTH = 1200;
-    static const int DEFAULT_SCREEN_HEIGHT = 800;
+    static const int DEFAULT_SCREEN_WIDTH = 880;
+    static const int DEFAULT_SCREEN_HEIGHT = 480;
     
     int screenWidth;
     int screenHeight;
