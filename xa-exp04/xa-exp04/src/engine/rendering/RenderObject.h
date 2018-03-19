@@ -26,6 +26,8 @@ public:
     virtual std::shared_ptr<Mesh> getMesh() = 0;
     
     virtual void translate(float distance, float x, float y, float z) = 0;
+
+	virtual void rotate(float angle, float x, float y, float z) = 0;
 };
 
 #endif // XA_RENDEROBJECT_H

@@ -9,6 +9,7 @@ GLFWView::GLFWView(tuple<int, int> resolution) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     window = glfwCreateWindow(get<0>(resolution), get<1>(resolution), "xa experiment 04", NULL, NULL);
 
@@ -17,6 +18,7 @@ GLFWView::GLFWView(tuple<int, int> resolution) {
     } else {
         // TODO: error handling
     }
+
 }
 
 GLFWView::~GLFWView() {

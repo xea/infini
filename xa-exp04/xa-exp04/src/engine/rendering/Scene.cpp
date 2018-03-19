@@ -6,7 +6,6 @@ DemoScene::DemoScene() {
     auto cube = std::make_shared<Cube>();
     auto triangle = std::make_shared<Triangle>();
 
-
     objects.push_back(std::make_shared<GLEWRenderObject>(triangle));
     objects.push_back(std::make_shared<GLEWRenderObject>(cube));
 

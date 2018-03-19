@@ -12,6 +12,7 @@ using namespace std;
 class GLFWView : public View {
 private:
     GLFWwindow *window;    
+protected:
 public:
     GLFWView(tuple<int, int> resolution);
     ~GLFWView();

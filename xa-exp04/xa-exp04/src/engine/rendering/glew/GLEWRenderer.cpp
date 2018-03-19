@@ -83,7 +83,7 @@ void GLEWRenderer::applyFrameRateLimit() {
 		auto sleepInterval = frameMs - duration.count();
 
 		if (sleepInterval > 25) {
-			this_thread::sleep_for(chrono::milliseconds(sleepInterval));
+		//	this_thread::sleep_for(chrono::milliseconds(sleepInterval));
 		}
 	}
 

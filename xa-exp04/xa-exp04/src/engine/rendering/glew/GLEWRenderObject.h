@@ -37,6 +37,8 @@ public:
     std::shared_ptr<Mesh> getMesh() override;
 
     void translate(float distance, float x, float y, float z) override;
+
+    void rotate(float angle, float x, float y, float z) override;
 };
 
 #endif // XA_GLEWRENDEROBJECT_H

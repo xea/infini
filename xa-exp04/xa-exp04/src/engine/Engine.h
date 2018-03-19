@@ -27,8 +27,10 @@ using namespace std;
 
 class Engine {
 private:
-    unique_ptr<View> view;
-    unique_ptr<Renderer> renderer;
+    //unique_ptr<View> view;
+	View * view;
+    //unique_ptr<Renderer> renderer;
+	Renderer *renderer;
     shared_ptr<Logger> logger;
 
 protected:

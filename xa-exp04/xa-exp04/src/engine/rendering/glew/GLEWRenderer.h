@@ -48,7 +48,7 @@ public:
 
     void useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) override;
 
-    void limitFrameRate(unsigned int limit);
+    void limitFrameRate(unsigned int limit) override;
 
     void applyFrameRateLimit();
 
