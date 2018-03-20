@@ -3,11 +3,13 @@
 DemoScene::DemoScene() {
     auto objects = std::vector<std::shared_ptr<RenderObject>> {};
 
+    /*
     auto cube = std::make_shared<Cube>();
     auto triangle = std::make_shared<Triangle>();
 
     objects.push_back(std::make_shared<GLEWRenderObject>(triangle));
     objects.push_back(std::make_shared<GLEWRenderObject>(cube));
+    */
 
     this->objects = objects;
 }
@@ -22,4 +24,8 @@ std::shared_ptr<ViewState> DemoScene::getViewState() {
 
 std::shared_ptr<ProjectionState> DemoScene::getProjectionState() {
     return std::make_shared<ProjectionState>(45.0f, 1.6f);
+}
+
+void DemoScene::addObject(std::shared_ptr<RenderObject> object) {
+    
 }

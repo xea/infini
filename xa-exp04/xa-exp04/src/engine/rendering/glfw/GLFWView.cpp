@@ -6,7 +6,6 @@ GLFWView::GLFWView(tuple<int, int> resolution, bool shouldMaximise) {
     }
 
     GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-
     const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -23,6 +22,8 @@ GLFWView::GLFWView(tuple<int, int> resolution, bool shouldMaximise) {
     glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
 	
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    //void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+    //glfwSetCursorPosCallback(window, mouse_callback);  
 
     const char *windowTitle = "xa experiment 04";
 
