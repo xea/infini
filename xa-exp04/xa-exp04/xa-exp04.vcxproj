@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{02EF36F4-0493-4686-AECE-D15BDD28D93A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\e01\workspaces\cpp\infini\lib\glm-0.9.8.4;E:\e01\workspaces\cpp\infini\lib\glfw-3.2.1\include;E:\e01\workspaces\cpp\infini\lib\glew-2.0.0\include;E:\e01\workspaces\cpp\infini\xa-exp04\xa-exp04\src;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\e01\workspaces\cpp\infini\lib\glew-2.1.0\lib\Release\Win32;E:\e01\workspaces\cpp\infini\lib\glfw-3.2.1\lib\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\e01\workspaces\cpp\infini\lib\glm-0.9.8.4;E:\e01\workspaces\cpp\infini\xa-exp04\xa-exp04\src;E:\e01\workspaces\cpp\infini\lib\glfw-3.2.1\include;E:\e01\workspaces\cpp\infini\lib\glew-2.0.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\e01\workspaces\cpp\infini\lib\glfw-3.2.1\lib\Win32;E:\e01\workspaces\cpp\infini\lib\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\engine\concurrent\Actor.cpp" />
+    <ClCompile Include="src\engine\concurrent\ActorSystem.cpp" />
+    <ClCompile Include="src\engine\concurrent\Executor.cpp" />
+    <ClCompile Include="src\engine\concurrent\Inbox.cpp" />
+    <ClCompile Include="src\engine\concurrent\Message.cpp" />
+    <ClCompile Include="src\engine\Config.cpp" />
+    <ClCompile Include="src\engine\Engine.cpp" />
+    <ClCompile Include="src\engine\io\FileSource.cpp" />
+    <ClCompile Include="src\engine\logging\Logger.cpp" />
+    <ClCompile Include="src\engine\rendering\Director.cpp" />
+    <ClCompile Include="src\engine\rendering\glew\GLEWRenderer.cpp" />
+    <ClCompile Include="src\engine\rendering\glew\GLEWRenderObject.cpp" />
+    <ClCompile Include="src\engine\rendering\glfw\GLFWView.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\ArrayBuffer.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\ElementBuffer.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\Shader.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\ShaderProgram.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\Uniform.cpp" />
+    <ClCompile Include="src\engine\rendering\gl\VertexArray.cpp" />
+    <ClCompile Include="src\engine\rendering\Mesh.cpp" />
+    <ClCompile Include="src\engine\rendering\RenderObject.cpp" />
+    <ClCompile Include="src\engine\rendering\Scene.cpp" />
+    <ClCompile Include="src\engine\rendering\Source.cpp" />
+    <ClCompile Include="src\world\World.cpp" />
+    <ClCompile Include="src\xa-exp04.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\engine\concurrent\Actor.h" />
+    <ClInclude Include="src\engine\concurrent\ActorSystem.h" />
+    <ClInclude Include="src\engine\concurrent\Executor.h" />
+    <ClInclude Include="src\engine\concurrent\Inbox.h" />
+    <ClInclude Include="src\engine\concurrent\Message.h" />
+    <ClInclude Include="src\engine\Config.h" />
+    <ClInclude Include="src\engine\Engine.h" />
+    <ClInclude Include="src\engine\io\FileSource.h" />
+    <ClInclude Include="src\engine\logging\Logger.h" />
+    <ClInclude Include="src\engine\rendering\Director.h" />
+    <ClInclude Include="src\engine\rendering\glew\GLEWRenderer.h" />
+    <ClInclude Include="src\engine\rendering\glew\GLEWRenderObject.h" />
+    <ClInclude Include="src\engine\rendering\glfw\GLFWView.h" />
+    <ClInclude Include="src\engine\rendering\gl\ArrayBuffer.h" />
+    <ClInclude Include="src\engine\rendering\gl\ElementBuffer.h" />
+    <ClInclude Include="src\engine\rendering\gl\Shader.h" />
+    <ClInclude Include="src\engine\rendering\gl\ShaderProgram.h" />
+    <ClInclude Include="src\engine\rendering\gl\Uniform.h" />
+    <ClInclude Include="src\engine\rendering\gl\VertexArray.h" />
+    <ClInclude Include="src\engine\rendering\Mesh.h" />
+    <ClInclude Include="src\engine\rendering\Renderer.h" />
+    <ClInclude Include="src\engine\rendering\RenderObject.h" />
+    <ClInclude Include="src\engine\rendering\Scene.h" />
+    <ClInclude Include="src\engine\rendering\View.h" />
+    <ClInclude Include="src\util\Result.h" />
+    <ClInclude Include="src\world\Object.h" />
+    <ClInclude Include="src\world\World.h" />
+    <ClInclude Include="src\xa-exp04.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

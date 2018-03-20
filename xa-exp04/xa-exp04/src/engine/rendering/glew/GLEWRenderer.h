@@ -32,7 +32,7 @@ private:
 	std::chrono::system_clock::time_point lastFrame{ chrono::system_clock::now() };
 	std::chrono::system_clock::time_point lastCheckPoint{ chrono::system_clock::now() };
     std::tuple<int, int> resolution;
-    unsigned int frameRateLimit;
+    float frameRateLimit;
     unsigned int frameMs;
 	unsigned int frameCount{ 0 };
 	float averageFps{ 0.0f };
@@ -49,7 +49,7 @@ public:
 
     void useShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram) override;
 
-    void limitFrameRate(unsigned int limit) override;
+    void limitFrameRate(float limit) override;
 
     void applyFrameRateLimit();
 

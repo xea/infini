@@ -42,7 +42,7 @@ public:
 
     virtual void updateView(std::shared_ptr<ViewState> view) = 0;
 
-	virtual void limitFrameRate(unsigned int limit) = 0;
+	virtual void limitFrameRate(float limit) = 0;
 };
 
 #endif // XA_RENDERER_H

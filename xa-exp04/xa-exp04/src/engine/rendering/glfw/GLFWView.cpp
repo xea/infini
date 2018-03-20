@@ -11,6 +11,8 @@ GLFWView::GLFWView(tuple<int, int> resolution) {
     glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+	
+	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     window = glfwCreateWindow(get<0>(resolution), get<1>(resolution), "xa experiment 04", NULL, NULL);
 

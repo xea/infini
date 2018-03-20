@@ -16,7 +16,7 @@ GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
     projectionState = std::make_shared<ProjectionState>(45.0f, aspectRatio);
     viewState = std::make_shared<ViewState>();
 
-	limitFrameRate(60);
+	limitFrameRate(160);
 
     logger->info("Initialisation OK");
 }
@@ -54,6 +54,7 @@ void GLEWRenderer::drawScene(std::shared_ptr<Scene> scene) {
         this->drawObject(object);
     }
 
+	// This isn't really needed due to vsync, unless to slow it down reaaaally
     applyFrameRateLimit();
 
 	frameCount++;
@@ -65,11 +66,11 @@ void GLEWRenderer::drawObject(std::shared_ptr<RenderObject> renderObject) {
     renderObject->unbind();
 }
 
-void GLEWRenderer::limitFrameRate(unsigned int limit) {
+void GLEWRenderer::limitFrameRate(float limit) {
     this->frameRateLimit = limit;
 
     if (limit > 0) {
-        this->frameMs = 1000 / limit;
+        this->frameMs = 1000 / (int) limit;
     }
 }
 
@@ -89,10 +90,9 @@ void GLEWRenderer::applyFrameRateLimit() {
     if (frameCount % 100 == 0) {
         auto duration = chrono::duration_cast<chrono::milliseconds>(now - lastCheckPoint);
 
-        double frameRate = duration.count() / 100;
+        double frameRate = duration.count() / 100.0;
 
         std::cout << "Frame time: " << frameRate << " ms" << std::endl;
-
 
         lastCheckPoint = now;
     }

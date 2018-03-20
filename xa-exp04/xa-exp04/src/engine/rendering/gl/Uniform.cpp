@@ -28,6 +28,10 @@ void ViewMatrix::translate(glm::vec3 translation) {
     state = glm::translate(state, translation);
 }
 
+void ViewMatrix::lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up) {
+	state = glm::lookAt(position, target, up);
+}
+
 ViewState::ViewState() {
     glm::mat4 view;
     state = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));

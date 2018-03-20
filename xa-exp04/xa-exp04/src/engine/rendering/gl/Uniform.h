@@ -23,6 +23,7 @@ public:
     void rotate(float angle, glm::vec3 direction);
     void translate(float distance, float x, float y, float z);
     void translate(glm::vec3 translation);
+	void lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up);
 };
 
 class ModelState : public ViewMatrix {
