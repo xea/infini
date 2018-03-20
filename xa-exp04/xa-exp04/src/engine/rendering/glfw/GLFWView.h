@@ -14,7 +14,7 @@ private:
     GLFWwindow *window;    
 protected:
 public:
-    GLFWView(tuple<int, int> resolution);
+    GLFWView(tuple<int, int> resolution, bool shouldMaximise);
     ~GLFWView();
 
     void swapBuffers() override;

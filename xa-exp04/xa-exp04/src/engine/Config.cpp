@@ -4,8 +4,13 @@
 Config::Config() {
     screenWidth = DEFAULT_SCREEN_WIDTH;
     screenHeight = DEFAULT_SCREEN_HEIGHT;
+    maximiseWindow = true;
 }
 
 tuple<int, int> Config::getResolution() {
     return { screenWidth, screenHeight }; //make_tuple(screenWidth, screenHeight);
+}
+
+bool Config::isMaximiseWindow() {
+    return maximiseWindow;
 }
