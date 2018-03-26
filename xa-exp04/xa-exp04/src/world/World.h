@@ -16,6 +16,8 @@ public:
 
     virtual void start() = 0;
 
+    virtual void addObject(std::shared_ptr<Object> object) = 0;
+
     virtual void stop() = 0;
 };
 
@@ -27,6 +29,8 @@ public:
     void start() override;
 
     void stop() override;
+
+    void addObject(std::shared_ptr<Object> object) override;
 };
 
 #endif // XA_WORLD_H

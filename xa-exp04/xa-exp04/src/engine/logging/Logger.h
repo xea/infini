@@ -21,12 +21,22 @@ public:
 	void setTarget(string& target);
 };
 
-enum class LogLevel : unsigned int {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERRO
+#ifdef __APPLE__
+enum LogLevel {
+    DEBU,
+    INFO,
+    WARNING,
+    ERROR
 };
+#else
+enum class LogLevel : unsigned int {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR
+};
+#endif
+
 
 /**
  * Basic implementation for logging functionality

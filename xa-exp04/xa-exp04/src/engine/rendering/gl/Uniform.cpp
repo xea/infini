@@ -4,28 +4,24 @@ const float* ViewMatrix::getValuePtr() {
     return glm::value_ptr(state);
 }
 
-void ViewMatrix::rotateX(float xrot) {
-    state = glm::rotate(state, xrot, glm::vec3(1.0f, 0.0f, 0.0f));
-}
-
-void ViewMatrix::rotateY(float yrot) {
-    state = glm::rotate(state, yrot, glm::vec3(0.0f, 1.0f, 0.0f));
-}
-
-void ViewMatrix::rotateZ(float zrot) {
-    state = glm::rotate(state, zrot, glm::vec3(0.0f, 0.0f, 1.0f));
-}
-
 void ViewMatrix::rotate(float angle, glm::vec3 direction) {
     state = glm::rotate(state, angle, direction);
 }
 
-void ViewMatrix::translate(float distance, float x, float y, float z) {
-    state = glm::translate(state, glm::vec3(distance * x, distance * y, distance * z));
+void ViewMatrix::translate(float x, float y, float z) {
+    state = glm::translate(state, glm::vec3(x, y, z));
 }
 
 void ViewMatrix::translate(glm::vec3 translation) {
     state = glm::translate(state, translation);
+}
+
+void ViewMatrix::scale(float x, float y, float z) {
+    state = glm::scale(state, glm::vec3(x, y, z));
+}
+
+void ViewMatrix::scale(glm::vec3 scale) {
+    state = glm::scale(state, scale);
 }
 
 void ViewMatrix::lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up) {

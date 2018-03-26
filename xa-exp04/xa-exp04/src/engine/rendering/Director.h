@@ -2,6 +2,7 @@
 #define XA_DIRECTOR_H
 
 #include <engine/rendering/Scene.h>
+#include <world/Object.h>
 #include <world/World.h>
 #include <memory>
 #include <cmath>

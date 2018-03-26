@@ -21,3 +21,7 @@ void ActorWorld::start() {
 void ActorWorld::stop() {
 
 }
+
+void ActorWorld::addObject(std::shared_ptr<Object> object) {
+
+}

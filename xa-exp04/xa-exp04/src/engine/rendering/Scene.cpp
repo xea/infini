@@ -27,5 +27,5 @@ std::shared_ptr<ProjectionState> DemoScene::getProjectionState() {
 }
 
 void DemoScene::addObject(std::shared_ptr<RenderObject> object) {
-    
+    objects.push_back(object);
 }

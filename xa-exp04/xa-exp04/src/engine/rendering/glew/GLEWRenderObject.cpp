@@ -62,10 +62,17 @@ void GLEWRenderObject::setVertexAttributes(VertexMode mode) {
     }
 }
 
-void GLEWRenderObject::translate(float distance, float x, float y, float z) {
-    uniform.model.translate(distance, x, y, z);
+GLEWRenderObject* GLEWRenderObject::translate(float x, float y, float z) {
+    uniform.model.translate(x, y, z);
+    return this;
 }
 
-void GLEWRenderObject::rotate(float angle, float x, float y, float z) {
+GLEWRenderObject* GLEWRenderObject::rotate(float angle, float x, float y, float z) {
 	uniform.model.rotate(angle, glm::vec3(x, y, z));
+    return this;
+}
+
+GLEWRenderObject* GLEWRenderObject::scale(float x, float y, float z) {
+    uniform.model.scale(x, y, z);
+    return this;
 }

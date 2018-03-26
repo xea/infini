@@ -5,14 +5,16 @@ Director::Director(std::unique_ptr<World> world) {
     this->world = std::move(world);
     this->world->start();
 
-    auto cube = std::make_shared<Cube>();
-    auto triangle = std::make_shared<Triangle>();
+    auto object = std::make_shared<Object>(std::make_shared<GLEWRenderObject>(std::make_shared<Cube>()), 1.0);
+    auto ground = std::make_shared<Object>(std::make_shared<GLEWRenderObject>(std::make_shared<Cube>()), 999999999999999.0);
 
-    scene->addObject(cube);
-/*
-    objects.push_back(std::make_shared<GLEWRenderObject>(triangle));
-    objects.push_back(std::make_shared<GLEWRenderObject>(cube));
-    */
+    ground->getRenderObject()->scale(1.0, 1.0, 1.0)->translate(1.0, -1.0, 0.0);
+
+    this->world->addObject(ground);
+    scene->addObject(ground->getRenderObject());
+
+    this->world->addObject(object);
+    scene->addObject(object->getRenderObject());
 }
 
 std::shared_ptr<Scene> Director::getScene() {
