@@ -23,5 +23,6 @@ void ActorWorld::stop() {
 }
 
 void ActorWorld::addObject(std::shared_ptr<Object> object) {
+    //ActorRef firstActor = actorSystem->create("testActor", [object]() { return object; });
 
 }

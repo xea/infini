@@ -4,9 +4,11 @@
 #include <memory>
 #include <glm/glm.hpp>
 #include <engine/rendering/RenderObject.h>
+#include <engine/concurrent/Actor.h>
+#include <engine/concurrent/Message.h>
 #include <world/Object.h>
 
-class Object {
+class Object : public Actor {
 private:
     std::shared_ptr<RenderObject> renderObject;
     glm::vec3 velocity;
@@ -16,6 +18,7 @@ private:
 public:
     Object(std::shared_ptr<RenderObject> renderObject, double mass);
     std::shared_ptr<RenderObject> getRenderObject();
+    void update();
 };
 
 #endif // XA_OBJECT_H
