@@ -8,6 +8,7 @@
 // temporary includes
 #include <iostream>
 #include <thread>
+#include <list>
 
 using namespace std;
 
@@ -19,11 +20,20 @@ public:
     void send(Message message);
 };
 
+class ActorContext {
+private:
+public:
+    ActorContext();
+    ActorRef actorOf(string actorId);
+
+};
+
 class Actor {
 private:
     shared_ptr<Inbox> inbox;
 protected:
     Actor();
+    ActorContext context();
     
 public:
     virtual void receive(Message message) = 0;
@@ -39,6 +49,7 @@ public:
 
 class Scheduler : public Actor {
 public:
+    Scheduler(list<function<void()>> taskList);
     void receive(Message message) override;
 };
 

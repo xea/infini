@@ -20,6 +20,8 @@ ActorRef ActorSystem::actorOf(string actorId) {
 }
 
 ActorRef ActorSystem::create(string actorId, function<unique_ptr<Actor>()> propsFunc) {
+    auto context = ActorContext(this);
+
     auto actor = propsFunc();
     auto actorInbox = actor->getInbox();
 

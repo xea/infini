@@ -16,7 +16,17 @@ shared_ptr<Inbox> Actor::getInbox() {
     return inbox;
 }
 
+ActorContext Actor::context() {
+    ActorContext ctx;
+
+    return ctx;
+}
+
 void TestActor::receive(Message message) {
     //cout << "Received actor message yay, ctr:" << counter << " " << this_thread::get_id() << endl;
     counter++;
+}
+
+Scheduler::Scheduler(list<function<void()>> taskList) {
+    
 }
