@@ -4,12 +4,14 @@
 #include <engine/concurrent/System.h>
 #include <engine/concurrent/Inbox.h>
 #include <engine/concurrent/Message.h>
+#include <engine/concurrent/ActorSelection.h>
 #include <memory>
 
 // temporary includes
 #include <iostream>
 #include <thread>
 #include <list>
+#include <string>
 
 using namespace std;
 
@@ -21,6 +23,7 @@ friend class ActorContext;
 friend class ActorSystem;
 
 private:
+    string anchor;
     shared_ptr<Inbox> inbox;
     shared_ptr<ActorContext> localContext;
     std::list<ActorRef> children;
@@ -36,11 +39,13 @@ public:
 
 class ActorContext {
     System* system;
+    std::list<ActorRef>& children;
 private:
 public:
     ActorContext(System* system, list<ActorRef>& children);
     ActorRef actorOf(string actorId);
     ActorRef create(string actorId, function<unique_ptr<Actor>()> propsFunc);
+    ActorSelection select(string selector);
 };
 /*
 class TestActor : public Actor {

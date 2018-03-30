@@ -13,8 +13,9 @@ shared_ptr<ActorContext> Actor::context() {
     return localContext;
 }
 
-ActorContext::ActorContext(System* system, list<ActorRef>& children) {
+ActorContext::ActorContext(System* system, list<ActorRef>& children) : children(children) {
     this->system = system;
+    this->children = children;
 }
 
 ActorRef ActorContext::actorOf(string actorId) {
@@ -22,7 +23,11 @@ ActorRef ActorContext::actorOf(string actorId) {
 }
 
 ActorRef ActorContext::create(string actorId, function<unique_ptr<Actor>()> propsFunc) {
-    return system->create(actorId, propsFunc);
+    return system->create(anchor, actorId, propsFunc);
+}
+
+ActorSelection ActorContext::select(string selector) {
+    return system->select(selector);
 }
 
 /*

@@ -4,8 +4,6 @@
 #include <memory>
 #include <glm/glm.hpp>
 #include <engine/rendering/RenderObject.h>
-//#include <engine/concurrent/Actor.h>
-//#include <engine/concurrent/Message.h>
 #include <world/Object.h>
 
 class Object {
