@@ -1,7 +1,7 @@
 #ifndef XA_INBOX_H
 #define XA_INBOX_H
 
-#include "engine/concurrent/Message.h"
+#include <engine/concurrent/Message.h>
 #include <memory>
 #include <functional>
 #include <deque>

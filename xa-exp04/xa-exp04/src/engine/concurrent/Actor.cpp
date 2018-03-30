@@ -1,13 +1,5 @@
 #include <engine/concurrent/Actor.h>
 
-ActorRef::ActorRef(shared_ptr<Inbox> targetInbox) {
-    this->targetInbox = targetInbox;
-}
-
-void ActorRef::send(Message message) {
-    targetInbox->submit(message);
-}
-
 Actor::Actor() {
     inbox = make_shared<Inbox>([this](Message message) { this->receive(message); });
 }

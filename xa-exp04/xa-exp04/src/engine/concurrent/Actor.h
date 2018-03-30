@@ -1,6 +1,7 @@
 #ifndef XA_ACTOR_H
 #define XA_ACTOR_H
 
+#include <engine/concurrent/ActorContext.h>
 #include <engine/concurrent/Inbox.h>
 #include <engine/concurrent/Message.h>
 #include <memory>
@@ -11,22 +12,6 @@
 #include <list>
 
 using namespace std;
-
-class ActorRef {
-private:
-    shared_ptr<Inbox> targetInbox;
-public:
-    ActorRef(shared_ptr<Inbox> targetInbox);
-    void send(Message message);
-};
-
-class ActorContext {
-private:
-public:
-    ActorContext();
-    ActorRef actorOf(string actorId);
-
-};
 
 class Actor {
 private:
