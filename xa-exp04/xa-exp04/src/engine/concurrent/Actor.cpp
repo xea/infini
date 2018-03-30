@@ -22,3 +22,7 @@ void TestActor::receive(Message message) {
 Scheduler::Scheduler(list<function<void()>> taskList) {
     
 }
+
+void Scheduler::receive(Message message) {
+    
+}

@@ -2,7 +2,8 @@
 #define XA_ACTOR_CONTEXT_H
 
 #include <engine/concurrent/ActorRef.h>
-#include <engine/concurrent/ActorSystem.h>
+//#include <engine/concurrent/ActorSystem.h>
+#include <string>
 
 class ActorContext {
 private:
