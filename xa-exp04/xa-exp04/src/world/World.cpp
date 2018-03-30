@@ -4,11 +4,8 @@ World::World() {
 }
 
 void ActorWorld::start() {
+    //ActorRef testActor = actorSystem->actorOf("testActor", []() { return make_unique<TestActor>(); });
     /*
-    ActorRef physics = actorSystem->create("/physics", []() {
-        return make_unique<Physics>();
-    });
-
     physics.send(Message::START);
     */
 
@@ -31,6 +28,5 @@ void ActorWorld::stop() {
 }
 
 void ActorWorld::addObject(std::shared_ptr<Object> object) {
-
-    //ActorRef firstActor = actorSystem->create("testActor", [object]() { return object; });
+    ActorRef firstActor = actorSystem->actorOf("testActor", [object]() { return std::make_unique<RenderActor>(object); });
 }

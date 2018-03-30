@@ -1,11 +1,13 @@
 #ifndef XA_WORLD_H
 #define XA_WORLD_H
 
-#include <engine/concurrent/ActorSystem.h>
+#include <engine/actor/ActorSystem.h>
 //#include <engine/concurrent/Message.h>
 #include <world/Object.h>
 #include <vector>
 #include <memory>
+
+#include <engine/actor/Actor.h>
 
 using namespace std;
 
