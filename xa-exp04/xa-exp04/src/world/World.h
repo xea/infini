@@ -2,7 +2,7 @@
 #define XA_WORLD_H
 
 #include <engine/concurrent/ActorSystem.h>
-#include <engine/concurrent/Message.h>
+//#include <engine/concurrent/Message.h>
 #include <world/Object.h>
 #include <vector>
 #include <memory>

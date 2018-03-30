@@ -13,6 +13,18 @@ shared_ptr<ActorContext> Actor::context() {
     return localContext;
 }
 
+ActorContext::ActorContext(System* system, list<ActorRef>& children) {
+    this->system = system;
+}
+
+ActorRef ActorContext::actorOf(string actorId) {
+    return system->actorOf(actorId);
+}
+
+ActorRef ActorContext::create(string actorId, function<unique_ptr<Actor>()> propsFunc) {
+    return system->create(actorId, propsFunc);
+}
+
 /*
 void TestActor::receive(Message message) {
     //cout << "Received actor message yay, ctr:" << counter << " " << this_thread::get_id() << endl;

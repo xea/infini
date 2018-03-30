@@ -5,6 +5,7 @@ Director::Director(std::unique_ptr<World> world) {
     this->world = std::move(world);
     this->world->start();
 
+    
 /*
     auto object = std::make_shared<Object>(std::make_shared<GLEWRenderObject>(std::make_shared<Cube>()), 1.0);
     auto ground = std::make_shared<Object>(std::make_shared<GLEWRenderObject>(std::make_shared<Cube>()), 999999999999999.0);

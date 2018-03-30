@@ -1,7 +1,7 @@
 #ifndef XA_ACTOR_H
 #define XA_ACTOR_H
 
-#include <engine/concurrent/ActorContext.h>
+#include <engine/concurrent/System.h>
 #include <engine/concurrent/Inbox.h>
 #include <engine/concurrent/Message.h>
 #include <memory>
@@ -13,10 +13,17 @@
 
 using namespace std;
 
+class ActorContext;
+
 class Actor {
+
+friend class ActorContext;
+friend class ActorSystem;
+
 private:
     shared_ptr<Inbox> inbox;
     shared_ptr<ActorContext> localContext;
+    std::list<ActorRef> children;
 protected:
     Actor(shared_ptr<ActorContext> context);
     shared_ptr<ActorContext> context();
@@ -26,6 +33,15 @@ public:
     shared_ptr<Inbox> getInbox();
 };
 
+
+class ActorContext {
+    System* system;
+private:
+public:
+    ActorContext(System* system, list<ActorRef>& children);
+    ActorRef actorOf(string actorId);
+    ActorRef create(string actorId, function<unique_ptr<Actor>()> propsFunc);
+};
 /*
 class TestActor : public Actor {
 private:

@@ -18,7 +18,7 @@ private:
 public:
     ActorSystem();
     ActorRef actorOf(string actorId) override;
-    ActorRef create(string actorId, function<unique_ptr<Actor>()> propsFunc);
+    ActorRef create(string actorId, function<unique_ptr<Actor>()> propsFunc) override;
 };
 
 #endif // XA_ACTORSYSTEM_H
