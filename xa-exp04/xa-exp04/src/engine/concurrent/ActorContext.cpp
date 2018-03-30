@@ -1,7 +1,6 @@
 #include <engine/concurrent/ActorContext.h>
 
-ActorContext::ActorContext() {
-    
+ActorContext::ActorContext(System* lsystem) {
 }
 
 void ActorContext::actorOf(string actorId) {

@@ -2,14 +2,13 @@
 #define XA_ACTOR_CONTEXT_H
 
 #include <engine/concurrent/ActorRef.h>
-//#include <engine/concurrent/ActorSystem.h>
+#include <engine/concurrent/System.h>
 #include <string>
 
 class ActorContext {
 private:
-
 public:
-    ActorContext();
+    ActorContext(System* system);
     //ActorRef actorOf(string actorId);
     void actorOf(string actorId);
 

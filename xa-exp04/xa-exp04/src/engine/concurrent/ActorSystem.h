@@ -3,6 +3,7 @@
 
 #include <engine/concurrent/Actor.h>
 #include <engine/concurrent/Executor.h>
+#include <engine/concurrent/System.h>
 #include <functional>
 #include <map>
 #include <memory>
@@ -10,13 +11,13 @@
 
 using namespace std;
 
-class ActorSystem {
+class ActorSystem : public System {
 private:
     map<string, unique_ptr<Actor>> actors;
     unique_ptr<Executor> executor;
 public:
     ActorSystem();
-    ActorRef actorOf(string actorId);
+    ActorRef actorOf(string actorId) override;
     ActorRef create(string actorId, function<unique_ptr<Actor>()> propsFunc);
 };
 

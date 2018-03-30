@@ -16,15 +16,17 @@ using namespace std;
 class Actor {
 private:
     shared_ptr<Inbox> inbox;
+    shared_ptr<ActorContext> localContext;
 protected:
-    Actor();
-    ActorContext context();
+    Actor(shared_ptr<ActorContext> context);
+    shared_ptr<ActorContext> context();
     
 public:
     virtual void receive(Message message) = 0;
     shared_ptr<Inbox> getInbox();
 };
 
+/*
 class TestActor : public Actor {
 private:
     unsigned int counter{0};
@@ -37,5 +39,6 @@ public:
     Scheduler(list<function<void()>> taskList);
     void receive(Message message) override;
 };
+*/
 
 #endif // XA_ACTOR_H
