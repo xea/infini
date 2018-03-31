@@ -4,6 +4,8 @@
 #include <functional>
 #include <string>
 #include <engine/actor/Actor.h>
+#include <engine/actor/ActorContext.h>
+#include <engine/actor/ActorPath.h>
 #include <engine/actor/ActorRef.h>
 #include <engine/actor/ActorSelection.h>
 #include <engine/actor/Scheduler.h>
@@ -16,8 +18,8 @@ private:
 public:
     ActorSystem();
     ActorSelection select(string selector);
-    // TODO name, propsfunction 
     ActorRef actorOf(string name, function<unique_ptr<Actor>()> propsFunction);
+    ActorRef actorOf(string name, std::shared_ptr<ActorPath> parentPath, function<unique_ptr<Actor>()> propsFunction);
     // TODO actorOf(propsfunction) (anonymous actor)
     // TODO
     Scheduler scheduler();

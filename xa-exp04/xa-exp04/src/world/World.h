@@ -3,6 +3,7 @@
 
 #include <engine/actor/ActorSystem.h>
 //#include <engine/concurrent/Message.h>
+#include <world/Physics.h>
 #include <world/Object.h>
 #include <vector>
 #include <memory>
