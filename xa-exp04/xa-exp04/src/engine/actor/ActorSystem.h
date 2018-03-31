@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <string>
+#include <list>
 #include <engine/actor/Actor.h>
 #include <engine/actor/ActorContext.h>
 #include <engine/actor/ActorPath.h>
@@ -14,7 +15,6 @@ using namespace std;
 
 class ActorSystem {
 private:
-
 public:
     ActorSystem();
     ActorSelection select(string selector);

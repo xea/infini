@@ -8,7 +8,10 @@
 enum class UniformType : unsigned int {
     ModelMatrix,
     ViewMatrix,
-    ProjectionMatrix
+    ProjectionMatrix,
+    Resolution,
+    FrameCount,
+    Time
 };
 
 class ViewMatrix {
@@ -43,6 +46,9 @@ public:
     unsigned int model;
     unsigned int view;
     unsigned int projection;
+    unsigned int resolution;
+    unsigned int frameCount;
+    unsigned int time;
 };
 
 class Uniform {

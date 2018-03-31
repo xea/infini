@@ -12,6 +12,7 @@ GLEWRenderer::GLEWRenderer(std::tuple<int, int> resolution) {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    this->resolution = resolution;
     float aspectRatio = (float) get<0>(resolution) / (float) get<1>(resolution);
     projectionState = std::make_shared<ProjectionState>(45.0f, aspectRatio);
     viewState = std::make_shared<ViewState>();
@@ -103,6 +104,10 @@ void GLEWRenderer::applyFrameRateLimit() {
 void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
     viewState = view;
 
+    float res[] = { (float) get<0>(resolution), (float) get<1>(resolution) };
+
     glUniformMatrix4fv(uniformLocations.view, 1, GL_FALSE, viewState->getValuePtr());
     glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projectionState->getValuePtr());
+    glUniform1i(uniformLocations.frameCount, frameCount);
+    glUniform2fv(uniformLocations.resolution, 1, res);
 }

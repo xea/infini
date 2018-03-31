@@ -49,6 +49,15 @@ unsigned int ShaderProgram::getUniformLocation(UniformType type) {
         case UniformType::ProjectionMatrix:
             uniformLocation = glGetUniformLocation(programId, "projection");
             break;
+        case UniformType::Resolution:
+            uniformLocation = glGetUniformLocation(programId, "resolution");
+            break;
+        case UniformType::FrameCount:
+            uniformLocation = glGetUniformLocation(programId, "frameCount");
+            break;
+        case UniformType::Time:
+            uniformLocation = glGetUniformLocation(programId, "time");
+            break;
     }
 
     return uniformLocation;
@@ -60,6 +69,9 @@ UniformLocations ShaderProgram::getUniformLocations() {
     locations.model = getUniformLocation(UniformType::ModelMatrix);
     locations.view = getUniformLocation(UniformType::ViewMatrix);
     locations.projection = getUniformLocation(UniformType::ProjectionMatrix);
+    locations.resolution = getUniformLocation(UniformType::Resolution);
+    locations.frameCount = getUniformLocation(UniformType::FrameCount);
+    locations.time = getUniformLocation(UniformType::Time);
 
     return locations;
 }

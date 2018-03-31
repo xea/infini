@@ -15,6 +15,7 @@ Director::Director(std::unique_ptr<World> world) {
 
     this->world->addObject(object);
     scene->addObject(object->getRenderObject());
+    
 }
 
 std::shared_ptr<Scene> Director::getScene() {
