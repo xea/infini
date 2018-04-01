@@ -6,6 +6,14 @@ World::World() {
 void ActorWorld::start() {
     physicsRef = actorSystem->actorOf("physics", [](){ return make_unique<Physics>(); });
 
+    auto messageType = ControlMessageType::Start;
+
+
+    std::shared_ptr<Message> msg = std::make_shared<ControlMessage>(ControlMessageType::Start);
+
+    physicsRef.send(msg);
+    //physicsRef.send(make_unique<ControlMessage>(message));
+
     /*
     physics.send(Message::START);
     */

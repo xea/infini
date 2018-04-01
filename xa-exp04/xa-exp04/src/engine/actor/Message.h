@@ -21,16 +21,19 @@ enum class ControlMessageType : unsigned short {
 class ControlMessage : public Message {
     ControlMessageType controlMessageType;
 public:
+
     ControlMessage(ControlMessageType cmsgtype);
     MessageType getMessageType() override;
     ControlMessageType getControlMessageType();
 };
 
+    /*
 class Force : public Message {
 public:
     MessageType getMessageType() override;
     Force(glm::vec3 force);
     glm::vec3 force;
 };
+    */
 
 #endif // XA_ACTOR_MESSAGE_H

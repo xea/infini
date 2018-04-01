@@ -1,9 +1,5 @@
 #include <engine/actor/Message.h>
 
-Force::Force(glm::vec3 force) {
-    this->force = force;
-}
-
 ControlMessage::ControlMessage(ControlMessageType cmsgtype) {
     this->controlMessageType = cmsgtype;
 }
@@ -16,6 +12,13 @@ ControlMessageType ControlMessage::getControlMessageType() {
     return controlMessageType;
 }
 
+/*
 MessageType Force::getMessageType() {
     return MessageType::Force;
 }
+
+Force::Force(glm::vec3 force) {
+    this->force = force;
+}
+
+*/
