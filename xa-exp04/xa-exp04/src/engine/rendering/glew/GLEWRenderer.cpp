@@ -102,6 +102,8 @@ void GLEWRenderer::applyFrameRateLimit() {
 }
 
 void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
+	auto now = chrono::system_clock::now();
+
     viewState = view;
 
     float res[] = { (float) get<0>(resolution), (float) get<1>(resolution) };
@@ -110,4 +112,5 @@ void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
     glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projectionState->getValuePtr());
     glUniform1i(uniformLocations.frameCount, frameCount);
     glUniform2fv(uniformLocations.resolution, 1, res);
+    glUniform1f(uniformLocations.time, chrono::duration_cast<chrono::milliseconds>(now - startTime).count());
 }

@@ -11,10 +11,11 @@ ActorRef ActorSystem::actorOf(string name, function<unique_ptr<Actor>()> propsFu
 ActorRef ActorSystem::actorOf(string name, shared_ptr<ActorPath> parentPath, function<unique_ptr<Actor>()> propsFunction) {
     auto newActor = propsFunction();
     auto newContext = make_shared<ActorContext>();
+    auto newInbox = newActor->inbox();
     
     newActor->actorContext = newContext;
 
-    ActorRef newRef;
+    ActorRef newRef(newInbox);
 
     return newRef;
 }

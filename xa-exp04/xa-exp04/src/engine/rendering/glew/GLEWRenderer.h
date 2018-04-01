@@ -29,6 +29,7 @@ private:
     std::shared_ptr<ShaderProgram> shaderProgram;
     std::shared_ptr<ViewState> viewState;
     std::shared_ptr<ProjectionState> projectionState;
+	std::chrono::system_clock::time_point startTime{ chrono::system_clock::now() };
 	std::chrono::system_clock::time_point lastFrame{ chrono::system_clock::now() };
 	std::chrono::system_clock::time_point lastCheckPoint{ chrono::system_clock::now() };
     std::tuple<int, int> resolution;

@@ -26,7 +26,6 @@ public:
 class ActorWorld : public World {
 private:
     unique_ptr<ActorSystem> actorSystem { make_unique<ActorSystem>() };
-    ActorRef physicsRef;
     list<ActorRef> actors;
 public:
 
