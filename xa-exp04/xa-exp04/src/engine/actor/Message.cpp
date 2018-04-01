@@ -12,7 +12,6 @@ ControlMessageType ControlMessage::getControlMessageType() {
     return controlMessageType;
 }
 
-/*
 MessageType Force::getMessageType() {
     return MessageType::Force;
 }
@@ -20,5 +19,3 @@ MessageType Force::getMessageType() {
 Force::Force(glm::vec3 force) {
     this->force = force;
 }
-
-*/

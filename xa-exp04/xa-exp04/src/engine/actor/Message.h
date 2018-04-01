@@ -27,13 +27,11 @@ public:
     ControlMessageType getControlMessageType();
 };
 
-    /*
 class Force : public Message {
 public:
     MessageType getMessageType() override;
     Force(glm::vec3 force);
     glm::vec3 force;
 };
-    */
 
 #endif // XA_ACTOR_MESSAGE_H
