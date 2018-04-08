@@ -1,6 +1,6 @@
 #include <engine/actor/Inbox.h>
 
-Inbox::Inbox(function<void(shared_ptr<Message>)> messageProcessor)  {
+Inbox::Inbox(shared_ptr<MessageProcessor> messageProcessor)  {
     processor = messageProcessor;
 }
 
@@ -27,7 +27,12 @@ unsigned long Inbox::getMessageCount() {
 }
 
 void Inbox::processMessage(shared_ptr<Message> message) {
-    processor(message);
+    stringstream logmsg;
+
+    logmsg << "Processing message " << (unsigned short) message->getMessageType() << " to " << processor->getDebugName();
+    
+    Logger::getInstance("Inbox")->info(logmsg.str());
+    processor->receive(message);
 }
 
 void Inbox::processNextMessage() { 

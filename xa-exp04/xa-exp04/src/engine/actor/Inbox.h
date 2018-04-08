@@ -2,17 +2,26 @@
 #define XA_INBOX_H
 
 #include <engine/actor/Message.h>
+#include <engine/logging/Logger.h>
 #include <memory>
 #include <functional>
 #include <deque>
 #include <mutex>
 #include <vector>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
+class MessageProcessor {
+public:
+    virtual void receive(shared_ptr<Message> message) = 0;
+    virtual string getDebugName() = 0;
+};
+
 class Inbox {
 private:
-    function<void(shared_ptr<Message>)> processor;
+    shared_ptr<MessageProcessor> processor;
     deque<shared_ptr<Message>> inboundMessages;
     vector<shared_ptr<Message>> preQueue;
     mutex processingMutex;
@@ -21,7 +30,7 @@ protected:
     shared_ptr<Message> nextMessage();
     void processMessage(shared_ptr<Message> message);
 public: 
-    Inbox(function<void(shared_ptr<Message>)> messageProcessor);
+    Inbox(shared_ptr<MessageProcessor> messageProcessor);
     void submit(shared_ptr<Message> message);
     unsigned long getMessageCount();
     void processNextMessage();

@@ -9,17 +9,19 @@
 #include <engine/actor/ActorPath.h>
 #include <engine/actor/ActorRef.h>
 #include <engine/actor/ActorSelection.h>
+#include <engine/actor/Executor.h>
 #include <engine/actor/Scheduler.h>
 
 using namespace std;
 
 class ActorSystem {
 private:
+    unique_ptr<Executor> executor;
 public:
     ActorSystem();
     ActorSelection select(string selector);
-    ActorRef actorOf(string name, function<unique_ptr<Actor>()> propsFunction);
-    ActorRef actorOf(string name, std::shared_ptr<ActorPath> parentPath, function<unique_ptr<Actor>()> propsFunction);
+    ActorRef actorOf(string name, function<shared_ptr<Actor>()> propsFunction);
+    ActorRef actorOf(string name, std::shared_ptr<ActorPath> parentPath, function<shared_ptr<Actor>()> propsFunction);
     // TODO actorOf(propsfunction) (anonymous actor)
     // TODO
     Scheduler scheduler();

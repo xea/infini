@@ -2,6 +2,7 @@
 #define XA_EXECUTOR_H
 
 #include <engine/actor/Inbox.h>
+#include <engine/logging/Logger.h>
 #include <memory>
 #include <thread>
 #include <vector>
@@ -15,6 +16,7 @@ class Executor {
 private:
     vector<thread> serviceThreads;
     shared_ptr<vector<shared_ptr<Inbox>>> watchedInboxes{ make_shared<vector<shared_ptr<Inbox>>>() };
+    shared_ptr<Logger> logger;
 
 protected:
     void mainLoop();
