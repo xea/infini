@@ -7,7 +7,7 @@ void Physics::receive(std::shared_ptr<Message> message) {
 
     switch (message->getMessageType()) {
         case MessageType::Control:
-            context()->select("physics");
+            context()->select("physics").send(message);
             break;
     }
 }

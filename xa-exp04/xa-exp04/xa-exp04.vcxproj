@@ -103,11 +103,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\engine\concurrent\Actor.cpp" />
-    <ClCompile Include="src\engine\concurrent\ActorSystem.cpp" />
-    <ClCompile Include="src\engine\concurrent\Executor.cpp" />
-    <ClCompile Include="src\engine\concurrent\Inbox.cpp" />
-    <ClCompile Include="src\engine\concurrent\Message.cpp" />
+    <ClCompile Include="src\engine\actor\Actor.cpp" />
+    <ClCompile Include="src\engine\actor\ActorContext.cpp" />
+    <ClCompile Include="src\engine\actor\ActorPath.cpp" />
+    <ClCompile Include="src\engine\actor\ActorRef.cpp" />
+    <ClCompile Include="src\engine\actor\ActorSelection.cpp" />
+    <ClCompile Include="src\engine\actor\ActorSystem.cpp" />
+    <ClCompile Include="src\engine\actor\Executor.cpp" />
+    <ClCompile Include="src\engine\actor\Inbox.cpp" />
+    <ClCompile Include="src\engine\actor\Message.cpp" />
     <ClCompile Include="src\engine\Config.cpp" />
     <ClCompile Include="src\engine\Engine.cpp" />
     <ClCompile Include="src\engine\io\FileSource.cpp" />
@@ -126,15 +130,24 @@
     <ClCompile Include="src\engine\rendering\RenderObject.cpp" />
     <ClCompile Include="src\engine\rendering\Scene.cpp" />
     <ClCompile Include="src\engine\rendering\Source.cpp" />
+    <ClCompile Include="src\world\Object.cpp" />
+    <ClCompile Include="src\world\Physics.cpp" />
     <ClCompile Include="src\world\World.cpp" />
     <ClCompile Include="src\xa-exp04.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engine\concurrent\Actor.h" />
-    <ClInclude Include="src\engine\concurrent\ActorSystem.h" />
-    <ClInclude Include="src\engine\concurrent\Executor.h" />
-    <ClInclude Include="src\engine\concurrent\Inbox.h" />
-    <ClInclude Include="src\engine\concurrent\Message.h" />
+    <ClInclude Include="src\engine\actor\Actor.h" />
+    <ClInclude Include="src\engine\actor\ActorContext.h" />
+    <ClInclude Include="src\engine\actor\ActorPath.h" />
+    <ClInclude Include="src\engine\actor\ActorRef.h" />
+    <ClInclude Include="src\engine\actor\ActorSelection.h" />
+    <ClInclude Include="src\engine\actor\ActorSystem.h" />
+    <ClInclude Include="src\engine\actor\ActorTest.h" />
+    <ClInclude Include="src\engine\actor\Executor.h" />
+    <ClInclude Include="src\engine\actor\Inbox.h" />
+    <ClInclude Include="src\engine\actor\Message.h" />
+    <ClInclude Include="src\engine\actor\Scheduler.h" />
+    <ClInclude Include="src\engine\actor\TestActor.h" />
     <ClInclude Include="src\engine\Config.h" />
     <ClInclude Include="src\engine\Engine.h" />
     <ClInclude Include="src\engine\io\FileSource.h" />
@@ -156,6 +169,7 @@
     <ClInclude Include="src\engine\rendering\View.h" />
     <ClInclude Include="src\util\Result.h" />
     <ClInclude Include="src\world\Object.h" />
+    <ClInclude Include="src\world\Physics.h" />
     <ClInclude Include="src\world\World.h" />
     <ClInclude Include="src\xa-exp04.h" />
   </ItemGroup>

@@ -38,3 +38,7 @@ void Director::update() {
     */
  //   }
 }
+
+void Director::shutdown() {
+	world->stop();
+}

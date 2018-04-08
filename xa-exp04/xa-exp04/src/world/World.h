@@ -6,8 +6,12 @@
 #include <engine/actor/Message.h>
 #include <world/Physics.h>
 #include <world/Object.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <cmath>
 #include <list>
 #include <memory>
+#include <thread>
 
 using namespace std;
 
@@ -21,6 +25,16 @@ public:
     virtual void addObject(std::shared_ptr<Object> object) = 0;
 
     virtual void stop() = 0;
+};
+
+class PhysicsWorld : public World {
+private:
+	thread processThread;
+	list<shared_ptr<Object>> objects;
+public:
+	void start() override;
+	void stop() override;
+    void addObject(std::shared_ptr<Object> object) override;
 };
 
 class ActorWorld : public World {

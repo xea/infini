@@ -112,5 +112,5 @@ void GLEWRenderer::updateView(std::shared_ptr<ViewState> view) {
     glUniformMatrix4fv(uniformLocations.projection, 1, GL_FALSE, projectionState->getValuePtr());
     glUniform1i(uniformLocations.frameCount, frameCount);
     glUniform2fv(uniformLocations.resolution, 1, res);
-    glUniform1f(uniformLocations.time, chrono::duration_cast<chrono::milliseconds>(now - startTime).count());
+    glUniform1f(uniformLocations.time, (GLfloat) chrono::duration_cast<chrono::milliseconds>(now - startTime).count());
 }

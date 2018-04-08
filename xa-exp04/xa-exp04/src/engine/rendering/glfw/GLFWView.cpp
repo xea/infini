@@ -73,5 +73,5 @@ std::tuple<int, int> GLFWView::getCursorPosition() {
 
     glfwGetCursorPos(window, &xpos, &ypos);
 
-    return { xpos, ypos };
+    return { (int) xpos, (int) ypos };
 }

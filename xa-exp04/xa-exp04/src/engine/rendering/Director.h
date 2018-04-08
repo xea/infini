@@ -20,6 +20,7 @@ public:
     Director(std::unique_ptr<World> world);
     std::shared_ptr<Scene> getScene();
     void update();
+	void shutdown();
 };
 
 #endif // XA_DIRECTOR_H

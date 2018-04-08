@@ -8,7 +8,7 @@ ActorPath::ActorPath(std::shared_ptr<ActorPath> parent, std::string name) {
 std::string ActorPath::toString() {
     std::string pathstr;
 
-    pathstr.append(parent->toString());
+    //pathstr.append(parent->toString());
     pathstr.append(name);
 
     return pathstr;

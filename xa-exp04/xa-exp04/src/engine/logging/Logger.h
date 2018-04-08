@@ -33,7 +33,7 @@ enum class LogLevel : unsigned int {
     DEBUG,
     INFO,
     WARNING,
-    ERROR
+    ERRO
 };
 #endif
 

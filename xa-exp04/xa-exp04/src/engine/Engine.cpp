@@ -23,7 +23,7 @@ void Engine::start() {
     renderer->useShaderProgram(ShaderProgram::getDefault());
 	renderer->limitFrameRate(60);
 
-    Director director(std::make_unique<ActorWorld>());
+    Director director(std::make_unique<PhysicsWorld>());
 
     while (!view->closeRequested()) {
         director.update();
