@@ -13,30 +13,10 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\actor">
-      <UniqueIdentifier>{2e238582-b562-4eaa-9282-3df7af5dc820}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\xa-exp05.cpp">
+    <ClCompile Include="xa-exp05-test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\xa-exp05.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\actor\Actor.h">
-      <Filter>Header Files\actor</Filter>
-    </ClInclude>
-    <ClInclude Include="include\actor\ActorPath.hpp">
-      <Filter>Header Files\actor</Filter>
-    </ClInclude>
-    <ClInclude Include="include\actor\Message.hpp">
-      <Filter>Header Files\actor</Filter>
-    </ClInclude>
-    <ClInclude Include="include\actor\ActorRef.hpp">
-      <Filter>Header Files\actor</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
