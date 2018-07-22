@@ -22,6 +22,7 @@
     <ClCompile Include="src\xa-exp05.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\actor\ActorPath.h" />
     <ClInclude Include="include\xa-exp05.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
