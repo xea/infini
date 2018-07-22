@@ -46,6 +46,8 @@ obj/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+*.opendb
+.vs
 
 #MonoDevelop
 *.pidb
