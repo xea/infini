@@ -1,9 +1,13 @@
 #include "xa-exp05.h"
 
-#include <iostream>
+using namespace std;
 
 int MAIN {
-	std::cout << "Asdfasdf" << std::endl;
+    auto rootPath = make_unique<RootActorPath>();
+    auto mailbox = make_unique<Mailbox>(nullptr);
+    cout << "Root path: " << rootPath->getFullName() << endl;
+    cout << "Mailbox status: " << mailbox->getStatus() << endl;
+    
 	return 0;
 }
 

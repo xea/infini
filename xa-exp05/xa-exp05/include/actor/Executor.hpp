@@ -1,0 +1,61 @@
+#ifndef XA_EXECUTOR_H
+#define XA_EXECUTOR_H
+
+#include <thread>
+
+using namespace std::chrono_literals;
+
+class Executor {
+public:
+    virtual void schedule(std::shared_ptr<Mailbox> mailboxEvent) = 0;
+};
+
+class NaiveThreadPoolExecutor : public Executor {
+public:
+    NaiveThreadPoolExecutor();
+    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
+private:
+    std::vector<std::thread> serviceThreads;
+    std::deque<std::shared_ptr<Mailbox>> workQueue;
+    std::mutex workQueueMutex;
+};
+
+NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
+    auto cpuCount = std::thread::hardware_concurrency();
+    
+    for (uint8_t i = 0; i < cpuCount; i++) {
+        auto newThread = std::thread([this]() {
+            // TODO support shutdown
+            while (true) {
+                if (workQueue.size() > 0) {
+                    std::lock_guard<std::mutex> process_lock(workQueueMutex);
+                    
+                    if (workQueue.size() > 0) {
+                        auto mailbox = workQueue.front();
+                        workQueue.pop_front();
+                        
+                        // process actor mailbox
+                        mailbox->dequeue();
+                    }
+                }
+                else {
+                    std::this_thread::sleep_for(10ms);
+                }
+            }
+        });
+        
+        newThread.detach();
+        
+        serviceThreads.push_back(std::move(newThread));
+    }
+}
+
+void NaiveThreadPoolExecutor::schedule(std::shared_ptr<Mailbox> mailboxEvent) {
+    // if already scheduled then do nothing
+    // otherwise add task to work queue
+    std::lock_guard<std::mutex> lock(workQueueMutex);
+    mailboxEvent->setAsScheduled();
+    workQueue.push_back(mailboxEvent);
+}
+
+#endif // XA_EXECUTOR_H

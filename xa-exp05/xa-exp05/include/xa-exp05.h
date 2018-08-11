@@ -13,5 +13,6 @@
 #endif // _WIN32
 
 //#include <engine/Engine.h>
+#include "actor/Actor.h"
 
 #endif // XA_EXP05_H

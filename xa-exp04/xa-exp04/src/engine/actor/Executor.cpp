@@ -6,7 +6,8 @@ Executor::Executor() {
     auto cpuCount = thread::hardware_concurrency(); 
 
     // TODO this should be configurable ideally
-    for (int i = 0; i < cpuCount - 1; i++) {
+    //for (int i = 0; i < cpuCount - 1; i++) {
+    for (int i = 0; i < 1; i++) {
         auto w = watchedInboxes;
         logger->info("Spawning thread for core");
 

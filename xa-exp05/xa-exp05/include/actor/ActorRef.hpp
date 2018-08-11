@@ -36,6 +36,9 @@ std::shared_ptr<ActorPath> DeadLetterActorRef::getPath() {
 	return path;
 }
 
+// A no sender reference is used when a message is send from outside of the actor system, which, being external
+// to the system will not have a reference. Messages sent to the no sender reference will be forwarded to the 
+// dead letter inbox.
 class NoSenderRef : public ActorRef {
 public:
 	NoSenderRef(std::shared_ptr<ActorPath> path) : path(path) {};
@@ -44,5 +47,13 @@ public:
 private:
 	std::shared_ptr<ActorPath> path;
 };
+
+class ActorCell;
+
+class ActorRefWithCell : public ActorRef {
+public:
+	virtual std::shared_ptr<ActorCell> getActorCell() = 0;
+};
+
 
 #endif // XA_ACTOR_REF_H

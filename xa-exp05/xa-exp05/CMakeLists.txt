@@ -4,6 +4,8 @@ project("xa-exp05")
 
 file(GLOB_RECURSE source "src/*.cpp" "include/*.h")
 
+include(CTest)
+
 add_executable(xa-exp05 ${source})
 find_library(GLFW_LIB glfw)
 find_library(GLEW_LIB glew)

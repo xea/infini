@@ -32,6 +32,7 @@ void LocalActor::receive(shared_ptr<Message> message) {
     }
 }
 
+/*
 int main(int argc, const char * argv[]) {
     auto system = make_unique<ActorSystem>();
 
@@ -46,4 +47,4 @@ int main(int argc, const char * argv[]) {
     std::this_thread::sleep_for(2s);
     return 0;
 }
-
+*/
