@@ -4,9 +4,6 @@
 #include "ContextStack.hpp"
 
 class Actor {
-private:
-protected:
-    std::shared_ptr<ActorContext> context;
 public:
     Actor() : context(nullptr) {
         context = contextStack.top();
@@ -18,6 +15,8 @@ public:
     virtual std::unique_ptr<Receive> createReceive() = 0;
     virtual void preStart();
     virtual void postStop();
+protected:
+    std::shared_ptr<ActorContext> context;
 };
 
 void Actor::preStart() {

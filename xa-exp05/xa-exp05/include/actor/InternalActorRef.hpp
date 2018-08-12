@@ -2,12 +2,12 @@
 #define XA_INTERNAL_ACTOR_REF_H
 
 class InternalActorRef : public ActorRef {
-private:
-    std::shared_ptr<ActorPath> actorPath;
 public:
     InternalActorRef(std::shared_ptr<ActorPath> actorPath) : actorPath(actorPath) {};
     void send(std::unique_ptr<Message> message) override;
     std::shared_ptr<ActorPath> getPath() override;
+private:
+    std::shared_ptr<ActorPath> actorPath;
 };
 
 void InternalActorRef::send(std::unique_ptr<Message> message) {

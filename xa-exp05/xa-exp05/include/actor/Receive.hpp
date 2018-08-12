@@ -6,12 +6,12 @@
 
 // A Receive instance represents a single behaviour in the behaviour stack for a given actor.
 class Receive {
-private:
-    std::vector<MessageMatcher> matchers;
 public:
     Receive(std::vector<MessageMatcher> matchers) : matchers(matchers) {};
     // Accepts a message for processing
     void onMessage(std::unique_ptr<Message> message);
+private:
+    std::vector<MessageMatcher> matchers;
 };
 
 void Receive::onMessage(std::unique_ptr<Message> message) {

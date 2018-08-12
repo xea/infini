@@ -2,10 +2,10 @@
 #define XA_LOCAL_ACTOR_SELECTION_H
 
 class LocalActorSelection : public ActorSelection {
-protected:
-    std::shared_ptr<ActorRef> deliverSelection() override;
 public:
     LocalActorSelection(std::shared_ptr<ActorRef> anchor, std::string path) : ActorSelection(anchor, path) {};
+protected:
+    std::shared_ptr<ActorRef> deliverSelection() override;
 };
 
 std::shared_ptr<ActorRef> LocalActorSelection::deliverSelection() {

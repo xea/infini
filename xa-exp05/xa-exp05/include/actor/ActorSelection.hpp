@@ -11,14 +11,14 @@
 // allowing broadcasting messages to multiple actors
 
 class ActorSelection {
-protected:
-    std::shared_ptr<ActorRef> anchor;
-    std::deque<std::string> path;
-    virtual std::shared_ptr<ActorRef> deliverSelection() = 0;
 public:
     ActorSelection(std::shared_ptr<ActorRef> anchor, std::string path);
     ActorSelection(std::shared_ptr<ActorRef> anchor, std::deque<std::string> path) : anchor(anchor), path(path) {};
     void send(std::unique_ptr<Message> message);
+protected:
+    std::shared_ptr<ActorRef> anchor;
+    std::deque<std::string> path;
+    virtual std::shared_ptr<ActorRef> deliverSelection() = 0;
 };
 
 ActorSelection::ActorSelection(std::shared_ptr<ActorRef> anchor, std::string path) {

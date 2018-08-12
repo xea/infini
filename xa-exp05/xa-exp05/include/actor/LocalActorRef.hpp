@@ -2,14 +2,14 @@
 #define XA_LOCAL_ACTOR_REF_H
 
 class LocalActorRef : public ActorRefWithCell {
-private:
-    std::shared_ptr<ActorPath> actorPath;
-    std::shared_ptr<ActorCell> actorCell;
 public:
     LocalActorRef(std::shared_ptr<ActorPath> actorPath, std::shared_ptr<ActorCell> actorCell) : actorPath(actorPath), actorCell(actorCell) {};
     void send(std::unique_ptr<Message> message) override;
     std::shared_ptr<ActorPath> getPath() override;
     std::shared_ptr<ActorCell> getActorCell() override;
+private:
+    std::shared_ptr<ActorPath> actorPath;
+    std::shared_ptr<ActorCell> actorCell;
 };
 
 void LocalActorRef::send(std::unique_ptr<Message> message) {

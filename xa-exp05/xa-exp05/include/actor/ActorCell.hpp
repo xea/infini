@@ -14,19 +14,6 @@ class ActorSystem;
 // Actor cells, when created are empty (ie. they point to a null actor) and must be assigned an actor in order to
 // make it useful.
 class ActorCell : public ActorContext, public MessageHandler, public Dispatch, public std::enable_shared_from_this<ActorCell> {
-private:
-    std::unique_ptr<Actor> actor;
-    std::shared_ptr<Dispatcher> dispatcher;
-    std::shared_ptr<ActorSystem> system;
-    std::unique_ptr<Envelope> currentMessage{ nullptr };
-    std::shared_ptr<ActorRef> _self;
-    std::shared_ptr<ActorRef> _parent;
-    std::shared_ptr<Mailbox> _mailbox;
-    std::stack<std::unique_ptr<Receive>> behaviourStack;
-    std::vector<std::shared_ptr<ActorRef>> _children;
-protected:
-    std::shared_ptr<ActorRef> child(std::string name) override;
-    std::vector<std::shared_ptr<ActorRef>> children() override;
 public:
     ActorCell(std::shared_ptr<ActorSystem> system, std::shared_ptr<Dispatcher> dispatcher) : actor(nullptr), dispatcher(dispatcher), system(system) {};
     void assignActor(std::function<std::unique_ptr<Actor>()> propsFunc);
@@ -45,6 +32,19 @@ public:
     // message handling
     void sendMessage(std::unique_ptr<Envelope> message) override;
     void invoke(std::unique_ptr<Envelope> envelope) override;
+protected:
+    std::shared_ptr<ActorRef> child(std::string name) override;
+    std::vector<std::shared_ptr<ActorRef>> children() override;
+private:
+    std::unique_ptr<Actor> actor;
+    std::shared_ptr<Dispatcher> dispatcher;
+    std::shared_ptr<ActorSystem> system;
+    std::unique_ptr<Envelope> currentMessage{ nullptr };
+    std::shared_ptr<ActorRef> _self;
+    std::shared_ptr<ActorRef> _parent;
+    std::shared_ptr<Mailbox> _mailbox;
+    std::stack<std::unique_ptr<Receive>> behaviourStack;
+    std::vector<std::shared_ptr<ActorRef>> _children;
 };
 
 void ActorCell::assignActor(std::function<std::unique_ptr<Actor>()> propsFunc) {
