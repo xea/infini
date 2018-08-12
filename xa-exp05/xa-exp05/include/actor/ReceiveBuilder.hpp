@@ -5,6 +5,8 @@
 class ReceiveBuilder {
     using MessageHandler = std::function<void(std::unique_ptr<Message>)>;
 public:
+    // Builds the final Receive object that is capable of handling incoming messages in the context of the
+    // appropriate actor.
     std::unique_ptr<Receive> build();
     // The returned pointer is intended to be used for chaining method calls, which is also the reason why
     // it's not returning a smart pointer instead of a raw one.

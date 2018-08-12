@@ -7,11 +7,6 @@ constexpr uint8_t STATUS_IDLE = 0;
 constexpr uint8_t STATUS_SCHEDULED = 1;
 
 class Mailbox {
-private:
-    std::deque<std::unique_ptr<Envelope>> messageQueue;
-    std::shared_ptr<MessageHandler> actor;
-    std::recursive_mutex mailbox_mutex;
-    std::atomic_uint status{ STATUS_IDLE };
 public:
     Mailbox(std::shared_ptr<MessageHandler> actor) : actor(actor) {};
     void enqueue(std::unique_ptr<Envelope> envelope);
@@ -19,10 +14,15 @@ public:
     void setAsScheduled();
     void setAsIdle();
     uint8_t getStatus();
+private:
+    std::deque<std::unique_ptr<Envelope>> messageQueue;
+    std::shared_ptr<MessageHandler> actor;
+    std::recursive_mutex mailbox_mutex;
+    std::atomic_uint status{ STATUS_IDLE };
 };
 
 void Mailbox::enqueue(std::unique_ptr<Envelope> envelope) {
-    std::cout << "Locking " << std::this_thread::get_id() << std::endl;
+    //std::cout << "Locking " << std::this_thread::get_id() << std::endl;
     std::lock_guard<std::recursive_mutex> queue_guard(mailbox_mutex);
     messageQueue.push_back(std::move(envelope));
 }

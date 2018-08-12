@@ -10,6 +10,8 @@
 enum class MessageType : uint32_t {
 	// Message type telling actors to terminate themselves permanently
 	POISON_PILL,
+    // Used for internal testing in order
+    TEST_MESSAGE,
 };
 
 // Message is a base definition of any object that may be send between actors in the actor system. Message instances
@@ -30,5 +32,14 @@ const MessageType PoisonPill::getMessageType() {
 	return MessageType::POISON_PILL;
 }
 
+
+class TestMessage : public Message {
+public:
+    const MessageType getMessageType() override;
+};
+
+const MessageType TestMessage::getMessageType() {
+    return MessageType::TEST_MESSAGE;
+}
 
 #endif // XA_MESSAGE_H

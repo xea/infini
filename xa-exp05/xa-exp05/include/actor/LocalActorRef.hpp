@@ -14,10 +14,10 @@ public:
 
 void LocalActorRef::send(std::unique_ptr<Message> message) {
     // since ActorCell hasn't been defined at this point, we can't simply use it's methods so we have to downcast it to ActorContext
-    //std::shared_ptr<ActorContext> context = std::static_pointer_cast<ActorContext>(actorCell);
-    //std::unique_ptr<Envelope> envelope = std::make_unique<Envelope>(std::move(message), currentActor);
+    std::shared_ptr<ActorContext> context = std::static_pointer_cast<ActorContext>(actorCell);
+    std::unique_ptr<Envelope> envelope = std::make_unique<Envelope>(std::move(message), currentActor);
     
-    //context->sendMessage(std::move(envelope));
+    context->sendMessage(std::move(envelope));
 }
 
 std::shared_ptr<ActorPath> LocalActorRef::getPath() {

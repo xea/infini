@@ -11,13 +11,13 @@ public:
 };
 
 class NaiveThreadPoolExecutor : public Executor {
+public:
+    NaiveThreadPoolExecutor();
+    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
 private:
     std::vector<std::thread> serviceThreads;
     std::deque<std::shared_ptr<Mailbox>> workQueue;
     std::recursive_mutex workQueueMutex;
-public:
-    NaiveThreadPoolExecutor();
-    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
 };
 
 NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
@@ -42,6 +42,7 @@ NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
                     std::this_thread::sleep_for(10ms);
                 }
             }
+            
         });
         
         newThread.detach();

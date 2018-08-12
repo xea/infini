@@ -3,12 +3,6 @@
 
 // An actor system is a collective space that links individual actors together.
 class ActorSystem : public ActorRefFactory, public std::enable_shared_from_this<ActorSystem> {
-private:
-    std::string name;
-    std::shared_ptr<RootActorPath> rootPath;
-    std::shared_ptr<Dispatcher> _dispatcher;
-    std::unique_ptr<ActorRefProvider> actorRefProvider;
-    std::shared_ptr<ActorRefWithCell> _guardian;
 public:
     ActorSystem(std::string name, std::shared_ptr<Dispatcher> dispatcher) : name(name), rootPath(std::make_shared<RootActorPath>()), _dispatcher(dispatcher), actorRefProvider(std::make_unique<LocalActorRefProvider>()) {};
     ActorSystem(std::string name) : ActorSystem(name, std::make_shared<Dispatcher>()) {};
@@ -17,6 +11,13 @@ public:
     std::shared_ptr<ActorRef> root() override;
     std::shared_ptr<ActorRefWithCell> guardian();
     std::shared_ptr<Dispatcher> dispatcher();
+    void runSync();
+private:
+    std::string name;
+    std::shared_ptr<RootActorPath> rootPath;
+    std::shared_ptr<Dispatcher> _dispatcher;
+    std::unique_ptr<ActorRefProvider> actorRefProvider;
+    std::shared_ptr<ActorRefWithCell> _guardian;
 };
 
 std::string& ActorSystem::getName() {
@@ -63,6 +64,13 @@ std::shared_ptr<ActorRefWithCell> ActorSystem::guardian() {
 
 std::shared_ptr<Dispatcher> ActorSystem::dispatcher() {
     return _dispatcher;
+}
+
+void ActorSystem::runSync() {
+    // TODO implement this
+    while (true) {
+        std::this_thread::sleep_for(1s);
+    }
 }
 
 #endif // XA_ACTOR_SYSTEM_H
