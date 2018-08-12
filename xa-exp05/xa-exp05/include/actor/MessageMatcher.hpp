@@ -4,13 +4,13 @@
 // An instance of a MessageMatcher is responsible for processing a single message type within a single behaviour.
 class MessageMatcher {
     using MessageHandler = std::function<void(std::unique_ptr<Message>)>;
-private:
-    MessageType messageType;
-    MessageHandler handler;
 public:
     MessageMatcher(MessageType messageType, MessageHandler handler) : messageType(messageType), handler(handler) {};
     bool accepts(MessageType messageType);
     void accept(std::unique_ptr<Message> message);
+private:
+    MessageType messageType;
+    MessageHandler handler;
 };
 
 bool MessageMatcher::accepts(MessageType messageType) {

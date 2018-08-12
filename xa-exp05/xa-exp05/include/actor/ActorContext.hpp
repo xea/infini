@@ -7,6 +7,7 @@ public:
     virtual std::shared_ptr<ActorRef> parent() = 0;
     virtual std::shared_ptr<ActorRef> sender() = 0;
     virtual std::shared_ptr<ActorRef> self() = 0;
+    virtual std::shared_ptr<ActorRef> root() = 0;
     // Returns all the child actors supervised by this one.
     virtual std::vector<std::shared_ptr<ActorRef>> children() = 0;
     // Returns the child with the given name, provided it exists.

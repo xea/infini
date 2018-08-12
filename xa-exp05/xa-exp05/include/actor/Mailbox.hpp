@@ -1,6 +1,8 @@
 #ifndef XA_MAILBOX_H
 #define XA_MAILBOX_H
 
+#include <thread>
+
 constexpr uint8_t STATUS_IDLE = 0;
 constexpr uint8_t STATUS_SCHEDULED = 1;
 
@@ -8,7 +10,7 @@ class Mailbox {
 private:
     std::deque<std::unique_ptr<Envelope>> messageQueue;
     std::shared_ptr<MessageHandler> actor;
-    std::mutex mailbox_mutex;
+    std::recursive_mutex mailbox_mutex;
     std::atomic_uint status{ STATUS_IDLE };
 public:
     Mailbox(std::shared_ptr<MessageHandler> actor) : actor(actor) {};
@@ -20,12 +22,13 @@ public:
 };
 
 void Mailbox::enqueue(std::unique_ptr<Envelope> envelope) {
-    std::lock_guard<std::mutex> queue_guard(mailbox_mutex);
+    std::cout << "Locking " << std::this_thread::get_id() << std::endl;
+    std::lock_guard<std::recursive_mutex> queue_guard(mailbox_mutex);
     messageQueue.push_back(std::move(envelope));
 }
 
 void Mailbox::dequeue() {
-    std::lock_guard<std::mutex> queue_guard(mailbox_mutex);
+    std::lock_guard<std::recursive_mutex> queue_guard(mailbox_mutex);
     
     while (messageQueue.size() > 0) {
         std::unique_ptr<Envelope> envelope = std::move(messageQueue.front());

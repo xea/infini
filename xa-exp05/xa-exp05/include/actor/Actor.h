@@ -18,5 +18,12 @@
 #include "Mailbox.hpp"
 #include "Executor.hpp"
 #include "Dispatcher.hpp"
+#include "Actor.hpp"
+#include "LocalActorRef.hpp"
+#include "LocalActorSelection.hpp"
+#include "ActorCell.hpp"
+#include "Guardian.hpp"
+#include "ActorRefProvider.hpp"
+#include "ActorSystem.hpp"
 
 #endif // XA_ACTOR_ACTOR_H

@@ -3,11 +3,9 @@
 using namespace std;
 
 int MAIN {
-    auto rootPath = make_unique<RootActorPath>();
-    auto mailbox = make_unique<Mailbox>(nullptr);
-    cout << "Root path: " << rootPath->getFullName() << endl;
-    cout << "Mailbox status: " << mailbox->getStatus() << endl;
+    auto actorSystem = make_unique<ActorSystem>("vertex");
     
+    cout << "Actor system: " << actorSystem->getName() << endl;
+
 	return 0;
 }
-

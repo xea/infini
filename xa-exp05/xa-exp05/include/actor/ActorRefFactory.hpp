@@ -13,6 +13,7 @@ public:
     // new actor will be created as a child of the current actor (which may be the user
     // guardian if the new actor was created through an actor system).
     virtual std::shared_ptr<ActorRef> actorOf(PropsFunc propsFunc, const std::string name) = 0;
+    virtual std::shared_ptr<ActorRef> root() = 0;
 };
 
 

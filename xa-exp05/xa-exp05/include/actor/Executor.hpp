@@ -11,13 +11,13 @@ public:
 };
 
 class NaiveThreadPoolExecutor : public Executor {
-public:
-    NaiveThreadPoolExecutor();
-    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
 private:
     std::vector<std::thread> serviceThreads;
     std::deque<std::shared_ptr<Mailbox>> workQueue;
-    std::mutex workQueueMutex;
+    std::recursive_mutex workQueueMutex;
+public:
+    NaiveThreadPoolExecutor();
+    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
 };
 
 NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
@@ -28,7 +28,7 @@ NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
             // TODO support shutdown
             while (true) {
                 if (workQueue.size() > 0) {
-                    std::lock_guard<std::mutex> process_lock(workQueueMutex);
+                    std::lock_guard<std::recursive_mutex> process_lock(workQueueMutex);
                     
                     if (workQueue.size() > 0) {
                         auto mailbox = workQueue.front();
@@ -53,7 +53,7 @@ NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
 void NaiveThreadPoolExecutor::schedule(std::shared_ptr<Mailbox> mailboxEvent) {
     // if already scheduled then do nothing
     // otherwise add task to work queue
-    std::lock_guard<std::mutex> lock(workQueueMutex);
+    std::lock_guard<std::recursive_mutex> lock(workQueueMutex);
     mailboxEvent->setAsScheduled();
     workQueue.push_back(mailboxEvent);
 }
