@@ -10,6 +10,14 @@ public:
         return make_shared<ReceiveBuilder>()
         ->match(MessageType::TEST_MESSAGE, [this](auto msg){
             //cout << "Received test message" << endl;
+            uint64_t sum{0};
+            
+            for (int i = 0; i < 10000000; i++) {
+                sum += rand();
+            }
+            
+            cout << "rand " << this_thread::get_id() << " sum " << sum << endl;
+            
             context->sender()->send(move(msg));
         })
         ->build();
@@ -21,13 +29,15 @@ public:
     inline std::unique_ptr<Receive> createReceive() override {
         return make_shared<ReceiveBuilder>()
         ->match(MessageType::TEST_MESSAGE, [this](auto msg) {
-            string name = "/user/echo";
-            
-            string number = to_string(rand() % 8);
-
-            name.append(number);
-            
-            context->actorSelection(name)->send(make_unique<TestMessage>());
+            for (int i = 0; i < 1; i++) {
+                string name = "/user/echo";
+                
+                string number = to_string(rand() % 8);
+                
+                name.append(number);
+                
+                context->actorSelection(name)->send(make_unique<TestMessage>());
+            }
         })
         ->build();
     }

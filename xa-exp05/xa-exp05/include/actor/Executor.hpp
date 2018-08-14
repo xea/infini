@@ -10,6 +10,17 @@ public:
     virtual void schedule(std::shared_ptr<Mailbox> mailboxEvent) = 0;
 };
 
+// -----------
+class LocklessThreadPoolExecutor : public Executor {
+public:
+    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
+};
+
+void LocklessThreadPoolExecutor::schedule(std::shared_ptr<Mailbox> mailboxEvent) {
+    
+}
+
+// -----------
 class NaiveThreadPoolExecutor : public Executor {
 public:
     NaiveThreadPoolExecutor();
