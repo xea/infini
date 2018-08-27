@@ -23,9 +23,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\actor\Actor.h" />
+    <ClInclude Include="include\actor\Actor.hpp" />
+    <ClInclude Include="include\actor\ActorCell.hpp" />
+    <ClInclude Include="include\actor\ActorContext.hpp" />
     <ClInclude Include="include\actor\ActorPath.hpp" />
     <ClInclude Include="include\actor\ActorRef.hpp" />
+    <ClInclude Include="include\actor\ActorRefFactory.hpp" />
+    <ClInclude Include="include\actor\ActorRefProvider.hpp" />
+    <ClInclude Include="include\actor\ActorSelection.hpp" />
+    <ClInclude Include="include\actor\ActorSystem.hpp" />
+    <ClInclude Include="include\actor\ContextStack.hpp" />
+    <ClInclude Include="include\actor\Dispatch.hpp" />
+    <ClInclude Include="include\actor\Dispatcher.hpp" />
+    <ClInclude Include="include\actor\Envelope.hpp" />
+    <ClInclude Include="include\actor\Executor.hpp" />
+    <ClInclude Include="include\actor\Guardian.hpp" />
+    <ClInclude Include="include\actor\InternalActorRef.hpp" />
+    <ClInclude Include="include\actor\LocalActorRef.hpp" />
+    <ClInclude Include="include\actor\LocalActorSelection.hpp" />
+    <ClInclude Include="include\actor\Mailbox.hpp" />
     <ClInclude Include="include\actor\Message.hpp" />
+    <ClInclude Include="include\actor\MessageHandler.hpp" />
+    <ClInclude Include="include\actor\MessageMatcher.hpp" />
+    <ClInclude Include="include\actor\Receive.hpp" />
+    <ClInclude Include="include\actor\ReceiveBuilder.hpp" />
     <ClInclude Include="include\xa-exp05.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,6 +1,8 @@
 #ifndef XA_ACTOR_REF_FACTORY_H
 #define XA_ACTOR_REF_FACTORY_H
 
+#include <functional>
+
 class Actor;
 
 // An interface for providing references to newly created actors. It is only required by

@@ -1,6 +1,8 @@
 #ifndef XA_ACTOR_CONTEXT_H
 #define XA_ACTOR_CONTEXT_H
 
+#include <vector>
+
 // The actor context is the view of the actor system from the actor.
 class ActorContext : public ActorRefFactory {
 public:

@@ -38,5 +38,68 @@
     <ClInclude Include="include\actor\ActorRef.hpp">
       <Filter>Header Files\actor</Filter>
     </ClInclude>
+    <ClInclude Include="include\actor\Actor.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorCell.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorContext.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorRefFactory.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorRefProvider.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorSelection.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ActorSystem.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ContextStack.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Dispatch.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Dispatcher.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Envelope.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Executor.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Guardian.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\InternalActorRef.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\LocalActorRef.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\LocalActorSelection.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Mailbox.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\MessageHandler.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\MessageMatcher.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\Receive.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\actor\ReceiveBuilder.hpp">
+      <Filter>Header Files\actor</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

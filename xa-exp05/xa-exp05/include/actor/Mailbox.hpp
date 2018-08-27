@@ -2,6 +2,8 @@
 #define XA_MAILBOX_H
 
 #include <thread>
+#include <mutex>
+#include <atomic>
 
 constexpr uint8_t STATUS_IDLE = 0;
 constexpr uint8_t STATUS_SCHEDULED = 1;
