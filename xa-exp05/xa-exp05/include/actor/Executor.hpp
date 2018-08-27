@@ -10,6 +10,27 @@ public:
     virtual void schedule(std::shared_ptr<Mailbox> mailboxEvent) = 0;
 };
 
+// -----------
+class LocklessThreadPoolExecutor : public Executor {
+public:
+    LocklessThreadPoolExecutor();
+    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
+};
+
+LocklessThreadPoolExecutor::LocklessThreadPoolExecutor() {
+    auto cpuCount = std::thread::hardware_concurrency();
+    
+    for (uint8_t i = 0; i < cpuCount; i++) {
+        auto newThread = std::thread([this]() {
+        });
+    }
+}
+
+void LocklessThreadPoolExecutor::schedule(std::shared_ptr<Mailbox> mailboxEvent) {
+    
+}
+
+// -----------
 class NaiveThreadPoolExecutor : public Executor {
 public:
     NaiveThreadPoolExecutor();

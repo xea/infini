@@ -42,15 +42,6 @@ void Mailbox::dequeue() {
     }
     
     setAsIdle();
-    
-    /*
-     std::packaged_task<void()> task([this, e = std::move(envelope)](){
-     actor->invoke(e);
-     std::cout << "Invoked yiss" << std::endl;
-     });
-     
-     return task.get_future();
-     */
 }
 
 uint8_t Mailbox::getStatus() {
