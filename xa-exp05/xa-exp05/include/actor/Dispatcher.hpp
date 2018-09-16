@@ -7,7 +7,7 @@ thread_local std::shared_ptr<ActorRef> currentActor;
 
 class Dispatcher {
 public:
-    Dispatcher() : executor(std::make_shared<NaiveThreadPoolExecutor>()) {};
+    Dispatcher() noexcept : executor(std::make_shared<NaiveThreadPoolExecutor>()) {};
     virtual void dispatch(std::shared_ptr<Dispatch> receiver, std::unique_ptr<Envelope> envelope);
     std::shared_ptr<Mailbox> createMailbox(std::shared_ptr<MessageHandler> handler);
 private:

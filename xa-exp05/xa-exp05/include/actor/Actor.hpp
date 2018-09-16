@@ -5,7 +5,7 @@
 
 class Actor {
 public:
-    Actor() : context(nullptr) {
+    Actor() noexcept : context(nullptr) {
         context = contextStack.top();
         contextStack.pop();
     }

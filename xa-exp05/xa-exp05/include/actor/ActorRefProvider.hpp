@@ -11,7 +11,7 @@ public:
 
 class LocalActorRefProvider : public ActorRefProvider {
 public:
-    LocalActorRefProvider();
+    LocalActorRefProvider() noexcept;
     void init(std::shared_ptr<ActorSystem> system, std::shared_ptr<Dispatcher> dispatcher) override;
     std::shared_ptr<ActorRef> rootGuardian() override;
     std::shared_ptr<ActorRefWithCell> guardian() override;
@@ -22,7 +22,7 @@ private:
     std::shared_ptr<ActorRef> _deadLetters;
 };
 
-LocalActorRefProvider::LocalActorRefProvider() {
+LocalActorRefProvider::LocalActorRefProvider() noexcept {
 }
 
 void LocalActorRefProvider::init(std::shared_ptr<ActorSystem> system, std::shared_ptr<Dispatcher> dispatcher) {

@@ -16,6 +16,9 @@
     <Filter Include="Header Files\actor">
       <UniqueIdentifier>{2e238582-b562-4eaa-9282-3df7af5dc820}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\disruptor">
+      <UniqueIdentifier>{f93ad67c-02b2-4adc-8fbb-406f1aaae06e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\xa-exp05.cpp">
@@ -100,6 +103,27 @@
     </ClInclude>
     <ClInclude Include="include\actor\ReceiveBuilder.hpp">
       <Filter>Header Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\Disruptor.h">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\EventFactory.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\Sequence.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\SequenceBarrier.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\WaitStrategy.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\BlockingWaitStrategy.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\Sequencer.hpp">
+      <Filter>Header Files\disruptor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

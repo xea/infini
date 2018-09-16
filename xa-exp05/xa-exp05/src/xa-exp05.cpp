@@ -43,8 +43,10 @@ public:
     }
 };
 
+#include "disruptor/Disruptor.h"
 
 int MAIN {
+	/*
     auto actorSystem = make_shared<ActorSystem>("vertex");
     
     auto echo0 = actorSystem->actorOf([](){ return make_unique<Echo>(); }, "echo0");
@@ -66,5 +68,8 @@ int MAIN {
     std::this_thread::sleep_for(60s);
     
     cout << "Exiting" << endl;
+	*/
+
+	Disruptor::main2(0, nullptr);
 	return 0;
 }

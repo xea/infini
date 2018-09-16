@@ -47,6 +47,13 @@
     <ClInclude Include="include\actor\MessageMatcher.hpp" />
     <ClInclude Include="include\actor\Receive.hpp" />
     <ClInclude Include="include\actor\ReceiveBuilder.hpp" />
+    <ClInclude Include="include\disruptor\BlockingWaitStrategy.hpp" />
+    <ClInclude Include="include\disruptor\Disruptor.h" />
+    <ClInclude Include="include\disruptor\EventFactory.hpp" />
+    <ClInclude Include="include\disruptor\Sequence.hpp" />
+    <ClInclude Include="include\disruptor\SequenceBarrier.hpp" />
+    <ClInclude Include="include\disruptor\Sequencer.hpp" />
+    <ClInclude Include="include\disruptor\WaitStrategy.hpp" />
     <ClInclude Include="include\xa-exp05.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

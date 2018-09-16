@@ -11,29 +11,9 @@ public:
 };
 
 // -----------
-class LocklessThreadPoolExecutor : public Executor {
-public:
-    LocklessThreadPoolExecutor();
-    void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
-};
-
-LocklessThreadPoolExecutor::LocklessThreadPoolExecutor() {
-    auto cpuCount = std::thread::hardware_concurrency();
-    
-    for (uint8_t i = 0; i < cpuCount; i++) {
-        auto newThread = std::thread([this]() {
-        });
-    }
-}
-
-void LocklessThreadPoolExecutor::schedule(std::shared_ptr<Mailbox> mailboxEvent) {
-    
-}
-
-// -----------
 class NaiveThreadPoolExecutor : public Executor {
 public:
-    NaiveThreadPoolExecutor();
+    NaiveThreadPoolExecutor() noexcept;
     void schedule(std::shared_ptr<Mailbox> mailboxEvent) override;
 private:
     std::vector<std::thread> serviceThreads;
@@ -41,7 +21,7 @@ private:
     std::recursive_mutex workQueueMutex;
 };
 
-NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() {
+NaiveThreadPoolExecutor::NaiveThreadPoolExecutor() noexcept {
     auto cpuCount = std::thread::hardware_concurrency();
     
     for (uint8_t i = 0; i < cpuCount; i++) {

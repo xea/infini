@@ -5,7 +5,7 @@
 class Guardian : public Actor {
 private:
 public:
-    Guardian() : Actor(nullptr) {};
+    Guardian() noexcept : Actor(nullptr) {};
     std::unique_ptr<Receive> createReceive() override;
 };
 

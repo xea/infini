@@ -37,7 +37,7 @@ const std::string& ActorPath::getName() {
 class RootActorPath : public ActorPath {
 public:
 	// this should at some point take an Address too, to identify the physical path of the actor
-	RootActorPath() : ActorPath(ACTOR_PATH_DELIMITER) {};
+	RootActorPath() noexcept : ActorPath(ACTOR_PATH_DELIMITER) {};
 	const std::string getFullName() override;
 	std::shared_ptr<ActorPath> getParent() override;
 	std::shared_ptr<ActorPath> getRoot() override;
