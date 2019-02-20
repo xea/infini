@@ -68,9 +68,9 @@ namespace Disruptor {
 	void LongEventHandler::onEvent(LongEvent& event, int64_t sequence, bool endOfBatch) {
 		counter++;
 
-		//if (counter % 100000 == 0) {
-			std::cout << id << "-" << sequence << std::endl;
-		//}
+		if (counter % 1000000 == 0) {
+			std::cout << id << "-" << (sequence / 1000000) << std::endl;
+		}
 	}
 
 
@@ -78,7 +78,7 @@ namespace Disruptor {
 
 	int main2(int argc, char** argv) {
 		auto factory = std::make_unique<LongEventFactory>();
-        auto disruptor = std::make_unique<Disruptor<LongEvent>>(std::move(factory), 4);
+        auto disruptor = std::make_unique<Disruptor<LongEvent>>(std::move(factory), 65536);
 
         disruptor->handleEventsWith({
             std::make_shared<LongEventHandler>("A", 1),
@@ -94,7 +94,7 @@ namespace Disruptor {
 
             std::cout << "Start publishing" << std::endl;
 
-            for (long i = 0; i < 10000; i++) {
+            for (long i = 0; i < 10000000; i++) {
                 nextSequence = ringBuffer->next();
                 (*ringBuffer)[nextSequence].value = i;
                 ringBuffer->publishEvent(nextSequence);

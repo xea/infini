@@ -55,7 +55,7 @@ namespace Disruptor {
             if (wrapPoint > cachedGatingSequence || cachedGatingSequence > current) {
                 int64_t gatingSequence = current;
                 
-                // TODO extract this
+                // TODO extract this into a separate method
                 for (auto &seq : gatingSequences) {
                     int64_t cseq = seq->get();
                     
@@ -65,7 +65,7 @@ namespace Disruptor {
                 }
                 
                 if (wrapPoint > gatingSequence) {
-                    this_thread::sleep_for(10ms);
+                    this_thread::sleep_for(1ns);
                     continue;
                 }
                 
@@ -110,7 +110,7 @@ namespace Disruptor {
         int64_t flag = sequence >> indexShift;
         uint8_t value = availableBuffer[(size_t) index];
         
-        return value == flag;
+        return value == (uint8_t) flag;
     }
     
 }
