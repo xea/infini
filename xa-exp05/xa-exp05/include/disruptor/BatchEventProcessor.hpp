@@ -35,13 +35,23 @@ namespace Disruptor {
 		while (true) {
 			int64_t availableSequence = sequenceBarrier->waitFor(nextSequence);
 
-			// TODO stuff
+			// TODO batch processing code would come here
+			/*
+
+             if (batchStartAware != null)
+             {
+             batchStartAware.onBatchStart(availableSequence - nextSequence + 1);
+             }
+
+             */
 
 			while (nextSequence <= availableSequence) {
 				auto event = dataProvider->get(nextSequence);
 				eventHandler->onEvent(event, nextSequence, nextSequence == availableSequence);
 				nextSequence++;
 			}
+
+			sequence->set(availableSequence);
 		}
 	}
 

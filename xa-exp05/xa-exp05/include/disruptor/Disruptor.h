@@ -113,6 +113,7 @@ namespace Disruptor {
   //      t2.join();
         std::this_thread::sleep_for(10000s);
 
+		std::cout << "Done" << std::endl;
 
 		return 0;
 	}

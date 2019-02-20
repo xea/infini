@@ -19,6 +19,7 @@ namespace Disruptor {
 		};
 		void publishEvent();
 		void publishEvent(int64_t sequence);
+		void addGatingSequences(std::vector<std::shared_ptr<Sequence>> sequences);
 		static std::unique_ptr<RingBuffer> createMultiProducer(std::unique_ptr<EventFactory<T>> factory, int bufferSize);
 		T elementAt(long sequence);
 		std::shared_ptr<SequenceBarrier> newBarrier();
@@ -40,6 +41,10 @@ namespace Disruptor {
 
 	template<class T, size_t N> void RingBuffer<T, N>::publishEvent(int64_t sequence) {
 		sequencer->publish(sequence);
+	}
+
+	template<class T, size_t N> void RingBuffer<T, N>::addGatingSequences(std::vector<std::shared_ptr<Sequence>> sequences) {
+		sequencer->addGatingSequences(move(sequences));
 	}
 
 	template<class T, size_t N>

@@ -45,8 +45,10 @@ namespace Disruptor {
 			processorSequences.push_back(nextSequence);
 		}
 
-		// TODO update gating
-		// TODO return new event handler group
+        if (processorSequences.size() > 0) {
+        	ringBuffer->addGatingSequences(move(processorSequences));
+        }
+        // TODO (optional) return new event handler group
 	}
 
 	template<class T> void Disruptor<T>::start() {
