@@ -18,13 +18,13 @@ namespace Disruptor {
 			}
 		};
 		void publishEvent();
-		void publishEvent(uint64_t sequence);
+		void publishEvent(int64_t sequence);
 		static std::unique_ptr<RingBuffer> createMultiProducer(std::unique_ptr<EventFactory<T>> factory, int bufferSize);
 		T elementAt(long sequence);
 		std::shared_ptr<SequenceBarrier> newBarrier();
-		T& get(uint64_t sequence) override;
-		uint64_t next();
-		T& operator[](uint64_t sequence);
+		T& get(int64_t sequence) override;
+		int64_t next();
+		T& operator[](int64_t sequence);
 	private:
 		std::shared_ptr<Sequencer> sequencer;
 		std::unique_ptr<EventFactory<T>> factory;
@@ -38,7 +38,7 @@ namespace Disruptor {
 		sequencer->publish(sequence);
 	}
 
-	template<class T, size_t N> void RingBuffer<T, N>::publishEvent(uint64_t sequence) {
+	template<class T, size_t N> void RingBuffer<T, N>::publishEvent(int64_t sequence) {
 		sequencer->publish(sequence);
 	}
 
@@ -58,17 +58,17 @@ namespace Disruptor {
 	}
 
 	template<class T, size_t N>
-	T& RingBuffer<T, N>::get(uint64_t sequence) {
+	T& RingBuffer<T, N>::get(int64_t sequence) {
 		return entries[sequence & indexMask];
 	}
 
 	template<class T, size_t N>
-	uint64_t RingBuffer<T, N>::next() {
+	int64_t RingBuffer<T, N>::next() {
 		return sequencer->next();
 	}
 
 	template<class T, size_t N>
-	T& RingBuffer<T, N>::operator[](uint64_t sequence) {
+	T& RingBuffer<T, N>::operator[](int64_t sequence) {
 		return entries[sequence & indexMask];
 	}
 }

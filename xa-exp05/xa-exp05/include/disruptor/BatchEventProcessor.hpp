@@ -30,10 +30,10 @@ namespace Disruptor {
 
 	template <class T>
 	void BatchEventProcessor<T>::processEvents() {
-		uint64_t nextSequence = sequence->get() + 1;
+		int64_t nextSequence = sequence->get() + 1;
 
 		while (true) {
-			uint64_t availableSequence = sequenceBarrier->waitFor(nextSequence);
+			int64_t availableSequence = sequenceBarrier->waitFor(nextSequence);
 
 			// TODO stuff
 

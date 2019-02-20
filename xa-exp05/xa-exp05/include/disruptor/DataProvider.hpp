@@ -6,8 +6,8 @@ namespace Disruptor {
 	template <class T>
 	class DataProvider {
 	public:
-		//virtual std::shared_ptr<T> get(uint64_t sequence) = 0;
-		virtual T& get(uint64_t sequence) = 0;
+		//virtual std::shared_ptr<T> get(int64_t sequence) = 0;
+		virtual T& get(int64_t sequence) = 0;
 	};
 
 }
