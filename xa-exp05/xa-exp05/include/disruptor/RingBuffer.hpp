@@ -3,17 +3,17 @@
 
 namespace Disruptor {
 
-	template<class T, size_t N = DEFAULT_SEQUENCER_SIZE>
+	template<class T>
 	class RingBuffer : public DataProvider<T> {
 	public:
 		RingBuffer(std::unique_ptr<EventFactory<T>> factory, const uint32_t bufferSize) : 
-			sequencer(std::make_shared<MultiProducerSequencer<N>>(bufferSize, std::make_unique<BlockingWaitStrategy>())), 
+			sequencer(std::make_shared<MultiProducerSequencer>(bufferSize, std::make_unique<BlockingWaitStrategy>())),
 			factory(std::move(factory)),
-			entries(std::array<T, N>()) {
+			entries(std::valarray<T>(bufferSize)) {
 
-			indexMask = N - 1;
+			indexMask = bufferSize - 1;
 
-			for (uint32_t i = 0; i < N; i++) {
+			for (uint32_t i = 0; i < bufferSize; i++) {
 				entries[i] = this->factory->newInstance();
 			}
 		};
@@ -29,51 +29,51 @@ namespace Disruptor {
 	private:
 		std::shared_ptr<Sequencer> sequencer;
 		std::unique_ptr<EventFactory<T>> factory;
-		std::array<T, N> entries;
+		std::valarray<T> entries;
 		uint32_t indexMask;
 	};
 
-	template<class T, size_t N> void RingBuffer<T, N>::publishEvent() {
+	template<class T> void RingBuffer<T>::publishEvent() {
 		const long sequence = sequencer->next();
 		// TODO do translation
 		sequencer->publish(sequence);
 	}
 
-	template<class T, size_t N> void RingBuffer<T, N>::publishEvent(int64_t sequence) {
+	template<class T> void RingBuffer<T>::publishEvent(int64_t sequence) {
 		sequencer->publish(sequence);
 	}
 
-	template<class T, size_t N> void RingBuffer<T, N>::addGatingSequences(std::vector<std::shared_ptr<Sequence>> sequences) {
+	template<class T> void RingBuffer<T>::addGatingSequences(std::vector<std::shared_ptr<Sequence>> sequences) {
 		sequencer->addGatingSequences(move(sequences));
 	}
 
-	template<class T, size_t N>
-	std::unique_ptr<RingBuffer<T, N>> RingBuffer<T, N>::createMultiProducer(std::unique_ptr<EventFactory<T>> factory, int bufferSize) {
+	template<class T>
+	std::unique_ptr<RingBuffer<T>> RingBuffer<T>::createMultiProducer(std::unique_ptr<EventFactory<T>> factory, int bufferSize) {
 		return std::make_unique<RingBuffer>(std::move(factory), bufferSize);
 	}
 
-	template<class T, size_t N>
-	T RingBuffer<T, N>::elementAt(long sequence) {
+	template<class T>
+	T RingBuffer<T>::elementAt(long sequence) {
 		return entries[sequence & indexMask];
 	}
 
-	template<class T, size_t N>
-	std::shared_ptr<SequenceBarrier> RingBuffer<T, N>::newBarrier() {
+	template<class T>
+	std::shared_ptr<SequenceBarrier> RingBuffer<T>::newBarrier() {
 		return sequencer->newBarrier();
 	}
 
-	template<class T, size_t N>
-	T& RingBuffer<T, N>::get(int64_t sequence) {
+	template<class T>
+	T& RingBuffer<T>::get(int64_t sequence) {
 		return entries[sequence & indexMask];
 	}
 
-	template<class T, size_t N>
-	int64_t RingBuffer<T, N>::next() {
+	template<class T>
+	int64_t RingBuffer<T>::next() {
 		return sequencer->next();
 	}
 
-	template<class T, size_t N>
-	T& RingBuffer<T, N>::operator[](int64_t sequence) {
+	template<class T>
+	T& RingBuffer<T>::operator[](int64_t sequence) {
 		return entries[sequence & indexMask];
 	}
 }

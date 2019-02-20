@@ -3,18 +3,13 @@
 
 #include <cstdint>
 #include <memory>
-#include <array>
+#include <valarray>
 #include "Sequencer.hpp"
 #include "WaitStrategy.hpp"
 #include "SequenceBarrier.hpp"
 #include "ProcessingSequenceBarrier.hpp"
 
 namespace Disruptor {
-    // This is the default number of entries stored in the ring buffer (and the corresponding sequencer). This must
-    // always be a power of two in order to work correctly.
-    constexpr uint32_t DEFAULT_SEQUENCER_SIZE = 4;
-    
-    template<size_t N = DEFAULT_SEQUENCER_SIZE>
     class MultiProducerSequencer : public Sequencer, public std::enable_shared_from_this<Sequencer> {
     public:
         MultiProducerSequencer(uint32_t bufferSize, std::unique_ptr<WaitStrategy> waitStrategy) :
@@ -22,8 +17,10 @@ namespace Disruptor {
         gatingSequenceCache(std::make_unique<Sequence>()),
         indexMask(bufferSize - 1),
         indexShift((uint32_t) log2(bufferSize)), // IETF754
-        availableBuffer(std::array<uint8_t, N>()) {
-            availableBuffer.fill(-1);
+        availableBuffer(std::valarray<uint8_t>(bufferSize)) {
+            for (uint32_t i = 0; i < bufferSize; i++) {
+                availableBuffer[i] = -1;
+            }
         };
         int64_t next() override;
         void publish(int64_t sequence) override;
@@ -40,11 +37,10 @@ namespace Disruptor {
         // Counts the number of bits in the indexMask. It is used to prevent ringbuffers overwrite unread entries
         int64_t indexShift;
         // Maintains an availability state of the given ring buffer's entries
-        std::array<uint8_t, N> availableBuffer;
+        std::valarray<uint8_t> availableBuffer;
     };
     
-    template<size_t N>
-    int64_t MultiProducerSequencer<N>::next() {
+    int64_t MultiProducerSequencer::next() {
         int64_t next;
         int64_t current;
         
@@ -53,7 +49,7 @@ namespace Disruptor {
             next = current + 1;
             
             // calculate wrap points
-            int64_t wrapPoint = next - N;
+            int64_t wrapPoint = next - availableBuffer.size(); //bufferSize;
             int64_t cachedGatingSequence = gatingSequenceCache->get();
 
             if (wrapPoint > cachedGatingSequence || cachedGatingSequence > current) {
@@ -69,7 +65,7 @@ namespace Disruptor {
                 }
                 
                 if (wrapPoint > gatingSequence) {
-                    this_thread::sleep_for(1s);
+                    this_thread::sleep_for(10ms);
                     continue;
                 }
                 
@@ -82,20 +78,17 @@ namespace Disruptor {
         return next;
     }
     
-    template<size_t N>
-    void MultiProducerSequencer<N>::publish(int64_t sequence) {
+    void MultiProducerSequencer::publish(int64_t sequence) {
         setAvailable(sequence);
         waitStrategy->signalAllWhenBlocking();
     }
     
-    template<size_t N>
-    std::shared_ptr<SequenceBarrier> MultiProducerSequencer<N>::newBarrier() {
+    std::shared_ptr<SequenceBarrier> MultiProducerSequencer::newBarrier() {
         auto thisref = shared_from_this();
         return std::make_shared<ProcessingSequenceBarrier>(thisref, waitStrategy, cursor /*, sequencesToTrack */);
     }
     
-    template<size_t N>
-    int64_t MultiProducerSequencer<N>::getHighestPublishedSequence(int64_t lowerBound, int64_t availableSequence) {
+    int64_t MultiProducerSequencer::getHighestPublishedSequence(int64_t lowerBound, int64_t availableSequence) {
         for (int64_t sequence = lowerBound; sequence <= availableSequence; sequence++) {
             if (!isAvailable(sequence)) {
                 return sequence - 1;
@@ -105,16 +98,14 @@ namespace Disruptor {
         return availableSequence;
     }
     
-    template<size_t N>
-    void MultiProducerSequencer<N>::setAvailable(int64_t sequence) {
+    void MultiProducerSequencer::setAvailable(int64_t sequence) {
         int64_t index = sequence & indexMask;
         int64_t flag = sequence >> indexShift;
         
         availableBuffer[(size_t)index] = (uint8_t) flag;
     }
     
-    template<size_t N>
-    bool MultiProducerSequencer<N>::isAvailable(int64_t sequence) {
+    bool MultiProducerSequencer::isAvailable(int64_t sequence) {
         int64_t index = sequence & indexMask;
         int64_t flag = sequence >> indexShift;
         uint8_t value = availableBuffer[(size_t) index];
