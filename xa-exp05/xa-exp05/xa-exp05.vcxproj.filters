@@ -125,5 +125,41 @@
     <ClInclude Include="include\disruptor\Sequencer.hpp">
       <Filter>Header Files\disruptor</Filter>
     </ClInclude>
+    <ClInclude Include="include\disruptor\EventHandler.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\MultiProducerSequencer.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\ProcessingSequenceBarrier.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\DataProvider.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\EventProcessor.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\BatchEventProcessor.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\RingBuffer.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\Executor.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\ConsumerInfo.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\EventProcessorInfo.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\ConsumerRepository.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\disruptor\Disruptor.hpp">
+      <Filter>Header Files\disruptor</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
