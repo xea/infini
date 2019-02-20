@@ -18,7 +18,7 @@ namespace Disruptor {
          * \param sequence the sequence number of the event under processing
          * \param endOfBatch indicates whether the current event is the last one in the batch
          */
-        virtual void onEvent(T& event, uint64_t sequence, bool endOfBatch) = 0;
+        virtual void onEvent(T& event, int64_t sequence, bool endOfBatch) = 0;
     };
     
 }

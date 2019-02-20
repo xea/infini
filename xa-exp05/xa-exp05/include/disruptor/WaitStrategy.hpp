@@ -21,7 +21,7 @@ namespace Disruptor {
 		* \param dependentSequence on which to wait (whatever this means)
 		* \returns the sequence that is available which may be greater than the requested sequence.
 		*/
-		virtual uint64_t waitFor(uint64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) = 0;
+		virtual int64_t waitFor(int64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) = 0;
 	};
 }
 

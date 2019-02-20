@@ -16,7 +16,7 @@ namespace Disruptor {
 	class SequenceBarrier : public std::enable_shared_from_this<SequenceBarrier> {
 	public:
 		// Wait for the given sequence to have an available entry to read.
-		virtual uint64_t waitFor(uint64_t sequence) = 0;
+		virtual int64_t waitFor(int64_t sequence) = 0;
 
 		// Trigger an alert on this barrier
 		virtual void alert() = 0;

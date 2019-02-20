@@ -12,15 +12,14 @@ namespace Disruptor {
 	// maintains it's own sequence that indicates how far each component has got in processing entries.
 	class Sequence {
 	public:
-		inline uint64_t get() { return offset; }
-		inline bool compareAndSet(uint64_t expected, uint64_t newValue) {
+        inline int64_t get() { return offset; }
+        inline void set(int64_t new_value) { offset.store(new_value); }
+		inline bool compareAndSet(int64_t expected, int64_t newValue) {
 			// TODO make sure this is the right CAS operation for our purposes here
 			return offset.compare_exchange_weak(expected, newValue, std::memory_order_release, std::memory_order_relaxed);
 		}
 	private:
-		// Note: having an initial value of 0 means that the first slot in the ring buffer will be skipped but it'll also
-		// allow us to have the complete value range of a 64bit integer without having a sign bit unnecessarily
-		std::atomic_uint64_t offset{ 0 };
+		std::atomic_int64_t offset{ -1 };
 	};
 
 

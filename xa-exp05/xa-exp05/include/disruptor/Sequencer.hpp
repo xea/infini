@@ -17,12 +17,12 @@ namespace Disruptor {
          * Claim the next entry in the sequence.
          * \return the next available sequence number
          */
-		virtual uint64_t next() = 0;
+		virtual int64_t next() = 0;
         /**
          * Makes an entry available for consumers.
          * \param sequence the sequence number that is published
          */
-		virtual void publish(uint64_t sequence) = 0;
+		virtual void publish(int64_t sequence) = 0;
         /**
          * Create a new barrier that can be used by consumers to coordinate reads with writes by publishers.
          * \return a new sequence barrier
@@ -35,11 +35,17 @@ namespace Disruptor {
          * \param availableSequence the point where scanning should end
          * \return the highest available sequence number
          */
-		virtual uint64_t getHighestPublishedSequence(uint64_t lowerBound, uint64_t availableSequence) = 0;
+		virtual int64_t getHighestPublishedSequence(int64_t lowerBound, int64_t availableSequence) = 0;
         virtual ~Sequencer() = default;
         
+        inline void addGatingSequences(std::vector<std::shared_ptr<Sequence>> sequences) {
+            for (auto &sequence : sequences) {
+                gatingSequences.push_back(sequence);
+            }
+        }
 	protected:
 		std::shared_ptr<Sequence> cursor{ std::make_shared<Sequence>() };
+        std::vector<std::shared_ptr<Sequence>> gatingSequences;
 	};
 
 }

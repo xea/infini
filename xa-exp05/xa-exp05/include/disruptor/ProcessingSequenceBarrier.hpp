@@ -14,7 +14,7 @@ namespace Disruptor {
         ProcessingSequenceBarrier(std::shared_ptr<Sequencer> sequencer, std::shared_ptr<WaitStrategy> waitStrategy, std::shared_ptr<Sequence> cursor /* sequencesToTrack */) : sequencer(sequencer), waitStrategy(waitStrategy), cursor(cursor) {
             dependentSequence = cursor;
         };
-        uint64_t waitFor(uint64_t sequence) override;
+        int64_t waitFor(int64_t sequence) override;
         void alert() override;
         bool isAlerted() override;
         void checkAlert() override;
@@ -26,10 +26,11 @@ namespace Disruptor {
         std::atomic_bool alerted{ false };
     };
     
-    uint64_t ProcessingSequenceBarrier::waitFor(uint64_t sequence) {
+    int64_t ProcessingSequenceBarrier::waitFor(int64_t sequence) {
         checkAlert();
         
-        uint64_t availableSequence = waitStrategy->waitFor(sequence, cursor, dependentSequence, shared_from_this());
+        int64_t availableSequence = waitStrategy->waitFor(sequence, cursor, dependentSequence,
+                                                          shared_from_this());
         
         if (availableSequence < sequence) {
             return availableSequence;

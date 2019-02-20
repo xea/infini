@@ -13,14 +13,14 @@ namespace Disruptor {
 	class BlockingWaitStrategy : public WaitStrategy {
 	public:
 		void signalAllWhenBlocking() override;
-		uint64_t waitFor(uint64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) override;
+		int64_t waitFor(int64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) override;
 	private:
 		std::condition_variable processorNotifyCondition;
 		std::mutex m;
 	};
 
-	uint64_t BlockingWaitStrategy::waitFor(uint64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) {
-		uint64_t availableSequence;
+	int64_t BlockingWaitStrategy::waitFor(int64_t sequence, std::shared_ptr<Sequence> cursorSequence, std::shared_ptr<Sequence> dependentSequence, std::shared_ptr<SequenceBarrier> barrier) {
+		int64_t availableSequence;
 
 		if (cursorSequence->get() < sequence) {
 			// Acquire a unique lock for the duration of the entire action
