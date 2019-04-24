@@ -4,6 +4,8 @@ project("xa-exp05")
 
 file(GLOB_RECURSE source "src/*.cpp" "include/*.h")
 
+#set(CMAKE_BUILD_TYPE Release)
+
 include(CTest)
 
 add_executable(xa-exp05 ${source})

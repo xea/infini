@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="xa-exp05"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="xa-exp05">
+				<Option output="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/xa-exp05" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/./include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glew-2.0.0/include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glfw-3.2.1/include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glm-0.9.8.4"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/neither/neither/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 xa-exp05"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="xa-exp05/fast">
+				<Option output="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/xa-exp05" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/./include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glew-2.0.0/include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glfw-3.2.1/include"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/glm-0.9.8.4"/>
+					<Add directory="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/../../lib/neither/neither/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 xa-exp05/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Nightly">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 Nightly"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Continuous">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 Continuous"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Experimental">
+				<Option working_dir="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 Experimental"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/include/actor/Actor.h">
+			<Option target="xa-exp05"/>
+		</Unit>
+		<Unit filename="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/include/disruptor/Disruptor.h">
+			<Option target="xa-exp05"/>
+		</Unit>
+		<Unit filename="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/include/xa-exp05.h">
+			<Option target="xa-exp05"/>
+		</Unit>
+		<Unit filename="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/src/xa-exp05.cpp">
+			<Option target="xa-exp05"/>
+		</Unit>
+		<Unit filename="/Users/specsi/workspaces/cpp/infini/xa-exp05/xa-exp05/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

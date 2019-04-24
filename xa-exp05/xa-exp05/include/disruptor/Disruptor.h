@@ -78,11 +78,11 @@ namespace Disruptor {
 
 	int main2(int argc, char** argv) {
 		auto factory = std::make_unique<LongEventFactory>();
-        auto disruptor = std::make_unique<Disruptor<LongEvent>>(std::move(factory), 65536);
+        auto disruptor = std::make_unique<Disruptor<LongEvent>>(std::move(factory), pow(2, 16));
 
         disruptor->handleEventsWith({
             std::make_shared<LongEventHandler>("A", 1),
-//            std::make_shared<LongEventHandler>("B", 2)
+            std::make_shared<LongEventHandler>("B", 2)
         });
 
         disruptor->start();
