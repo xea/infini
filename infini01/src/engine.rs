@@ -6,36 +6,10 @@ use std::io::Read;
 
 use crate::model::Model;
 use crate::render_object::RenderObject;
+use crate::vertex::{Vertex, Normal};
+use crate::obj_loader::ObjLoader;
 
-type VertexCoord = f32;
-
-/// Defines a single vertex with x, y, z coordinates
-#[derive(Copy, Clone, Debug)]
-pub struct Vertex {
-    pub position: [VertexCoord; 3]
-}
-
-impl Vertex {
-    pub fn new(x: VertexCoord, y: VertexCoord, z: VertexCoord) -> Self {
-        Self { position: [ x, y, z ] }
-    }
-}
-
-implement_vertex!(Vertex, position);
-
-/// Defines a single vertex with x, y, z coordinates
-#[derive(Copy, Clone, Debug)]
-pub struct Normal {
-    pub normal: [VertexCoord; 3]
-}
-
-impl Normal {
-    pub fn new(x: VertexCoord, y: VertexCoord, z: VertexCoord) -> Self {
-        Self { normal: [ x, y, z ] }
-    }
-}
-
-implement_vertex!(Normal, normal);
+const APP_TITLE: &'static str = "infini01";
 
 pub struct Engine {
     events_loop: EventsLoop,
@@ -48,7 +22,7 @@ impl Engine {
     pub fn new() -> Self {
         let events_loop = EventsLoop::new();
         let window_builder = WindowBuilder::new()
-            .with_title("vis-rs 3");
+            .with_title(APP_TITLE);
 
         let context_builder = ContextBuilder::new()
             .with_depth_buffer(24);
@@ -112,54 +86,7 @@ impl Engine {
     }
 
     pub fn load_model(&self, model_name: &str) -> Model {
-        let mut model_file = File::open(format!("../objects/{}.obj", model_name)).unwrap();
-        let mut model_data = String::new();
-        model_file.read_to_string(&mut model_data).unwrap();
-
-        //let model_data = include_str!("../objects/trunk.obj");
-        let obj_set = wavefront_obj::obj::parse(model_data).unwrap();
-        let objects = obj_set.objects;
-
-        let vertices: Vec<Vertex> = objects.iter()
-            .flat_map(|object| &object.vertices)
-            .map(|vertex| Vertex::new(vertex.x as f32, vertex.y as f32, vertex.z as f32))
-            .collect();
-
-        let indices: Vec<u32> = objects.iter()
-            .flat_map(|object| &object.geometry)
-            .flat_map(|geometry| &geometry.shapes)
-            .map(|shape| &shape.primitive)
-            .flat_map(|primitive| match primitive {
-                Primitive::Triangle((v_0, _, _), (v_1, _, _), (v_2, _, _)) => {
-                    vec![ *v_0 as u32, *v_1 as u32, *v_2 as u32 ]
-                },
-                _ => unimplemented!()
-            })
-            .collect();
-
-        let normals: Vec<Normal> = objects.iter()
-            .flat_map(|object| &object.normals)
-            .map(|normal| Normal { normal: [ normal.x as f32, normal.y as f32, normal.z as f32 ] })
-            .collect();
-
-        let nindx: Vec<Normal> = objects.iter()
-            .flat_map(|object| &object.geometry)
-            .flat_map(|geometry| &geometry.shapes)
-            .map(|shape| &shape.primitive)
-            .flat_map(|primitive| match primitive {
-                Primitive::Triangle((_, _, n_0), (_, _, n_1), (_, _, n_2)) => {
-                    vec![
-                        normals[n_0.unwrap()],
-                        normals[n_1.unwrap()],
-                        normals[n_2.unwrap()]
-                    ]
-                },
-                _ => unimplemented!()
-
-            })
-            .collect();
-
-        Model::new(vertices, indices, nindx)
+        ObjLoader::load_model(model_name)
     }
 
     pub fn main_loop(&mut self) {

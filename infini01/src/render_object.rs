@@ -1,5 +1,5 @@
 use super::model::Model;
-use crate::engine::{Vertex, Normal};
+use crate::vertex::{Vertex, Normal};
 use glium::backend::Facade;
 use glium::{VertexBuffer, IndexBuffer};
 use glm::{Matrix4, vec3};

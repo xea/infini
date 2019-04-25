@@ -1,12 +1,15 @@
 #[macro_use]
 extern crate glium;
 
-use engine::{Engine, Vertex};
+use engine::Engine;
+use vertex::{Normal, Vertex};
 
 mod engine;
 mod model;
+mod obj_loader;
 mod render_object;
 mod scene;
+mod vertex;
 
 fn main() {
     let mut engine = Engine::new();

@@ -1,5 +1,4 @@
-use super::{Vertex};
-use crate::engine::Normal;
+use crate::vertex::{Normal, Vertex};
 
 pub struct Model {
     pub vertices: Vec<Vertex>,
