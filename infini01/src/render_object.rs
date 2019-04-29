@@ -6,6 +6,7 @@ use glm::{Matrix4, vec3};
 
 use glium::uniforms::{AsUniformValue, Uniforms, UniformValue};
 use glium::index::PrimitiveType;
+use std::time::Instant;
 
 pub struct RenderObject {
     pub vertex_buffer: VertexBuffer<Vertex>,
@@ -17,9 +18,15 @@ pub struct RenderObject {
 impl RenderObject {
     pub fn new(model: &Model, facade: &Facade) -> Self {
         Self {
-            vertex_buffer: VertexBuffer::new(facade, &model.vertices).unwrap(),
-            index_buffer: IndexBuffer::new(facade, PrimitiveType::TrianglesList, &model.indices).unwrap(),
-            normals: VertexBuffer::new(facade, &model.normals).unwrap(),
+            vertex_buffer: VertexBuffer::new(facade, &model.vertices)
+                .expect("Error while creating vertex buffer"),
+
+            index_buffer: IndexBuffer::new(facade, PrimitiveType::TrianglesList, &model.indices)
+                .expect("Error while creating index buffer"),
+
+            normals: VertexBuffer::new(facade, &model.normals)
+                .expect("Error while creating vertex buffer for indices"),
+
             uniform: LocalUniform::new()
         }
     }
@@ -40,21 +47,39 @@ impl RenderObject {
         let trans_array = unsafe { std::mem::transmute::<Matrix4<f32>, [[f32; 4]; 4]>(trans) };
         self.uniform.transform = trans_array;
     }
+
+    pub fn tick(&mut self) {
+        self.uniform.tick();
+    }
 }
 
 #[derive(Copy, Clone, Debug)]
 pub struct LocalUniform {
-    pub transform: [[f32; 4]; 4]
+    pub transform: [[f32; 4]; 4],
+    pub create_time: Instant,
+    elapsed_millis: u64,
+    tick_count: u64
+
 }
 
 impl LocalUniform {
     pub fn new() -> Self {
-        Self { transform: [
-            [ 1.0, 0.0, 0.0, 0.0 ],
-            [ 0.0, 1.0, 0.0, 0.0 ],
-            [ 0.0, 0.0, 1.0, 0.0 ],
-            [ 0.0, 0.0, 0.0, 1.0 ],
-        ]}
+        Self {
+            transform: [
+                [ 1.0, 0.0, 0.0, 0.0 ],
+                [ 0.0, 1.0, 0.0, 0.0 ],
+                [ 0.0, 0.0, 1.0, 0.0 ],
+                [ 0.0, 0.0, 0.0, 1.0 ],
+            ],
+            create_time: Instant::now(),
+            elapsed_millis: 0,
+            tick_count: 0
+        }
+    }
+
+    pub fn tick(&mut self) {
+        self.elapsed_millis = self.create_time.elapsed().as_millis() as u64;
+        self.tick_count += 1;
     }
 }
 
@@ -63,6 +88,7 @@ impl Uniforms for LocalUniform {
     fn visit_values<'a, F: FnMut(&str, UniformValue<'a>)>(&'a self, mut visitor: F) {
         visitor("transform", self.transform.as_uniform_value());
         visitor("u_light", [ -1.0, 0.4, 0.9f32 ].as_uniform_value());
+        visitor("time_millis", self.elapsed_millis.as_uniform_value());
     }
 }
 

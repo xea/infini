@@ -15,7 +15,7 @@ pub struct Engine {
     events_loop: EventsLoop,
     objects: Vec<RenderObject>,
     display: Display,
-    shader_program: Option<Program>
+    shader_program: Option<Program>,
 }
 
 impl Engine {
@@ -106,6 +106,8 @@ impl Engine {
             target.clear_color_and_depth((0.0, 0.0, 0.0, 1.0), 1.0);
 
             for object in &mut self.objects {
+                object.tick();
+
                 object.rotate([ 1.0, 1.0, 1.0 ]);
                 //object.translate([ 0.01, 0.0, 0.0 ]);
                 target.draw(

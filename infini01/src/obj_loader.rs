@@ -8,12 +8,18 @@ pub struct ObjLoader;
 
 impl ObjLoader {
     pub fn load_model(model_name: &str) -> Model {
-        let mut model_file = File::open(format!("../objects/{}.obj", model_name)).unwrap();
         let mut model_data = String::new();
-        model_file.read_to_string(&mut model_data).unwrap();
 
-        //let model_data = include_str!("../objects/trunk.obj");
-        let obj_set = wavefront_obj::obj::parse(model_data).unwrap();
+        // First step: read object data from the given file
+        let mut model_file = File::open(format!("../objects/{}.obj", model_name))
+            .expect("Requested model file could not be found");
+
+        model_file.read_to_string(&mut model_data)
+            .expect("Requested model file could not be read");
+
+        let obj_set = wavefront_obj::obj::parse(model_data)
+            .expect("Requested model could not be parsed");
+
         let objects = obj_set.objects;
 
         let vertices: Vec<Vertex> = objects.iter()
